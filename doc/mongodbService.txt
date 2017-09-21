@@ -1,0 +1,7 @@
+mongod.exe --logpath=d:/mongoDB/data/log/mongodb.log --logappend --storageEngine=mmapv1(64位不需要进行指定) --dbpath=d:/mongoDB/data/db --directoryperdb --serviceName MongoDB --install(自动添加windows启动服务)
+		
+	sc delete MongoDB (删除服务)
+	net start MongoDB  (启动服务)
+	 net stop MongoDB   (停止服务)
+
+设置前删除掉 db 和 log 中多有的文件
