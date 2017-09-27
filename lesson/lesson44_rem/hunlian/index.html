@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>婚恋--打造你的专属</title>
+	<!-- 设置viewport -->
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+
+	<!-- 引入重置CSS样式表 -->
+	<link rel="stylesheet" href="./static/css/reset.css">
+
+	
+	<!-- 引入swiper.min.css -->
+	<link rel="stylesheet" href="./static/css/swiper-3.4.2.min.css">
+
+	<!-- 引入index.css文件 -->
+	<link rel="stylesheet" href="./static/css/index.css">
+
+	<!-- 引入使页面支持rem的JS文件 -->
+	<script src="./static/js/rem.js"></script>
+</head>
+<body>
+	<!-- 定义顶部导航条 -->
+	<div id="nav">
+		<!-- 定义地址区域 -->
+		<div id="region"></div>
+		<!-- 定义搜索条 -->
+		<div id="searchbar"></div>
+		<!-- 定义右侧消息和购物车选项 -->
+		<div id="user">
+			<div id="msg"></div>
+			<div id="car"></div>
+		</div>
+	</div>
+
+	<!-- 定义轮播图 -->
+	<div class="swiper-container" id="lun">
+		<!-- 定义滑动的区域 -->
+		<div class="swiper-wrapper">
+			<!-- 定义每一个滑动的块 -->
+			<div class="swiper-slide">
+				<img src="./static/imgs/slide-1.jpg" alt="">
+			</div>
+			<div class="swiper-slide">
+				<img src="./static/imgs/slide-2.jpg" alt="">
+			</div>
+			<div class="swiper-slide">
+				<img src="./static/imgs/slide-3.jpg" alt="">
+			</div>
+		</div>
+
+		<!-- 分页器 -->
+		<div class="swiper-pagination"></div>
+	</div>
+</body>
+<!-- 引入swiper.js -->
+<script src="./static/js/swiper-3.4.2.min.js"></script>
+
+<!-- 自己的JS文件 -->
+<script src="./static/js/index.js"></script>
+</html>

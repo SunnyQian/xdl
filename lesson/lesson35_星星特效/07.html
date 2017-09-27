@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button onclick="myOpen()">open</button>	
+	<button onclick="changeBg1()">让子窗口背景变pink</button>
+	<button onclick="changeBg()">让当前窗口变色</button>
+	<script type="text/javascript">
+		
+		var newObj;
+		function myOpen () {
+
+			newObj = window.open('test.html','_blank','width=500,height=600');
+			// body... 
+
+			// alert(newObj)
+		}
+
+
+		// 让当前窗口变色
+		function changeBg(){
+			// window 省略
+			window.document.bgColor = 'yellow';
+		}
+
+		// 让子窗口变色
+		function changeBg1(){
+
+			newObj.document.bgColor = 'pink';
+		}
+
+	</script>
+</body>
+</html>

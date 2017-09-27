@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标悬浮小球随机更换背景颜色</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		.ball{
+			width:200px;
+			height:200px;
+			border-radius:50%;
+			background:blue;
+			float:left;
+		}
+	</style>
+</head>
+<body>
+	<div class="ball"></div>
+	<div class="ball"></div>
+	<div class="ball"></div>
+	<div class="ball"></div>
+	<div class="ball"></div>
+	<div class="ball"></div>
+</body>
+<script>
+	// 获取元素
+	var balls = document.getElementsByClassName('ball');
+	// console.log(balls);
+
+	// 每一个球都有鼠标移入事件
+	for(var i=0;i<balls.length;i++){
+		// .操作符操作就是属性
+		// console.log(balls.i);	// balls对象身上的i属性
+		// balls[i] // i是变量
+
+		// balls[i].style.background = 'rgb('+rand(0,255)+','+rand(0,255)+','+rand(0,255)+')';
+
+		// 每一个小球都设置背景颜色
+		changeBg(balls[i]);
+
+		// 鼠标的移入事件
+		balls[i].onmouseover = function(){
+			// console.log('么么哒');
+
+			// 当前这个元素
+			// console.log(this);
+			// this.style.background = 'rgb('+rand(0,255)+','+rand(0,255)+','+rand(0,255)+')';
+
+			// 针对当前对象调用设置背景颜色函数
+			changeBg(this);
+		}
+	}
+
+	/**
+	* 定义获取m,n之间的随机整数的函数 rand()
+	*/ 
+	function rand(m,n){
+		// 获取随机数
+		var num = Math.floor(Math.random()*(n-m+1))+m;
+
+		// 返回随机数
+		return num;
+	}
+
+	/**
+	* 定义给元素设置随机背景色函数 changeBg()
+	* @param object obj 要设置背景颜色对象
+	*/ 
+	function changeBg(obj){
+		// 设置背景颜色
+		obj.style.transition = 'all 0.3s linear';
+		obj.style.background = 'rgb('+rand(0,255)+','+rand(0,255)+','+rand(0,255)+')';
+	}
+
+</script>
+</html>

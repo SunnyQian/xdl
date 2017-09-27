@@ -1,0 +1,51 @@
+2017-09-21T14:18:54.921+0800 I CONTROL  [main] Hotfix KB2731284 or later update is not installed, will zero-out data files
+2017-09-21T14:18:54.928+0800 I CONTROL  [initandlisten] MongoDB starting : pid=3100 port=27017 dbpath=d:/data/db 32-bit host=PC201709082205
+2017-09-21T14:18:54.929+0800 I CONTROL  [initandlisten] targetMinOS: Windows Vista/Windows Server 2008
+2017-09-21T14:18:54.929+0800 I CONTROL  [initandlisten] db version v3.2.16-25-g1ebd782
+2017-09-21T14:18:54.929+0800 I CONTROL  [initandlisten] git version: 1ebd782eccc7a48766a2f3b97271c09129cd7c4b
+2017-09-21T14:18:54.929+0800 I CONTROL  [initandlisten] allocator: tcmalloc
+2017-09-21T14:18:54.929+0800 I CONTROL  [initandlisten] modules: none
+2017-09-21T14:18:54.929+0800 I CONTROL  [initandlisten] build environment:
+2017-09-21T14:18:54.929+0800 I CONTROL  [initandlisten]     distarch: i386
+2017-09-21T14:18:54.930+0800 I CONTROL  [initandlisten]     target_arch: i386
+2017-09-21T14:18:54.930+0800 I CONTROL  [initandlisten] options: { storage: { dbPath: "d:/data/db" }, systemLog: { destination: "file", path: "d:/data/log/mongodb.log" } }
+2017-09-21T14:18:54.930+0800 I -        [initandlisten] Detected data files in d:/data/db created by the 'mmapv1' storage engine, so setting the active storage engine to 'mmapv1'.
+2017-09-21T14:18:55.030+0800 I CONTROL  [initandlisten] 
+2017-09-21T14:18:55.030+0800 I CONTROL  [initandlisten] ** WARNING: This 32-bit MongoDB binary is deprecated
+2017-09-21T14:18:55.030+0800 I CONTROL  [initandlisten] 
+2017-09-21T14:18:55.030+0800 I CONTROL  [initandlisten] 
+2017-09-21T14:18:55.030+0800 I CONTROL  [initandlisten] ** NOTE: This is a 32 bit MongoDB binary.
+2017-09-21T14:18:55.030+0800 I CONTROL  [initandlisten] **       32 bit builds are limited to less than 2GB of data (or less with --journal).
+2017-09-21T14:18:55.030+0800 I CONTROL  [initandlisten] **       Note that journaling defaults to off for 32 bit and is currently off.
+2017-09-21T14:18:55.030+0800 I CONTROL  [initandlisten] **       See http://dochub.mongodb.org/core/32bit
+2017-09-21T14:18:55.030+0800 I CONTROL  [initandlisten] 
+2017-09-21T14:18:55.036+0800 I NETWORK  [HostnameCanonicalizationWorker] Starting hostname canonicalization worker
+2017-09-21T14:18:56.202+0800 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'd:/data/db/diagnostic.data'
+2017-09-21T14:18:56.203+0800 I NETWORK  [initandlisten] waiting for connections on port 27017
+2017-09-21T14:19:16.894+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50078 #1 (1 connection now open)
+2017-09-21T14:20:49.982+0800 I INDEX    [conn1] allocating new ns file d:/data/db\memeda.ns, filling with zeroes...
+2017-09-21T14:20:50.264+0800 I STORAGE  [FileAllocator] allocating new datafile d:/data/db\memeda.0, filling with zeroes...
+2017-09-21T14:20:50.265+0800 I STORAGE  [FileAllocator] creating directory d:/data/db\_tmp
+2017-09-21T14:20:50.505+0800 I STORAGE  [FileAllocator] done allocating datafile d:/data/db\memeda.0, size: 64MB,  took 0.238 secs
+2017-09-21T14:20:50.507+0800 I COMMAND  [conn1] command memeda.stu command: create { create: "stu" } keyUpdates:0 writeConflicts:0 numYields:0 reslen:22 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, MMAPV1Journal: { acquireCount: { w: 4 } }, Database: { acquireCount: { W: 1 } }, Metadata: { acquireCount: { W: 4 } } } protocol:op_command 524ms
+2017-09-21T14:26:21.568+0800 I COMMAND  [conn1] CMD: drop memeda.stu
+2017-09-21T14:26:44.267+0800 I COMMAND  [conn1] dropDatabase memeda starting
+2017-09-21T14:26:44.285+0800 I COMMAND  [conn1] dropDatabase memeda finished
+2017-09-21T16:06:04.358+0800 I NETWORK  [conn1] end connection 127.0.0.1:50078 (0 connections now open)
+2017-09-21T16:06:27.620+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59799 #2 (1 connection now open)
+2017-09-21T16:06:36.446+0800 I NETWORK  [conn2] end connection 127.0.0.1:59799 (0 connections now open)
+2017-09-21T16:10:10.299+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59834 #3 (1 connection now open)
+2017-09-21T16:11:00.693+0800 I NETWORK  [conn3] end connection 127.0.0.1:59834 (0 connections now open)
+2017-09-21T16:11:07.523+0800 I CONTROL  [thread1] Ctrl-C signal
+2017-09-21T16:11:07.523+0800 I CONTROL  [consoleTerminate] got CTRL_C_EVENT, will terminate after current cmd ends
+2017-09-21T16:11:07.523+0800 I FTDC     [consoleTerminate] Shutting down full-time diagnostic data capture
+2017-09-21T16:11:07.532+0800 I CONTROL  [consoleTerminate] now exiting
+2017-09-21T16:11:07.533+0800 I NETWORK  [consoleTerminate] shutdown: going to close listening sockets...
+2017-09-21T16:11:07.533+0800 I NETWORK  [consoleTerminate] closing listening socket: 400
+2017-09-21T16:11:07.533+0800 I NETWORK  [consoleTerminate] shutdown: going to flush diaglog...
+2017-09-21T16:11:07.533+0800 I NETWORK  [consoleTerminate] shutdown: going to close sockets...
+2017-09-21T16:11:07.533+0800 I STORAGE  [consoleTerminate] shutdown: waiting for fs preallocator...
+2017-09-21T16:11:07.534+0800 I STORAGE  [consoleTerminate] shutdown: closing all files...
+2017-09-21T16:11:07.543+0800 I STORAGE  [consoleTerminate] closeAllFiles() finished
+2017-09-21T16:11:07.543+0800 I STORAGE  [consoleTerminate] shutdown: removing fs lock...
+2017-09-21T16:11:07.544+0800 I CONTROL  [consoleTerminate] dbexit:  rc: 12

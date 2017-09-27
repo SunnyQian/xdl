@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="number" id="num1">	
+	<select id="ys">	
+		<option value="+">+</option>
+		<option value="-">-</option>
+		<option value="*">x</option>
+		<option value="/">/</option>
+	</select>
+	<input type="number" id="num2">	
+	<button onclick="result()">=</button>
+	<input type="number" id="res">	
+	<script type="text/javascript">
+	
+		function result(){
+			// 获取第一个参与计算的值
+			var num1 = document.getElementById('num1').value;
+			var num2 = document.getElementById('num2').value;
+			var ys = document.getElementById('ys').value;
+			var Res = document.getElementById('res');
+			console.log(num1+ys+num2)
+			Res.value = eval(num1+ys+num2);
+		}		
+
+	</script>
+</body>
+</html>

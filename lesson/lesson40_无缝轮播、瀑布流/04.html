@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}	
+		ul{list-style: none;}
+		ul li{
+			width: 300px;
+			border: 1px solid #ccc;
+			padding: 10px;
+			position: absolute;
+			transition: all .8s;
+		}
+		ul li p{
+			text-align: center;
+			line-height: 40px;
+			font-size: 20px;
+			color: green;
+			font-weight: bold;
+		}
+		ul li img{
+			width: 300px;
+		}
+	</style>
+</head>
+<body>
+<ul>
+	<li><img src="images/26.jpg"><p>老胡变性</p></li>
+	<li><img src="images/1.jpg"><p>图片标题</p></li>
+	<li><img src="images/6.jpg"><p>图片标题</p></li>
+	<li><img src="images/8.jpg"><p>图片标题</p></li>
+ 	<li><img src="images/9.jpg"><p>图片标题</p></li>
+	<li><img src="images/10.jpg"><p>图片标题</p></li>
+	<li><img src="images/3.jpg"><p>图片标题</p></li>
+	<li><img src="images/11.jpg"><p>图片标题</p></li>
+	<li><img src="images/12.jpg"><p>图片标题</p></li>
+	<li><img src="images/13.jpg"><p>图片标题</p></li>
+	<li><img src="images/14.jpg"><p>图片标题</p></li>
+	<li><img src="images/15.jpg"><p>图片标题</p></li>
+	<li><img src="images/2.jpg"><p>图片标题</p></li>
+	<li><img src="images/16.jpg"><p>图片标题</p></li>
+	<li><img src="images/5.jpg"><p>图片标题</p></li>
+	<li><img src="images/17.jpg"><p>图片标题</p></li>
+	<li><img src="images/18.jpg"><p>图片标题</p></li>
+	<li><img src="images/19.jpg"><p>图片标题</p></li>
+	<li><img src="images/20.jpg"><p>图片标题</p></li>
+	<li><img src="images/21.jpg"><p>图片标题</p></li>
+	<li><img src="images/22.jpg"><p>图片标题</p></li>
+	<li><img src="images/7.jpg"><p>图片标题</p></li>
+	<li><img src="images/23.jpg"><p>图片标题</p></li>
+	<li><img src="images/4.jpg"><p>图片标题</p></li>
+	<li><img src="images/24.jpg"><p>图片标题</p></li>
+	<li><img src="images/25.jpg"><p>图片标题</p></li>
+</ul>	
+<script src="../../lib/jquery-1.11.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+	// 每个容器的外边距 
+	var margin = 10;
+
+
+
+	run();
+
+	function run(){
+
+		// 每个li 标签所占的宽度
+		var liWidth = $('li')[0].offsetWidth+margin;
+
+		// 第一批能放多少张图片
+		var num = parseInt(window.innerWidth/liWidth);
+
+		// 定义一个数组来记录高度
+		var liH = [];
+
+		for(var i=0;i<$('li').length;i++){
+			if(i<num){
+				// 第一排
+				$('li').eq(i).css({top:0,left:i*liWidth});
+				liH[i] = $('li')[i].offsetHeight;
+				// console.log(liH);
+			}else{
+				// 不是第一排
+				// 找最小高度
+				var minH = Math.min.apply(null,liH);
+				// 找最小高度对应的索引
+				var minIndex = liH.indexOf(minH);
+
+				$('li').eq(i).css({top:minH+margin,left:minIndex*liWidth});
+
+				// 更新 记录的高度数组
+				liH[minIndex] += $('li')[i].offsetHeight+margin;
+
+				// console.log(minH);
+				// console.log(minIndex);
+			}
+		}
+
+	}
+
+
+	window.onresize = function(){
+		run();
+
+	}
+
+
+	// 监听滚动条
+	$(document).on('scroll',function(){
+		// console.log('ok')	
+		if($(window).height()+$(this).scrollTop() > $(this).height()-300){
+			// console.log('到底了');
+			// 请求图片数据列表
+			getData();
+		}
+	})
+
+	// 去后台获取图片列表去
+	// 等老胡讲完 Ajax 再来看一下这个 $.ajax 的请求
+	function getData(){
+		$.ajax({
+			dataType:'json',
+			url:'04.php',
+			type:'post',
+			success:function(response){
+				
+				// alert(response);
+				for(var i=0;i<response.length;i++){
+					$('ul').append('<li><img src="images/'+response[i].src+'"><p>'+response[i].title+'</p></li>')
+				}	
+				run();
+			}
+		});
+
+	}
+	
+
+</script>
+</body>
+</html>

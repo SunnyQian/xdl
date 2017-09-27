@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<p>hello</p>
+		<p>jack</p>
+	</div>
+	<h2>
+		<span>hello</span>
+		<p id="bajie">八戒</p>
+	</h2>
+	<script type="text/javascript">
+
+
+		var Bajie = document.getElementById('bajie');
+
+		// 节点的类型
+		// alert(Bajie.nodeType);
+		// // 节点的名称
+		// alert(Bajie.nodeName);
+		// // null	
+		// alert(Bajie.nodeValue);
+
+		// 节点树
+		Bajie.parentNode.parentNode.firstChild.firstChild.style.color = 'red';
+
+		
+		
+
+	</script>
+</body>
+</html>

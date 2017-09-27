@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		h1{text-align:center;}
+		
+		.box{width: 100px;height:100px;}
+
+	</style>
+</head>
+<body>
+	<h1 id="title">每天最开心的事是睡觉</h1>	
+	<div class="box" id="box"></div>
+	<script type="text/javascript">
+		// 声明数组
+		var colorArr = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
+		// #0099cc
+		setInterval(function(){
+			document.getElementById('title').style.color = randomColor();
+			document.getElementById('box').style.background = randomColor();
+		},1000);
+
+		// 获取随机颜色
+		function randomColor(){
+			var color = '#';
+			for(var i=0;i<6;i++){
+				var num = parseInt(Math.random()*10000%16);
+				// 拼接十六进制的颜色值
+				color += colorArr[num];
+			}
+			
+			return color;
+			
+		}
+	</script>		
+</body>
+</html>

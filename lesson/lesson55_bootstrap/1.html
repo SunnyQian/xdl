@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bootstrap的基本使用</title>
+
+	<!-- 设置 -->
+
+	<!-- 引入CSS文件 -->
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+
+	<!-- Bootstrap的js效果依赖于jQuery -->
+	<script src="./bootstrap/js/jquery.min.js"></script>
+
+	<!-- 引入JS文件 -->
+	<script src="./bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- 移动设备优先 -->
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no">
+
+	<!-- 使低版本的浏览器尽量以最高的形式解释文档 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<style>
+		
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h3>定义注册表单</h3>
+		<form action="" class="form-horizontal">
+			<!-- 每一项都有一个表单组 -->
+			<div class="form-group has-success">
+				<!-- label -->
+				<label for="username" class="control-label col-md-1">账户</label>
+				<div class="col-md-3">
+					<input class="form-control" type="text" id="username" name="username">
+				</div>
+				<span class="help-block">请认真填写用户名</span>
+			</div>
+
+			<div class="form-group has-error">
+				<!-- label -->
+				<label for="userpwd" class="control-label col-md-1">密码</label>
+				<div class="col-md-3">
+					<input class="form-control" type="text" id="userpwd" name="userpwd">
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+<script>
+	// jQuery 
+	// console.log($);
+
+	$('#username').focus(function(){
+		$(this).parent().next().css({
+			display:'block'
+		});
+	}).blur(function(){
+		$(this).parent().next().css({
+			display:'none'
+		});
+	});
+
+</script>
+</html>

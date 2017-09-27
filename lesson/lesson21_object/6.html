@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>使用闭包解决绑定变量问题</title>
+	<style>
+		.memeda{
+			width:200px;
+			height:200px;
+			background:blue;
+			margin-top:1px;
+		}
+	</style>
+</head>
+<body>
+	<div class="memeda"></div>
+	<div class="memeda"></div>
+	<div class="memeda"></div>
+	<div class="memeda"></div>
+</body>
+<script>
+	// 鼠标悬浮元素时显示我当前是第几个元素
+
+	// 获取元素
+	var memedas = document.getElementsByClassName('memeda');
+	console.log(memedas);
+
+	// 设置鼠标悬浮事件
+	for(var i=0;i<memedas.length;i++){
+		// 定义立即执行函数，将立即执行函数返回的结果赋值给onmouseover
+		memedas[i].onmouseover = (function(i){	// 当前位置的i形参
+			// 对应元素上输出对应的索引
+			// console.log(i);
+
+			// console.log(this);
+
+			// a 当前相当于函数定义时的形参
+			// console.log(a);
+
+			// 返回一个函数
+			return function(){
+				// i 获取的是当前函数定义时的作用域
+				// console.log('么么哒OK！'+i);
+
+				// 当前的i就是每一个元素的索引
+				memedas[i].style.background = 'green';
+			}
+		})(i)		// 当前位置的i是实参
+	}
+
+</script>
+</html>

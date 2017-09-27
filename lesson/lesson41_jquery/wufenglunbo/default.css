@@ -1,0 +1,43 @@
+/* 清除元素的内外边距 */
+*{
+	margin:0;
+	padding:0;
+}
+
+
+/* 设置无缝轮播样式的开始 */
+#show{
+	width:1100px;
+	height:340px;
+	border:1px solid #ccc;
+	margin:0 auto;
+	/*overflow-x:scroll;*/
+	overflow:hidden;
+}
+
+#show ul li{
+	list-style:none;
+}
+
+#show img{
+	display:block;
+}
+
+/* 设置包含图片列表样式开始 */
+#list{
+	width:20000px;
+	height:340px;
+	background:red;
+}
+#list>ul{
+	float:left;
+}
+
+/* 每一个ul内部的li统一左浮动 */
+#list>ul>li{
+	float:left;
+}
+
+/* 设置包含图片列表样式结束 */
+
+/* 设置无缝轮播样式的结束 */

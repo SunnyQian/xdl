@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>使用jQuery发送Ajax</title>
+	<!-- 引入jQuery -->
+	<script src="./jquery.min.js"></script>
+</head>
+<body>
+	<button id="get">使用Get方式发送Ajax</button>
+	<button id="post">使用Post方式发送Ajax</button>
+
+	<hr>
+	<div>请求到的数据：<span id="uname">张三</span></div>
+
+	<!-- 检测用户名是否可用(重名) -->
+	<input type="text" id="username"><span></span>
+</body>
+<script>
+	// 检测jQuery是否成功加载
+	// console.log($);
+
+	// 使用jQuery发送Ajax
+
+	// 单击发送
+	$('#get').click(function(){
+		// 发送
+		$.ajax({
+			// 向哪一个地址发送Ajax
+			url : './data.php',
+			// 请求的方式
+			type : 'GET',
+			// 请求成功
+			success:function(info){
+				// info 接收的就是服务器传递回来的数据
+				console.log(info);
+
+				// 请求成功后，处理数据
+				$('#uname').html(info);
+			},
+			// 请求失败
+			error:function(errorInfo){
+				// errorInfo 服务器传递回来的数据
+				// console.log('请求失败了，亲');
+				alert('数据有误，请重新尝试...');
+			}
+		})
+	});
+
+	// 检测用户名是否重名
+	$('#username').blur(function(){
+		// 当前用户输入的值
+		var uname = $(this).val();
+
+		// 判断用户名是否为空
+		if(uname.trim()==''){
+			alert('用户名禁止为空!');
+			return;
+		}
+
+		// 将当前用户的名称发送到服务器
+		$.ajax({
+			// 检测的地址
+			url : './checkUser.php',
+			// 数据传递方式
+			type : 'post',
+
+			// 传递参数给服务器
+			data : {
+				// username : '王老五',
+				// sex : '男'
+				username : uname
+			},
+
+			// 当前操作的对象，传入到ajax中,改变Ajax的执行上下文环境
+			context:$(this),
+
+			// 成功
+			success : function(info){
+				/*
+					约定：
+						1. 返回ok字符串表明用户名可用
+						2. 返回buok字符串表明用户名不可用
+				*/ 
+
+				// console.log(info);
+				if(info=='ok'){
+					// $('#msg').html('用户名可用！')
+					// console.log($(this));
+					$(this).next().html('用户名可用')
+				}else if(info=='buok'){
+					$(this).next().html('用户名太火了，已经被占用了..')
+				}
+			},
+
+			// 失败
+			error : function(errorInfo){
+				console.log(errorInfo);
+			}
+		});
+	});
+</script>
+</html>

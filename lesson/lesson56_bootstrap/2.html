@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bootstrap的基本使用</title>
+
+	<!-- 设置 -->
+
+	<!-- 引入CSS文件 -->
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+
+	<!-- Bootstrap的js效果依赖于jQuery -->
+	<script src="./bootstrap/js/jquery.min.js"></script>
+
+	<!-- 引入JS文件 -->
+	<script src="./bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- 移动设备优先 -->
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no">
+
+	<!-- 使低版本的浏览器尽量以最高的形式解释文档 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body>
+	<div class="container">
+		<h3>媒体对象</h3>
+		
+		<div class="media">
+			<!-- 左右两部分 -->
+			<div class="media-left">
+				<a href="#">
+					<img class="media-object" src="./1.png" alt="">
+				</a>
+			</div>
+			<div class="media-body">
+				<div class="media-heading h1">这是一个标题</div>
+				<p>这是关于内容的简短描述这是关于内容的简短描述这是关于内容的简短描述这是关于内容的简短描述</p>
+
+				<div class="media">
+					<!-- 左右两部分 -->
+					<div class="media-left">
+						<a href="#">
+							<img class="media-object" src="./1.png" alt="">
+						</a>
+					</div>
+					<div class="media-body">
+						<div class="media-heading h1">这是一个标题</div>
+						<p>这是关于内容的简短描述这是关于内容的简短描述这是关于内容的简短描述这是关于内容的简短描述</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- 右侧 -->
+			<div class="media-right">
+				<a href="#">
+					<img class="media-object" src="./1.png" alt="">
+				</a>
+			</div>
+		</div>
+
+		<h3>列表组</h3>
+
+		<div class="row">
+			<div class="col-md-3">
+				<ul class="list-group">
+					<a href="#">
+						<li class="list-group-item">
+							开会注意事项一
+							<span class="badge">14</span>
+						</li>
+					</a>
+					<li class="list-group-item">开会注意事项一</li>
+					<li class="list-group-item">开会注意事项一</li>
+					<li class="list-group-item">开会注意事项一</li>
+					<li class="list-group-item">开会注意事项一</li>
+				</ul>
+			</div>
+				
+			<div class="col-md-3">
+				<div class="list-group">
+					<a href="#" class="list-group-item active">
+						
+							开会注意事项一
+							<span class="badge">14</span>
+					
+					</a>
+					<a class="list-group-item list-group-item-success">开会注意事项一</a>
+					<a class="list-group-item list-group-item-danger">开会注意事项一</a>
+					<a class="list-group-item list-group-item-warning">开会注意事项一</a>
+					<a class="list-group-item list-group-item-info">开会注意事项一</a>
+				</div>
+			</div>
+
+		</div>
+		
+
+		<h3>面板</h3>
+		<div class="panel panel-default">
+			<div class="panel-heading">这是标题</div>
+			<div class="panel-body">这是描述的主题</div>
+			<div class="panel-footer">这是底部信息</div>
+		</div>
+		<div class="panel panel-success">
+			<div class="panel-heading">这是标题</div>
+			<div class="panel-body">这是描述的主题</div>
+			<div class="panel-footer">这是底部信息</div>
+		</div>
+		<div class="panel panel-danger">
+			<div class="panel-heading">这是标题</div>
+			<div class="panel-body">这是描述的主题</div>
+			<div class="panel-footer">这是底部信息</div>
+		</div>
+		<div class="panel panel-info">
+			<div class="panel-heading">这是标题</div>
+			<div class="panel-body">这是描述的主题</div>
+			<div class="panel-footer">这是底部信息</div>
+		</div>
+		<div class="panel panel-primary">
+			<div class="panel-heading">这是标题</div>
+			<div class="panel-body">这是描述的主题</div>
+			<div class="panel-footer">这是底部信息</div>
+		</div>
+
+		<h3>表格和面板进行结合</h3>
+		<div class="panel panel-default">
+			<div class="panel-heading text-center">某高级会所人员名单</div>
+			<div class="panel-body">
+				只要价位合理，没有不出台滴！
+			</div>
+			<table class="table table-bordered table-hover table-striped">
+				<tr>
+					<td>选择</td>
+					<td>序号</td>
+					<td>姓名</td>
+					<td>性别</td>
+					<td>年龄</td>
+					<td>备注</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="checkbox">
+					</td>
+					<td>1号</td>
+					<td>张诚</td>
+					<td>男</td>
+					<td>48</td>
+					<td>男的，没有儿子！</td>
+				</tr>
+			</table>
+
+			<div class="panel-footer">
+				<p>请您在喜欢的菇凉面前划对勾！</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		/**{margin: 0;padding: 0;}*/
+		ul{list-style: none;}
+	</style>
+</head>
+<body>
+	<ul>
+		<li><input type="checkbox" onclick="run(this)"></li>
+		<li><input type="checkbox" name="goods[]">皮鞭</li>
+		<li><input type="checkbox" name="goods[]">蜡烛</li>
+		<li><input type="checkbox" name="goods[]">小板凳</li>
+		<li><input type="checkbox" name="goods[]">手铐</li>
+		<li><input type="checkbox" name="goods[]">手套</li>
+		<li><input type="checkbox" name="goods[]">手雷</li>
+		<li><input type="checkbox" name="goods[]">眼罩</li>
+		<li><input type="checkbox" name="goods[]">老王</li>
+		<li>
+			<a href="javascript:all()">全选</a>
+			<a href="javascript:bx()">取消</a>
+			<a href="javascript:fx()">反选</a>
+		</li>
+	</ul>			
+
+
+	<script type="text/javascript">
+		// 获取对象	
+		var goods = document.getElementsByName('goods[]');
+
+		// 全选
+		function all(){
+			for(var i=0;i<goods.length;i++){
+				// 把每一个多选框 选中
+				goods[i].checked = true;
+			}	
+		}
+
+		// 取消
+		function bx(){
+			for(var i=0;i<goods.length;i++){
+				// 把每一个多选框 不选中
+				goods[i].checked = false;
+			}	
+		}
+
+		// 反选 
+		function fx(){
+			for(var i=0;i<goods.length;i++){
+				if(goods[i].checked==true){
+					goods[i].checked = false;
+				}else{
+					goods[i].checked = true;
+				}
+			}	
+		}
+
+		//          形参
+		function run(obj){
+			//  obj 就是当前点击的对象
+			for(var i=0;i<goods.length;i++){
+				// 把每一个 多选框 checked 的值 设置成 obj 对象的 checked
+				goods[i].checked = obj.checked;
+			}	
+		}
+
+	</script>
+</body>
+</html>

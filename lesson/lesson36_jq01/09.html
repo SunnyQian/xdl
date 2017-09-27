@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../../lib/jquery-1.11.1/jquery.min.js"></script>
+</head>
+<body>
+	<h1>内部插入</h1>	
+	<input type="text" id="name" value="hello">
+	<button>追加-append</button>
+	<button>追加-appendTo</button>
+	<button>插入-prepend</button>
+	<button>插入-prependTo</button>
+	<ol>
+		<li>吕布</li>
+	</ol>
+	<script type="text/javascript">
+		/*
+			append(content|fn)   追加
+			appendTo(content)    追加
+			prepend(content|fn)  插入
+			prependTo(content)   插入
+		*/
+
+		$('button').click(function(){
+			switch ($(this).html()) {
+				case '追加-append':
+					// alert('111')
+					$('ol').append('<li>'+$('#name').val()+'</li>');
+					break;
+				case '追加-appendTo':
+					// alert('222')
+					$('<li>'+$('#name').val()+'</li>').appendTo('ol');
+					// 功能一样 语法格式不一样
+					break;
+				case '插入-prepend':
+					// alert('333')
+					$('ol').prepend('<li>'+$('#name').val()+'</li>');
+					break;
+				case '插入-prependTo':
+					// 功能一样 语法格式不一样:
+					$('<li>'+$('#name').val()+'</li>').prependTo('ol');
+					// alert('444')
+					break;
+			}
+
+
+		});
+	</script>		
+</body>
+</html>

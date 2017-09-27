@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则表达式中原子组成</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// 1. 使用普通字符充当原子 a-z A-Z 0-9 - _
+	// var patt = /ab/;		// 匹配ab字符串
+	// 匹配任意一个小写字母 
+	var patt = /a|b/;		// 匹配a或者b字母
+
+	// | 元字符 表示或者
+	// var patt = /a|b|c|d|e/;
+
+	// 使用[]原子列表(元字符)描述范围值 匹配原子列表内中任意一个符合条件的数据
+	var patt = /[a-z]/;		// 查询a-z之间任意一个字符
+
+	// 定义字符串
+	var str = 'zhe b shi yi ge zi fu chuan!';
+
+	// 执行exec()
+	var res = patt.exec(str);
+	console.log(res);
+
+	// 检测字符串是否包含数字
+	var patt = /[0-9]/;
+	var str = 'zhe shi0 zi fu chuan';
+	var res = patt.exec(str);
+	console.log(res);
+
+	// 2. 非打印字符充当原子
+
+	// \d 匹配任意一个0-9之间的数字
+	var patt = /\d/;		
+	var str = '0@1231i23u123zhe shi0 zi fu chuan';
+	var res = patt.exec(str);
+	console.log(res);
+
+	// \D 匹配任意一个除了0-9以外的字符
+	var patt = /\D/;
+	var patt = /[^0-9]/;
+	var res = patt.exec(str);
+	console.log(res);
+
+	// 检测用户名 --- 由数字、字母、下划线组成,不能有其他的字符
+	// var patt = /[0-9a-zA-Z_]/;	// 匹配任意一个数字、字母、下划线
+
+	// [] 原子列表，匹配列表内的任意一个字符
+	// [^] 排除原子列表，匹配除了列表内的字符以外的任意一个字符
+
+	// 匹配除了数字、字母、下划线以外的任意一个字符
+	// var patt = /[^0-9a-zA-Z_]/;
+
+	// \W 匹配除了字母、数字、下划线以外的任意一个字符	
+	var patt = /\W/
+	var str = 'memeda1_';
+	var res = patt.exec(str);
+	console.log(res);
+
+	// \w 匹配字母、下划线、数字中的任意一个字符
+
+	// \s 匹配任意一个空白符
+
+	// \n 换行符 \r 回车符
+	var str = ' 我要	换\n\r行了';
+	var patt = /\s/;
+	var res = patt.exec(str);
+	console.log(res);
+
+	// \S 匹配任意一个除了空白符以外的字符
+	var patt = /\S/;
+	var str = ' 爱神的箭';
+	var res = patt.exec(str);
+	console.log(res);
+
+	// 3. 特殊的转义字符(转义元字符)
+	var str = '\nat\\his is / a point .';
+	console.log(str);
+
+	// 匹配字符串中的.
+
+	// . 在正则表达式中充当的作用：元字符，描述除了换行符\n之外任意一个字符
+
+	// 匹配.或者是/
+	var patt = /\.|\//;
+	var res = patt.exec(str);
+	console.log(res);
+
+	// 匹配字符串中的\如何来做
+	var patt = /\\/;
+	var res = patt.exec(str);
+	console.log(res);
+</script>
+</html>

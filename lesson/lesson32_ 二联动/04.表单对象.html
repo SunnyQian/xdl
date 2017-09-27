@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<form id="fm" name="myform">
+		<input type="checkbox"  name="">
+		<input type="text" name="username">
+		<button onclick="getData()">btn</button>
+	</form>	
+
+	<script type="text/javascript">
+
+		// 获取对象
+		var fm = document.getElementById('fm');
+
+		// 获取对象
+		var fm1 = document.myform;
+
+		function getData(){
+			// 获取对象
+			alert(document.myform.username.value);
+		}
+
+	</script>
+</body>
+</html>

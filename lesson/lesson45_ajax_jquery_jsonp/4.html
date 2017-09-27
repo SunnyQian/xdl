@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>发送Ajax的异步和同步问题</title>
+	<script src="./jquery.min.js"></script>
+</head>
+<body style="height:2000px">
+	<button id="tongbu">同步</button>
+	<button id="yibu">异步</button>
+</body>
+<script>
+	/*
+		数据请求方式：
+			同步：
+				当前面的流程(请求)没有处理完毕时，后面的程序不能够进行执行！
+				阻塞
+
+			异步：
+				当前发送的请求处理不影响当前页面的其他流程
+				不会阻塞页面
+	*/
+
+	// 使用同步的方式发送Ajax请求
+	$('#tongbu').click(function(){
+		$.ajax({
+			url : './test.php',
+			type : 'get',
+
+			// 同步发送请求
+			async : false, 
+
+			success : function(info){
+				console.log(info);
+			}
+		});
+
+		console.log('哈哈哈，现在是同步的....');
+	});
+
+	// 定义变量
+	var num = 100;
+
+	$('#yibu').click(function(){
+		$.ajax({
+			// 地址
+			url : './test.php',
+			type : 'get',
+			success : function(info){
+				num += 200;
+
+				console.log(info);
+			}
+		})
+
+		// 当前位置输出的num的值
+		console.log(num);
+	});
+
+	
+
+</script>
+</html>

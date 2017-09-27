@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>回调函数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+		如果函数的参数是一个函数，那么该充当参数的函数称之为回调函数
+	*/
+
+	// 手机充值:给钱，充值业务
+	function chongzhi(money,yewu){
+		// 根据返回的条件判断充值是否成功
+
+		// yewu(money) 调用yewu函数，传值money
+		if(yewu(money)){
+			console.log('恭喜你，充值成功...');
+		}else{
+			console.log('很遗憾，充值失败...');
+		}
+	}
+
+	// 定义充值五十的业务
+	function fifty(money){
+		// 根据传递的值返回真假
+		if(money>=50){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	// 定义充值一百的业务
+	function oneBai(money){
+		if(money>=100){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	/*
+		主程序遇到函数，先执行函数，执行完毕后，回到函数调用的位置(返回值也是回到函数调用的位置)！
+	*/
+
+	// 调用函数
+	chongzhi(58,fifty);
+
+	// 调用充值函数，选择100的业务
+	chongzhi(90,oneBai);
+
+	/*
+		setInterval() 定时器,周期性定时器
+			setInterva(function(){},time) time 是以ms毫秒为单位
+	*/ 
+	setInterval(function(){
+		console.log('诚哥又去了厕所...');
+	},1000);
+
+
+	// 立即执行函数
+	(function(username){
+		// 问好
+		alert(username+'你好!');
+	})('老王');
+</script>
+</html>

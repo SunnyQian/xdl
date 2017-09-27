@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<script src="../../lib/jquery-1.11.1/jquery.min.js"></script>
+<style type="text/css">
+*{margin: 0;padding: 0;}
+ul,ol{list-style: none;}
+#tab{width: 300px;height: 200px;border:1px solid #ccc;}	
+#tab .title{width: 100%;height:50px;}
+#tab .title li{width: 100px;height:100%;float: left;text-align: center;line-height: 50px;background: #ccc;}
+#tab .main{width: 100%;height: 150px;background: pink;}
+#tab .main li{display: none;}
+</style>
+
+</head>
+<body>
+	<div id="tab">
+		<ol class="title">
+			<li style="background: pink;">唐伯虎</li>
+			<li>唐僧</li>
+			<li>唐老鸭</li>
+		</ol>	
+		<ul class="main">
+			<li style="display: block;">
+				<p>江南四大才子之首。7个老婆。</p>
+			</li>
+			<li>
+				<p>取经的人，</p>
+			</li>
+			<li>
+				<p>鸭子。。鸭子。。鸭子。。。鸭子</p>
+			</li>
+		</ul>
+	</div>	
+	<script type="text/javascript">
+		// 给每一个标题绑定事件
+		$('#tab .title li').click(function(){
+
+			// 先把所有的标题背景变成初始状态的样式
+			$('#tab .title li').css('background','#ccc');
+
+			// 当前选项 背景变色
+			$(this).css('background','pink');
+
+			// 把所有标题对应的内容都隐藏
+			$('#tab .main li').css('display','none');
+
+			// 让当前选中标题对应的内容显示 
+			$('#tab .main li').eq($(this).index()).css('display','block');
+
+		})
+
+	</script>	
+</body>
+</html>

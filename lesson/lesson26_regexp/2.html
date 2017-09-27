@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则表达式的声明方式</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+		正则表达式：
+			对字符串进行数据的检测、匹配、查找、替换操作
+
+		正则表达式组成部分：
+			原子：
+				描述要匹配的字符
+
+			元字符
+				修饰原子的数量、位置和模式单元的设置
+
+			模式修正符
+				i 		设置忽略大小写
+				g		全局的匹配
+	*/
+
+	// 1. 使用 new RegExp() 构造函数定义正则表达式
+
+	// pattern 模式
+	// var pattern = new RegExp(表达式,模式修正符);
+	
+	// 判断所给字符串中有木有字符a或者是A
+	var pattern = new RegExp('a','i');	// i 模式修正符，描述忽略大小写
+	// console.log(pattern);
+
+	/*
+		test() 检测字符串中是否包含了要匹配的数据
+			如果存在，返回true
+			如果不存在，返回false
+	*/ 
+	var str = 'this is A test!';
+	var res = pattern.test(str);
+
+	console.log(res);
+
+	/*
+		exec() 执行1次正则匹配，获取匹配的数据
+			如果存在，有结果返回一个数组
+				["A", index: 8, input: "this is A test!"]
+				索引0 包含了匹配的数据
+				index 描述的是符合条件的数据的开始索引位置
+				input 描述的是传入的字符串
+
+			如果不存在，返回null
+
+	*/ 
+	var res = pattern.exec(str);
+	console.log(res);
+
+
+	// 2. 使用//定义正则表达式
+	var patt = /a/i;
+	console.log(patt);
+	var str = 'this is A a test!';
+
+	// exec() 
+	var res = patt.exec(str);
+	console.log(res);
+</script>
+</html>

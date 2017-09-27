@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.bg{background: yellow;}	
+
+	</style>
+
+</head>
+<body>
+	<h1 id="title">今天是好日子</h1>	
+	<button onclick="setAttr()">设置属性</button>
+	<button onclick="removeAttr()">移除属性</button>
+
+	<script type="text/javascript">
+		var Title = document.getElementById('title');
+		function setAttr(){
+			// 设置属性
+			Title.setAttribute('class','bg');
+			Title.setAttribute('id','abc');
+			Title.setAttribute('index','0');
+		}
+
+		function removeAttr(){
+			Title.removeAttribute('class');	
+		}
+
+	</script>
+</body>
+</html>

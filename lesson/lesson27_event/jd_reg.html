@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>京东注册页面效果</title>
+	<style>
+		.tip{
+			font-size:14px;
+			color:#999;
+		}
+		.error{
+			font-size:14px;
+			color:red;
+		}
+		.success{
+			display:inline-block;
+			width:16px;
+			height:18px;
+			background:url(./icon.png) 0px -116px;
+		}
+		.success-msg{
+			font-size:14px;
+			color:green;
+		}
+	</style>
+</head>
+<body>
+	<!-- 定义form表单 -->
+	<form id="reg" action="http://www.baidu.com">
+		账户：<input type="text" id="username" placeholder="请输入账户"><span></span>
+		<br><br>
+		密码：<input type="password" id="userpwd"><span></span><br><br>
+		确认密码：<input type="password" id="userpwd2"><span></span><br><br>
+		<input type="submit" value="立即注册">
+	</form>
+</body>
+<script>
+	/*
+		对于注册页面，用户提交表单：
+			所有的条件必须都满足了...
+
+		当前注册页面：
+			1. 账户符合条件(不能为空，符合指定的格式) userOk
+			2. 密码和确认不能为空
+			3. 两次密码一致
+	*/ 
+
+	// 创建变量作为条件标志
+	var userOk = false;		// 表示账户还没有符合条件
+	var pwdOk = false;		// 表示密码还没有符合条件
+	var pwd2Ok = false;		// 表示确认密码还没有符合条件
+
+	// 获取元素
+	var reg = document.getElementById('reg');
+	var username = document.getElementById('username');
+	var userpwd = document.getElementById('userpwd');
+	var userpwd2 = document.getElementById('userpwd2');
+
+	// 表单的提交事件
+	reg.onsubmit = function(){
+		// console.log(1111);
+
+		// 对于表单来说，当点提交按钮时表单会默认进行数据提交
+
+		// 取消表单的默认事件
+		if(!(userOk&&pwdOk&&pwd2Ok)){
+			return false;
+		}
+	}
+
+	// 账户的设置
+	username.onfocus = function(){
+		// console.log('获取焦点了，给个提示');
+
+		// 获取该元素的下一个兄弟元素 nextElementSibling
+		// console.log(this.nextElementSibling);
+		var span = this.nextElementSibling;
+
+		// 设置该元素的html内容
+		span.innerHTML = '账户有字母、下划线、数字组成，长度为6-20';
+		span.setAttribute('class','tip');
+
+		// placeholder内容设置为空
+		this.placeholder = '';
+	}
+
+	// 账户的失去焦点事件
+	username.onblur = function(){
+		// 判断当前位置是否有值
+		// 当前值
+		// console.log(this.value);
+
+		// 获取span兄弟元素
+		var span = this.nextElementSibling;
+
+		// 如果为空，直接清除提示信息
+		if(this.value==''){
+			// 移除类名
+			span.removeAttribute('class');
+			// 移除提示的内容
+			span.innerHTML = '';
+
+			// 重新设置placeholder的提示信息
+			this.placeholder = '请输入账户';
+
+			// 终止程序
+			return;
+		}
+
+		// 用户输入了值,去除左右两侧的空格
+		var uname = this.value.trim();
+		// console.log(uname);
+
+		// 正则表达式的规则
+		var patt = /^\w{6,20}$/;
+
+		// 执行检测 test()
+		var res = patt.test(uname);
+
+		// console.log(res);
+
+		// 账户不符合规则时
+		if(!res){
+			// 设置错误信息提示
+			span.innerHTML = '账户名不合法';
+			span.setAttribute('class','error');
+			// 终止程序
+			return;
+		}else{
+			// 合法，可用 ---> 将当前的用户名使用ajax的方式发送到服务器进行验证
+			// 验证是否已经存在...
+
+			// 成功的提示
+			span.innerHTML = '';
+			span.setAttribute('class','success');
+
+			// 将标志设置为true
+			userOk = true;
+		}
+	}
+
+	// 密码的获取焦点事件
+	userpwd.onfocus = function(){
+		// 密码规则提示
+
+		// span元素
+		var span = this.nextElementSibling;
+
+		// 设置信息提示
+		span.setAttribute('class','tip');
+		span.innerHTML = '建议使用字母、数字和符号两种及以上的组合，6-20个字符';
+	}
+
+	// 密码的失去焦点事件
+	userpwd.onblur = function(){
+		// 当前值
+		var pwd = this.value.trim();
+
+		// 获取span元素
+		var span = this.nextElementSibling;
+
+		// 如果为空
+		if(pwd==''){
+			span.innerHTML = '';
+			span.removeAttribute('class');
+
+			// 终止程序
+			return;
+		}
+
+		// 检测密码规则
+
+		// 密码去除左右两侧的空白符
+
+		// 第一件事，比较长度
+		if(pwd.length<6 || pwd.length>20){
+			// 错误的
+			span.innerHTML = '长度必须在6-20位之间';
+			span.setAttribute('class','error');
+
+			// 终止程序
+			return;
+		}
+
+		// 关于密码强度的提示
+		/*
+			密码强度：
+				弱：
+					单一类型密码：纯数字、纯字母（长度偏小）
+				中:
+					1. 纯数字、纯字母长度足够
+					2. 数字和字母进行混编
+
+				强：
+					1. 必须混编(大小写字母、数字、下划线)的
+					2. 长度要达到指定的位数
+		*/
+
+		// 走到该位置，表示已经成功了
+		span.setAttribute('class','success-msg');
+
+		console.log(pwd);
+
+		var patt_num = /[0-9]/;		// 检测纯数字
+		var patt_word = /[a-z]/i;	// 检测纯字母
+		var patt_other = /[^0-9A-Za-z]/;	// 检测除了字母、数字以外的任意一个字符
+
+		// 检测结果有两种：字母和其他符号、数字和其他符号、字母和数字组合
+		var res_num = patt_num.exec(pwd);
+		var res_word = patt_word.exec(pwd);
+		var res_other = patt_other.exec(pwd);
+
+		// 定义变量 count
+		var count = 0;
+
+		// 有数字+1
+		if(res_num){
+			count++;
+		}
+
+		// 有字母+1
+		if(res_word){
+			count++;
+		}
+
+		// 有字母以外的字符+1
+		if(res_other){
+			count++;
+		}
+
+		// 判断count的数量就知道密码有几种类型组合而成
+		if(count==1){
+			// 说明只有一种
+			if(pwd.length<=10){
+				span.innerHTML = '弱，请使用两种类型及以上的符号提升密码强度';
+			}else{
+				span.innerHTML = '中，请使用三种类型及以上的符号提升密码强度';
+			}
+		}else if(count==2){
+			// 说明有两种
+			if(pwd.length<=10){
+				span.innerHTML = '中，请使用三种类型及以上的符号提升密码强度';
+			}else{
+				span.innerHTML = '强，您的密码安全可用!';
+			}
+		}else if(count==3){
+			// 说明有三种
+			span.innerHTML = '强，您的密码安全可用!';
+		}
+
+		// 将密码OK的标记设置为true
+		pwdOk = true;
+	}
+
+	// 确认密码的获取焦点事件
+	userpwd2.onfocus = function(){
+		// 给出提示信息
+		var span = this.nextElementSibling;
+
+		// 设置提示
+		span.innerHTML = '请再次输入密码';
+		span.setAttribute('class','tip'); 
+	}
+
+	// 确认密码失去焦点事件
+	userpwd2.onblur = function(){
+		// 获取当前的确认密码
+		var pwd2 = this.value.trim();
+
+		// 获取span
+		var span = this.nextElementSibling;
+
+		// 判断是否为空
+		if(pwd2==''){
+			// 清除提示
+			span.innerHTML = '';
+			span.removeAttribute('class');
+
+			// 终止程序
+			return;
+		}
+
+		// 判断两次密码是否一致
+		if(pwd2!=userpwd.value.trim()){
+			// 错误提示
+			span.innerHTML = '两次密码不一致';
+			span.setAttribute('class','error');
+		}else{
+			// 提示成功了
+			span.innerHTML = '恭喜你，两次密码一致';
+			span.setAttribute('class','success-msg');
+
+			// 将确认密码的标记设置为true
+			pwd2Ok = true;
+		}
+	}
+</script>
+</html>

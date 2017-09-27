@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>反转数组</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// 数组
+	var arr = ['香蕉','苹果','西瓜','梨'];
+
+	// 反转：原先开头的变成结尾的，原先结尾的变成开头的
+
+	function reverse(arr){
+		// 定义新数组
+		var newArr = [];
+
+		// 遍历arr数组单元，将当前的value值从前面插入newArr中
+		arr.forEach(function(value){
+			newArr.unshift(value);
+		})
+			
+		// 返回结果
+		return newArr;
+	}
+
+	// 调用函数
+	var newArr = reverse(arr);
+		
+	console.log(newArr);
+</script>
+</html>

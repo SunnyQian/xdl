@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标事件</title>
+	<style>
+		#test{
+			width:200px;
+			height:200px;
+			background:red;
+			position:absolute;
+		}
+
+		*{
+			margin:0;
+			padding:0;
+		}
+	</style>
+</head>
+<body>
+	<div id="test"></div>
+</body>
+<script>
+	// 获取元素
+	var test = document.getElementById('test');
+
+	// onmousedown 鼠标按下
+	test.onmousedown = function(){
+		console.log('鼠标按下了....');
+	}
+
+	// onmouseup 鼠标抬起
+	test.onmouseup = function(){
+		console.log('鼠标抬起了...');
+	}
+
+	// 获取元素的宽度和高度
+	console.log(test.offsetWidth);		// 宽度
+	console.log(test.offsetHeight);		// 高度
+
+	// 通过JS方法式设置元素的样式，是通过内联方式设置的
+
+	// 设置元素的宽度 400px
+	test.style.width = '400px';
+
+	// 获取html元素
+	console.log(document.documentElement);
+
+	// 获取body元素
+	console.log(document.body);
+
+	// 通过标签获取html元素
+	var html = document.getElementsByTagName('html')[0];
+	console.log(html);
+
+	// 当前页面的可视区域的宽度和高度
+	var clientWidth = document.documentElement.clientWidth;
+	var clientHeight = document.documentElement.clientHeight;
+	// alert(clientHeight);
+
+	// 获取元素的left和top的值
+	var l = test.offsetLeft;
+	var t = test.offsetTop;
+	console.log(t);
+
+	// 定义变量名top
+	// top 关键字 在window身上有该属性
+	console.log(top);
+
+	// 定义变量
+	var a = 10;
+	console.log(a);
+	console.log(window.a);
+
+	// 设置元素的left和top值
+	test.style.left = '10px';
+	test.style.top = '20px';
+</script>
+</html>

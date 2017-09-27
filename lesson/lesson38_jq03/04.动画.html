@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>	
+		.box{
+			width:400px;
+			height: 400px;
+			background: yellow;
+		}
+
+	</style>
+</head>
+<body>
+	<button>显示</button>	
+	<button>隐藏</button>	
+
+	<hr>
+	<div class="box"></div>
+
+	<script src="../../lib/jquery-1.11.1/jquery.min.js"></script>
+	<script type="text/javascript">
+
+		$('button:eq(0)').click(function(){
+			$('.box').show(1000,function(){
+				alert('动画执行完毕');
+			});
+		});
+
+
+		$('button:eq(1)').click(function(){
+			$('.box').hide(1000);
+		});
+
+	</script>
+</body>
+</html>

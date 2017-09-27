@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>键盘事件</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		#red{
+			width:200px;
+			height:200px;
+			background:red;
+		}
+	</style>
+</head>
+<body>
+	<div id="red"></div>
+</body>
+<script>
+	/*
+		键盘事件：
+			onkeydown
+			onkeyup
+			onkeypress
+
+		触发该类型事件的元素：
+			window			当前窗口
+			input			输入框
+			textarea		文本域
+	*/
+
+	// 获取元素
+	var red = document.getElementById('red');
+
+	// 键盘按下事件
+	window.onkeydown = function(e){
+		// e 事件源对象
+		var e = e || window.event; 
+		console.log('keydown事件')
+		console.log(e);
+
+		// 获取每一个按键的键码
+		// console.log(e.keyCode);
+
+		/*
+			e.keyCode	
+				左键		37
+				上键		38
+				右键		39
+				下键		40
+		*/
+
+		// 判断按下的是哪个键
+		if(e.keyCode==65){
+			console.log('键A被按下了');
+		}
+		if(e.keyCode==66){
+			console.log('键B被按下了...');
+		}
+
+		/*
+			检测ctrl/shift/alt是否被同时按下
+				e.ctrlKey	值
+					true		表示ctrl键被按下
+					false		表示ctrl键没有被按下
+				e.shiftKey	值
+					true		表示shift键被按下
+					false		表示shift键没有被按下
+				e.altKey	值
+					true		表示alt键被按下
+					false		表示alt键没有被按下
+
+		*/
+
+		// 判断同时按下了Ctrl+C
+		if(e.keyCode==67&&e.ctrlKey){
+			console.log('Ctrl+C被按下了...');
+		}
+	}
+
+	// 键盘抬起事件
+	window.onkeyup = function(e){
+		// 
+		// console.log(e);
+		// console.log('键盘被抬起了..');
+	}
+
+	// onkeypress 键盘按下事件 -- 不能响应功能键
+	/*
+		功能键：
+			alt/shift/ctrl/win/tab/back space(删除键)/ESC/Fn
+	*/
+	window.onkeypress = function(e){
+		console.log('press事件..');
+		console.log(e);
+	}
+
+</script>
+</html>

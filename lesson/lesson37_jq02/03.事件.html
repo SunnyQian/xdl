@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<button>按钮</button>
+<!-- <button>取消事件</button> -->
+<script src="../../lib/jquery-1.11.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+
+
+
+/*	
+
+	// 原生 js 取消事件
+	document.getElementsByTagName('button')[0].onclick = function(){
+		console.log('哈哈哈哈');
+	}
+
+	document.getElementsByTagName('button')[1].onclick = function(){
+
+		document.getElementsByTagName('button')[0].onclick = null;
+
+	} */
+	
+
+
+
+
+/*
+	// 普通方法
+	$('button').click(function(event) {
+		$(this).css('background','yellow');
+	});
+
+
+	// bind 方法绑定事件
+	$('button').bind('mouseover',function(){
+		alert('ok');
+	})
+
+
+	// bind  绑定多个事件
+	$('button').bind('mouseover mouseout',function(){
+		console.log('ok')
+	})
+
+
+	$('button').bind('mouseover',function(){
+			console.log('ok')
+	}).bind('mouseout',function(){
+			console.log('ookk');
+	})
+
+
+	
+	// 移除 这个事件源
+	// $('button').unbind();
+	$('button').unbind('mouseout');
+
+
+
+	// 用 on 绑定事件
+
+	$('button').on('click',function(){
+		console.log('hello');
+	})
+
+
+	$('button').on('click mouseover',function(){
+		console.log('hello');
+	})
+
+
+	$('button').on('click mouseover',function(){
+		console.log('hello');
+	})
+	// 用那个 off 移除 on 绑定的事件
+	$('button').off('click');
+
+
+	// 用对象的方式绑定多个事件
+	$('button').on({
+		click:function(){
+			$(this).css('background','yellow');
+		},
+		mouseover:function(event) {
+			$(this).css('background','pink');
+		}
+	})
+
+
+	// 事件命名空间
+
+	$('button').on('click.abc',function(){
+		console.log('abc');
+	})
+
+	$('button').on('click.jack',function(){
+		console.log('jack');
+	})
+
+	$('button').on('mouseover.jack',function(){
+		console.log('hello');
+	})	
+
+	// 删除指定的 事件
+	// $('button').off('click.jack');
+
+	$('button').off('.jack');
+
+
+
+
+
+
+
+
+
+
+
+	*/ 
+
+
+
+
+
+
+
+
+
+
+</script>	
+</body>
+</html>

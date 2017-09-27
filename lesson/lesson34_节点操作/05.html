@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="ul">
+		<li>aaaaaaaaa</li>
+		<li>bbbbbbbbb</li>
+		<li>ccccccccc</li>
+		<li>ddddddddd</li>
+		<li>eeeeeeeee</li>
+	</ul>	
+	<button onclick="delnode();">删除</button>
+	<script type="text/javascript">
+
+		var Ul = document.getElementById('ul');		
+
+		function delnode(){
+			Ul.removeChild(getFirstChild(Ul));
+		}
+
+		// 处理第一个子节点函数
+		function getFirstChild(obj){
+			var first = obj.firstChild;
+			while(first.nodeType != 1){
+				//  当前的节点不是元素节点
+				first = first.nextSibling;
+			}	
+			return first;
+		}
+
+	</script>
+</body>
+</html>

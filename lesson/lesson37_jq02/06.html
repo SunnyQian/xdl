@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">	
+		#wrap{width: 500px;height: 300px;border:1px solid green;}
+		#wrap .box{width: 100px;height: 100px;border:1px solid #ccc;margin: 10px;float: left;}
+	</style>
+</head>
+<body>
+	<button>添加一个新的盒子</button>	
+	<hr>
+	<div id="wrap">
+		<div class="box"></div>	
+
+	</div>
+	<script src="../../lib/jquery-1.11.1/jquery.min.js"></script>
+	<script type="text/javascript">
+
+		// 添加一个盒子
+		$('button').click(function(){
+			$('<div class="box"></div>').appendTo('#wrap');
+		})	
+
+
+		// // 普通的绑定事件是没有 事件委派的
+		// $('.box').bind('click',function(){
+		// 	$(this).css('background','yellow');
+		// })
+
+		/*
+			// live 事件委托  
+			// live 在 jQuery 1.9 后的版本 删除了 
+			$('.box').live('click',function(){
+				$(this).css('background','yellow');
+			})
+
+		*/
+
+
+		// on 来做事件委派
+		// $(document).on('click','.box',function(){
+		// 	$(this).css('background','yellow');
+		// })
+	
+
+		// // on 来做事件委派
+		$('#wrap').on('click','.box',function(){
+			$(this).css('background','yellow');
+		})
+
+	</script>
+</body>
+</html>

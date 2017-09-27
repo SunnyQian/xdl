@@ -1,0 +1,75 @@
+1. 开启MongoDB服务器，设置数据存储目录，日志存储，设置数据存储引擎为mmapv1
+	mongod --dbpath=d:/data/db --logpath=d:/data/log/mongodb.log --storageEngine=mmapv1
+
+2. 连接mongodb服务器
+	mongo (默认连接的是本机的数据库)
+
+3. 创建school数据库
+	use school 
+
+4. 显示当前数据库服务器下所有的数据库
+	show dbs
+
+5. 创建stu集合
+	db.createCollection('stu')		// 创建一个空白的集合
+
+	// 直接操作集合插入数据(集合不存在，自动创建)
+	db.stu.insert({uname:'孙悟空',age:20})	
+
+6. 向集合stu任意插入三条数据
+> db.stu.insert({uname:'刘备',age:40,class:'蜀国'})
+7. 查询stu中所有的数据，并格式化查询
+> db.stu.find().pretty()
+{
+        "_id" : ObjectId("59c35ab3bb8f96e33345b535"),
+        "uname" : "刘备",
+        "age" : 40,
+        "class" : "蜀国"
+}
+{
+        "_id" : ObjectId("59c35ac1bb8f96e33345b536"),
+        "uname" : "关羽",
+        "age" : 35,
+        "class" : "蜀国"
+}
+{
+        "_id" : ObjectId("59c35accbb8f96e33345b537"),
+        "uname" : "张飞",
+        "age" : 36,
+        "class" : "蜀国"
+}
+>
+
+8. 统计stu中数据的条数
+> db.stu.find().count()
+3
+>
+9. 将所有性别为男的数据的年龄设置为1200
+> db.stu.update({sex:'男'},{$set:{age:1200}})		// 默认更新符合的第一条
+WriteResult({ "nMatched" : 0, "nUpserted" : 0, "nModified" : 0 })
+>
+
+--- multi:true 允许更新多个
+> db.stu.update({sex:'男'},{$set:{age:1200}},{multi:true})
+WriteResult({ "nMatched" : 0, "nUpserted" : 0, "nModified" : 0 })
+>
+
+10. 清空集合stu的数据
+> db.stu.remove({})
+WriteResult({ "nRemoved" : 3 })
+>
+11. 删除集合stu
+> db.stu.drop()
+true
+>
+
+12. 删除数据库memeda
+> db.dropDatabase()
+{ "dropped" : "memeda", "ok" : 1 }
+>
+
+13. 请简述你对MongoDB的了解
+	1. MongoDB是一个基于分布式文件存储的数据库
+	2. 免费开源的数据库
+	3. 存储数据的方式是文档型，数据存储的格式是BSON结构
+	4. 非关系型数据库

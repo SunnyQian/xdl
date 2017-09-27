@@ -1,0 +1,69 @@
+2017-09-21T16:23:11.542+0800 I CONTROL  [main] Hotfix KB2731284 or later update is not installed, will zero-out data files
+2017-09-21T16:23:11.547+0800 I CONTROL  [initandlisten] MongoDB starting : pid=5844 port=27017 dbpath=d:/data/db 32-bit host=PC201709082205
+2017-09-21T16:23:11.547+0800 I CONTROL  [initandlisten] targetMinOS: Windows Vista/Windows Server 2008
+2017-09-21T16:23:11.547+0800 I CONTROL  [initandlisten] db version v3.2.16-25-g1ebd782
+2017-09-21T16:23:11.547+0800 I CONTROL  [initandlisten] git version: 1ebd782eccc7a48766a2f3b97271c09129cd7c4b
+2017-09-21T16:23:11.547+0800 I CONTROL  [initandlisten] allocator: tcmalloc
+2017-09-21T16:23:11.547+0800 I CONTROL  [initandlisten] modules: none
+2017-09-21T16:23:11.547+0800 I CONTROL  [initandlisten] build environment:
+2017-09-21T16:23:11.548+0800 I CONTROL  [initandlisten]     distarch: i386
+2017-09-21T16:23:11.548+0800 I CONTROL  [initandlisten]     target_arch: i386
+2017-09-21T16:23:11.548+0800 I CONTROL  [initandlisten] options: { security: { authorization: "enabled" }, storage: { dbPath: "d:/data/db" }, systemLog: { destination: "file", path: "d:/data/log/mongodb.log" } }
+2017-09-21T16:23:11.548+0800 I -        [initandlisten] Detected data files in d:/data/db created by the 'mmapv1' storage engine, so setting the active storage engine to 'mmapv1'.
+2017-09-21T16:23:11.597+0800 I CONTROL  [initandlisten] 
+2017-09-21T16:23:11.597+0800 I CONTROL  [initandlisten] ** WARNING: This 32-bit MongoDB binary is deprecated
+2017-09-21T16:23:11.597+0800 I CONTROL  [initandlisten] 
+2017-09-21T16:23:11.597+0800 I CONTROL  [initandlisten] 
+2017-09-21T16:23:11.597+0800 I CONTROL  [initandlisten] ** NOTE: This is a 32 bit MongoDB binary.
+2017-09-21T16:23:11.597+0800 I CONTROL  [initandlisten] **       32 bit builds are limited to less than 2GB of data (or less with --journal).
+2017-09-21T16:23:11.597+0800 I CONTROL  [initandlisten] **       Note that journaling defaults to off for 32 bit and is currently off.
+2017-09-21T16:23:11.597+0800 I CONTROL  [initandlisten] **       See http://dochub.mongodb.org/core/32bit
+2017-09-21T16:23:11.598+0800 I CONTROL  [initandlisten] 
+2017-09-21T16:23:11.612+0800 I NETWORK  [HostnameCanonicalizationWorker] Starting hostname canonicalization worker
+2017-09-21T16:23:12.778+0800 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'd:/data/db/diagnostic.data'
+2017-09-21T16:23:12.779+0800 I NETWORK  [initandlisten] waiting for connections on port 27017
+2017-09-21T16:23:17.948+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59965 #1 (1 connection now open)
+2017-09-21T16:23:17.955+0800 I ACCESS   [conn1] Unauthorized: not authorized on admin to execute command { getLog: "startupWarnings" }
+2017-09-21T16:23:17.957+0800 I ACCESS   [conn1] Unauthorized: not authorized on admin to execute command { replSetGetStatus: 1.0, forShell: 1.0 }
+2017-09-21T16:23:24.009+0800 I ACCESS   [conn1] Unauthorized: not authorized on admin to execute command { listDatabases: 1.0 }
+2017-09-21T16:24:07.512+0800 I ACCESS   [conn1] SCRAM-SHA-1 authentication failed for huxiaoshuai on test from client 127.0.0.1 ; UserNotFound: Could not find user huxiaoshuai@test
+2017-09-21T16:25:17.562+0800 I ACCESS   [conn1] Successfully authenticated as principal huxiaoshuai on admin
+2017-09-21T16:29:23.608+0800 I NETWORK  [conn1] end connection 127.0.0.1:59965 (0 connections now open)
+2017-09-21T16:29:27.135+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:60011 #2 (1 connection now open)
+2017-09-21T16:29:27.139+0800 I ACCESS   [conn2] Unauthorized: not authorized on admin to execute command { getLog: "startupWarnings" }
+2017-09-21T16:29:27.141+0800 I ACCESS   [conn2] Unauthorized: not authorized on admin to execute command { replSetGetStatus: 1.0, forShell: 1.0 }
+2017-09-21T16:29:38.971+0800 I ACCESS   [conn2] SCRAM-SHA-1 authentication failed for memeda on admin from client 127.0.0.1 ; UserNotFound: Could not find user memeda@admin
+2017-09-21T16:29:55.394+0800 I ACCESS   [conn2] SCRAM-SHA-1 authentication failed for memeda on school from client 127.0.0.1 ; UserNotFound: Could not find user memeda@school
+2017-09-21T16:30:17.812+0800 I ACCESS   [conn2] Successfully authenticated as principal meeda on school
+2017-09-21T16:30:17.813+0800 I ACCESS   [conn2] Unauthorized: not authorized on admin to execute command { replSetGetStatus: 1.0, forShell: 1.0 }
+2017-09-21T16:30:28.664+0800 I ACCESS   [conn2] Unauthorized: not authorized on admin to execute command { listDatabases: 1.0 }
+2017-09-21T16:30:57.281+0800 I NETWORK  [conn2] end connection 127.0.0.1:60011 (0 connections now open)
+2017-09-21T16:31:24.005+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:60019 #3 (1 connection now open)
+2017-09-21T16:31:24.037+0800 I ACCESS   [conn3] Successfully authenticated as principal meeda on school
+2017-09-21T16:31:24.039+0800 I ACCESS   [conn3] Unauthorized: not authorized on admin to execute command { getLog: "startupWarnings" }
+2017-09-21T16:31:24.040+0800 I ACCESS   [conn3] Unauthorized: not authorized on admin to execute command { replSetGetStatus: 1.0, forShell: 1.0 }
+2017-09-21T16:31:30.303+0800 I NETWORK  [conn3] end connection 127.0.0.1:60019 (0 connections now open)
+2017-09-21T16:31:33.253+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:60020 #4 (1 connection now open)
+2017-09-21T16:31:33.283+0800 I ACCESS   [conn4] Successfully authenticated as principal meeda on school
+2017-09-21T16:31:33.285+0800 I ACCESS   [conn4] Unauthorized: not authorized on admin to execute command { getLog: "startupWarnings" }
+2017-09-21T16:31:33.286+0800 I ACCESS   [conn4] Unauthorized: not authorized on admin to execute command { replSetGetStatus: 1.0, forShell: 1.0 }
+2017-09-21T16:34:21.218+0800 I NETWORK  [conn4] end connection 127.0.0.1:60020 (0 connections now open)
+2017-09-21T16:34:37.156+0800 I NETWORK  [initandlisten] connection accepted from 192.168.31.254:60037 #5 (1 connection now open)
+2017-09-21T16:34:37.159+0800 I ACCESS   [conn5] Unauthorized: not authorized on admin to execute command { getLog: "startupWarnings" }
+2017-09-21T16:34:37.160+0800 I ACCESS   [conn5] Unauthorized: not authorized on admin to execute command { replSetGetStatus: 1.0, forShell: 1.0 }
+2017-09-21T16:34:43.816+0800 I ACCESS   [conn5] Unauthorized: not authorized on school to execute command { listCollections: 1.0, filter: {} }
+2017-09-21T16:35:00.522+0800 I ACCESS   [conn5] Successfully authenticated as principal huxiaoshuai on admin
+2017-09-21T16:35:02.968+0800 I NETWORK  [conn5] end connection 192.168.31.254:60037 (0 connections now open)
+2017-09-21T16:35:06.909+0800 I CONTROL  [thread1] Ctrl-C signal
+2017-09-21T16:35:06.909+0800 I CONTROL  [consoleTerminate] got CTRL_C_EVENT, will terminate after current cmd ends
+2017-09-21T16:35:06.909+0800 I FTDC     [consoleTerminate] Shutting down full-time diagnostic data capture
+2017-09-21T16:35:06.915+0800 I CONTROL  [consoleTerminate] now exiting
+2017-09-21T16:35:06.915+0800 I NETWORK  [consoleTerminate] shutdown: going to close listening sockets...
+2017-09-21T16:35:06.915+0800 I NETWORK  [consoleTerminate] closing listening socket: 400
+2017-09-21T16:35:06.916+0800 I NETWORK  [consoleTerminate] shutdown: going to flush diaglog...
+2017-09-21T16:35:06.916+0800 I NETWORK  [consoleTerminate] shutdown: going to close sockets...
+2017-09-21T16:35:06.916+0800 I STORAGE  [consoleTerminate] shutdown: waiting for fs preallocator...
+2017-09-21T16:35:06.916+0800 I STORAGE  [consoleTerminate] shutdown: closing all files...
+2017-09-21T16:35:06.932+0800 I STORAGE  [consoleTerminate] closeAllFiles() finished
+2017-09-21T16:35:06.932+0800 I STORAGE  [consoleTerminate] shutdown: removing fs lock...
+2017-09-21T16:35:06.932+0800 I CONTROL  [consoleTerminate] dbexit:  rc: 12

@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>判断鼠标移入div的方向,遮罩跟随</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		.main{
+			width:840px;
+			height:200px;
+			margin:0 auto;
+			/*background:blue;*/
+			margin-top:100px;
+		}
+		.box{
+			width:200px;
+			height:200px;
+			background:red;
+			margin-left:10px;
+			position:relative;
+			overflow:hidden;
+			float:left;
+		}
+		.zhao{
+			width:100%;
+			height:100%;
+			background:rgba(0,0,0,0.2);
+			position:absolute;
+			top:0;
+			left:0;
+			display:none;
+		}
+	</style>
+	<script src="./jquery.min.js"></script>
+
+</head>
+<body>
+	<div class="main">
+		<div class="box">
+			<div class="zhao"></div>
+		</div>
+		<div class="box">
+			<div class="zhao"></div>
+		</div>
+		<div class="box">
+			<div class="zhao"></div>
+		</div>
+		<div class="box">
+			<div class="zhao"></div>
+		</div>
+	</div>
+		
+</body>
+<script>
+	// 以左上角的顶点为(0,0)圆点，向右为正，向下为负
+
+	
+
+	// box元素的鼠标移入事件
+	$('.box').bind('mouseenter mouseleave',function(e){
+		// 遮罩元素
+		// 选择当前元素下的zhao
+		// console.log($(this).children('.zhao'));
+		var zhao = $(this).children('.zhao');
+
+		// 进入元素，遮罩就要显示
+		zhao.show();
+
+		// e.type 描述事件的类型
+		// console.log(e.type);
+
+		// 定义变量 action 描述鼠标的动作
+		var action;
+
+		if(e.type=='mouseenter'){
+			action = '进入' 
+		}else{
+			action = '离开';
+		}
+
+		// 进入某一个元素时，计算该元素的斜率k
+		// 获取元素左上角的坐标
+		var x1 = $(this).offset().left;
+		var y1 = -$(this).offset().top;
+
+		// 获取元素右下角的坐标
+		var x2 = $(this).offset().left + $(this).width();
+		var y2 = -$(this).offset().top + (-$(this).height());
+
+		// 计算元素左上角和右下角的斜率
+		var k = (y2-y1)/(x2-x1);
+		console.log(k);
+
+		// 获取元素的几何中心点
+		var x0 = (x2+x1)/2;
+		var y0 = (y2+y1)/2;
+
+		// console.log(x0,y0);
+
+		// 计算出鼠标的切入点
+		// console.log(e.pageX,e.pageY);
+		var x = e.pageX;
+
+		// y方向 是 负值
+		var y = -e.pageY;
+
+		// 计算当前的斜率K
+		var K = (y-y0)/(x-x0);
+		// console.log(K);
+
+		if(Math.abs(K)<Math.abs(k)){
+			// 判断x与几何中心点的大小比较
+			if(x>x0){
+				console.log('从右侧'+action+'div容器');
+
+				if(action=='进入'){
+					// 遮罩的位置
+					zhao.css({
+						left : $(this).width(),
+						top : 0
+					});
+
+					// 应用动画
+					zhao.animate({
+						left : 0
+					},300)
+
+				}else{
+					// 离开
+					zhao.animate({
+						left : $(this).width()
+					},300)
+				}
+					
+			}else{
+				if(action=='进入'){
+					// 遮罩的位置
+					zhao.css({
+						left : -$(this).width(),
+						top : 0
+					});
+
+					// 应用动画
+					zhao.animate({
+						left : 0
+					},300)
+
+				}else{
+					// 离开
+					zhao.animate({
+						left : -$(this).width()
+					},300)
+				}
+			}
+		}else{
+			// y和y0值比较
+			if(y>y0){
+				if(action=='进入'){
+					// 遮罩的位置
+					zhao.css({
+						top : -$(this).height(),
+						left : 0
+					});
+
+					// 应用动画
+					zhao.animate({
+						top : 0
+					},300)
+
+				}else{
+					// 离开
+					zhao.animate({
+						top : -$(this).height()
+					},300)
+				}
+			}else{
+				if(action=='进入'){
+					// 遮罩的位置
+					zhao.css({
+						top : $(this).height(),
+						left : 0
+					});
+
+					// 应用动画
+					zhao.animate({
+						top : 0
+					},300)
+
+				}else{
+					// 离开
+					zhao.animate({
+						top : $(this).height()
+					},300)
+				}
+			}
+		}
+	});
+
+</script>
+</html>

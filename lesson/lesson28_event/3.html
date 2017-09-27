@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>移动的小球</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		#ball{
+			width:200px;
+			height:200px;
+			border-radius:50%;
+			background:green;
+			position:absolute;
+			/*left:100px;*/
+			/*top:200px;*/
+		}
+	</style>
+</head>
+<body>
+	<div id="ball"></div>
+</body>
+<script>
+
+	// window对象，在HTML元素中所有设置id的元素会自动绑定到window上
+	// console.log(window.ball);
+
+	/*
+	// 认识事件源对象 e
+	ball.onmousedown = function(e){
+		// console.log('鼠标移入');
+
+		// e 表示当前的事件源对象
+		// console.log(e);
+
+		
+			// e.clientX 相对于当前可视区域的左上角的值：X 横坐标
+			// e.clientY 相当于当前可视区域的左上角的值：Y 纵坐标
+		
+
+		// 按下的坐标点
+		// console.log('x:'+e.clientX+' y:'+e.clientY);
+
+		// 当前元素
+		// console.log(e.target);
+
+		// 获取自身
+		// console.log(this);
+	}
+	*/
+
+	// 设置小球ball定位方式是absolut,通过控制小球的left和top值控制小球的位置
+
+	// 获取元素
+	var ball = document.getElementById('ball');
+
+	// 定义全局变量，获取鼠标按下的点距离小球左上角的偏移值
+	var offsetX;
+	var offsetY;
+
+	// 手动创建鼠标是否按下的标志
+	var isDown = false;		// 默认值为false,表示没有按下
+
+	// 鼠标按下事件
+	ball.onmousedown = function(e){
+		// 兼容性写法
+		var e = e || window.event;
+
+		// 当前按下的鼠标坐标点
+		// console.log(e.clientX)
+		// console.log(e.clientY)
+
+		// 获取到鼠标按下时，当前的点距离小球的左上角的值
+		offsetX = e.clientX - this.offsetLeft;
+		offsetY = e.clientY - this.offsetTop;
+
+		// 设置鼠标按下的标志为true
+		isDown = true;
+
+		// 设置鼠标形状为移动形状
+		this.style.cursor = 'move';
+	}
+
+	// 小球的onmousemove
+	window.onmousemove = function(e){
+		// 鼠标按下时移动，小球跟着移动
+		// 鼠标抬起时，小球位置不动
+
+		// 判断鼠标是否按下
+		if(!isDown){
+			// 没有按下鼠标，直接终止程序
+			return;
+		}
+
+		// 鼠标每一次移动都会产生新的坐标点
+		var e = e || window.event;
+
+		// console.log(e.clientX+':'+e.clientY);
+
+		// 计算出小球新的left和top值
+		var newLeft = e.clientX - offsetX;
+		var newTop = e.clientY - offsetY;
+
+		// 小球移动时边界问题
+
+		// 水平方向最小值
+		if(newLeft<=0){
+			newLeft = 0;
+		}
+
+		// 水平方向最大值 当前可视屏幕窗口的宽度值-小球自身的宽度
+		var maxLeft = document.documentElement.clientWidth - ball.offsetWidth;
+		// console.log(maxLeft);
+		if(newLeft>=maxLeft){
+			newLeft = maxLeft;
+		}
+
+		// 垂直方向最小值
+		if(newTop<=0){
+			newTop = 0;
+		}
+
+		// 垂直方向最大值 = 可视屏幕的高度 - 自身的高度
+		var maxTop = document.documentElement.clientHeight - ball.offsetHeight;
+		if(newTop>=maxTop){
+			// 赋值为最大值
+			newTop = maxTop;
+		}
+
+		// 给小球进行赋值
+		ball.style.left = newLeft+'px';
+		ball.style.top = newTop+'px';
+	}
+
+	// 鼠标抬起
+	window.onmouseup = function(){
+		// 将按下的标记设置false
+		isDown = false;
+
+		// 设置鼠标的样式恢复为默认
+		ball.style.cursor = 'default';
+	}
+</script>
+</html>

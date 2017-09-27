@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style type="text/css">
+#min{width: 384px;height:216px;position: relative;margin: 100px;}
+#min img{width: 384px;height:216px;}
+#min .hk{width: 60px;height: 60px;background: rgba(255,255,255,0.4);position: absolute;top:10px;left:10px;}
+#max{width: 300px;height: 300px;overflow:hidden;display: block;position: absolute;}
+</style>
+</head>
+<body>
+
+	<div id="min">
+		<img src="images/Meinv155.jpg">
+		<!-- 滑块 -->
+		<div class="hk"></div>
+	</div>
+
+	<div id="max">
+		<img src="images/Meinv155.jpg">	
+	</div>
+
+	<script src="../../lib/jquery-1.11.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		// 鼠标移动到图片上去
+		$('#min').mouseover(function(){
+			// 让放大的图片显示
+			$('#max').show();
+			$('#min .hk').show();
+			// 获取小图的位置
+			var minP = $(this).offset();
+			// 指定放大图片的位置
+			$('#max').css({top:minP.top,left:minP.left+$(this).width()+10});
+		// 鼠标移除图片
+		}).mouseout(function(){
+			// 让放大的图片隐藏
+			$('#max').hide();
+			$('#min .hk').hide();
+		}).mousemove(function(e){
+			// 获取属性相对于小图的位置	
+			var minLeft = e.pageX - $(this).offset().left;
+			var minTop = e.pageY - $(this).offset().top;
+
+			console.log(e.pageX+'-'+e.pageY);
+
+			// 设置滑块的初始位置
+			var x = 0,y = 0;
+
+			// 滑块的边界
+			// 水平方向
+			if(minLeft<30){
+				x = 0;
+			}else if(minLeft>354){
+				x = 324;
+			}else{
+				x = minLeft-30;
+			}
+
+			// 垂直方向
+			if(minTop<30){
+				y = 0;
+			}else if(minTop>186){
+				y = 156;
+			}else{
+				y = minTop-30;
+			}
+
+			// 添加滑块的功能
+			$('#min .hk').css({left:x,top:y});
+
+			// 设置大图容器 的滚动条的位置
+			$('#max').scrollTop(minTop*5-150).scrollLeft(minLeft*5-150);
+		});
+	</script>
+</body>
+</html>

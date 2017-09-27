@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>return 关键字</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+		return 关键字 
+			1. 将函数内部变量的值返回到函数的外部
+			2. return 关键字之后的代码不再执行
+	*/ 
+
+	// typeof 函数 返回变量的类型
+
+	// 自定义函数，获取变量的类型
+	function getType(bl){
+		// 获取变量的类型
+		var type = 'string';
+
+		// 将变量的值返回到函数的外部
+		return type;
+	}
+
+	// 定义变量
+	var str = '哈哈哈';
+
+	// 调用函数
+	var type = getType(str);
+
+	console.log(type);
+
+
+	// 定义函数
+	function playGame(){
+		// 执行
+		var roleA = '德玛西亚';
+		var roleB = '菊花信';
+		var roleC = '卡特';
+
+		console.log(roleA+'和'+roleB+'在打架！');
+
+		// C刚玩，上来就按了回城
+		return;		// 相当于返回了undefined
+
+		// C看到了
+		console.log('my name is '+roleC+',我来了...');
+	}
+
+	// 调用函数
+	var value = playGame();
+
+	// 任何一个函数都是有返回值，默认是undefined
+	console.log(value);
+</script>
+</html>

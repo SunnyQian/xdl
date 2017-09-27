@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>京东轮播图</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		#lun{
+			width:790px;
+			height:340px;
+			border:1px solid #ccc;
+			margin:0 auto;
+			margin-top:40px;
+			position:relative;
+			/*overflow:hidden;*/
+		}
+		a{
+			text-decoration:none;
+		}
+		li{
+			list-style:none;
+		}
+		#lun>ul>li>img{
+			display:block;
+		}
+		#lun>ul>li{
+			position:absolute;
+			top:0;
+			left:0;
+			/*display:none;*/
+			opacity:0;
+
+			/* 过渡 */
+			transition:opacity 0.4s linear;
+		}
+		#lun>ul>.active{
+			/*display:block;*/
+			opacity:1;
+		}
+
+		#list-circle{
+			width:200px;
+			height:20px;
+			background:rgba(255,255,255,0.5);
+			border-radius:20px;
+			position:absolute;
+			bottom:22px;
+			/*margin:0 auto;*/
+
+			/* 设置元素距离左侧 50% */
+			left:50%;
+
+			/* 向左偏移自身宽度的一半 */
+			margin-left:-100px;
+		}
+
+		#list-circle>ul>li{
+			width:12px;
+			height:12px;
+			border-radius:50%;
+			background:#fff;
+			float:left;
+
+			/*  (200-12*8)/9  */
+			margin-left:11.5px;
+			margin-top:4px;
+		}
+		#list-circle>ul>.list-active{
+			background:#f00;
+		}
+
+		/* 左右箭头的样式 */
+		#left,#right{
+			width:30px;
+			height:60px;
+			background:rgba(0,0,0,0.3);
+			color:#fff;
+			position:absolute;
+			top:50%;
+			margin-top:-30px;
+			font-size:20px;
+			text-align:center;
+			line-height:60px;
+			display:none;
+
+			/* 设置鼠标样式 */
+			cursor:pointer;		/* pointer 小手 */
+
+			/* 左右箭头中的文本不允许被选中 */
+			-ms-user-select:none;
+			-moz-user-select:none;
+			-webkit-user-select:none;
+			user-select:none;
+		}
+		#right{
+			right:0;
+		}
+
+		#left:hover,#right:hover{
+			background:rgba(0,0,0,0.5);
+		}
+	</style>
+
+	<!-- 引入jQuery -->
+	<script src="./js/jquery.min.js"></script>
+</head>
+<body>
+	<!-- 页面布局 -->
+	<div id="lun">
+		<ul>
+			<li><a href=""><img src="./imgs/1.jpg" alt=""></a></li>
+			<li><a href=""><img src="./imgs/2.jpg" alt=""></a></li>
+			<li><a href=""><img src="./imgs/3.jpg" alt=""></a></li>
+			<li><a href=""><img src="./imgs/4.jpg" alt=""></a></li>
+			<li><a href=""><img src="./imgs/5.jpg" alt=""></a></li>
+			<li><a href=""><img src="./imgs/6.jpg" alt=""></a></li>
+			<li><a href=""><img src="./imgs/7.jpg" alt=""></a></li>
+			<li><a href=""><img src="./imgs/8.jpg" alt=""></a></li>
+		</ul>
+
+		<!-- 轮播图底部的轮播圆点 -->
+		<div id="list-circle">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+
+		<!-- 定义左右箭头 -->
+		<div id="left"><</div>
+		<div id="right">></div>
+	</div>
+</body>
+<script>
+	// 当进入页面时，第一张图和第一个圆点激活
+	$('#lun>ul>li:first').addClass('active');
+	$('#list-circle>ul>li:first').addClass('list-active');
+
+	// 定义定时器的标志
+	var run;
+
+	// 定义轮播图核心原理函数
+	// 定义dir方向，默认向右
+	function hexin(dir){
+		// 设置默认值
+		var dir = dir?dir:'right';
+
+		// 获取当前项
+		var nowActive = $('#lun .active');
+		var nowListActive = $('#list-circle .list-active');
+
+		// 移除
+		nowActive.removeClass('active');
+		nowListActive.removeClass('list-active');
+
+		// 向右走
+		if(dir=='right'){
+			// 判断是否已经到了最后一张
+			// console.log(nowActive.next());
+			if(nowActive.next().length==0){
+				// 第一个图和圆点
+				$('#lun>ul>li:first').addClass('active');
+				$('#list-circle>ul>li:first').addClass('list-active');
+			}else{
+				// 下一项显示
+				nowActive.next().addClass('active');
+				nowListActive.next().addClass('list-active');
+			}
+		}else{
+			if(nowActive.prev().length==0){
+				// 最后一个图和圆点
+				$('#lun>ul>li:last').addClass('active');
+				$('#list-circle>ul>li:last').addClass('list-active');
+			}else{
+				// 上一项显示
+				nowActive.prev().addClass('active');
+				nowListActive.prev().addClass('list-active');
+			}
+		}			
+	}
+
+	// 定义轮播图函数
+	function autoRun(){
+		// 定时器轮播
+		run =setInterval(function(){
+			// 当前显示的隐藏，下一张显示
+
+			// 调用核心函数
+			hexin();
+			
+		},2000);
+	}
+
+	// 页面进入时进行调用
+	autoRun();	
+
+	// 鼠标移入轮播图容器时停止定时器，离开时继续
+	$('#lun').mouseenter(function(){
+		clearInterval(run);
+
+		// 左右箭头显示
+		$('#left,#right').show();
+	}).mouseleave(function(){
+		// 重新调用定时器
+		autoRun();
+
+		// 左右箭头隐藏
+		$('#left,#right').hide();
+	});
+
+	// 右箭头的单击事件
+	$('#right').click(function(){
+		// 重新调用核心函数
+		hexin();
+	});
+
+	// 左箭头的单击事件
+	$('#left').click(function(){
+		// 调用核心的函数，传递方向参数
+		hexin('left');
+	});
+
+	// 鼠标悬浮圆点时轮播图切换
+	$('#list-circle li').mouseover(function(){
+		// 当前项
+		$('#lun .active').removeClass('active');
+		$('#list-circle .list-active').removeClass('list-active');
+
+		// 当前索引
+		var index = $(this).index();
+
+		// 对应项显示
+		$('#lun>ul>li').eq(index).addClass('active');
+		$('#list-circle>ul>li').eq(index).addClass('list-active');
+	});
+</script>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="ul">
+		<li>jack</li>
+		<li>allen</li>
+		<li id="li">lilei</li>
+		<li>hanmeimei</li>
+	</ul>	
+	<script type="text/javascript">
+		
+		var Ul = document.getElementById('ul');
+
+		// 第一个儿子节点
+		getFirstChild(Ul).style.background = 'pink';
+
+		getLastChild(Ul).style.background = '#09c';
+
+		alert(getChilds(Ul).length);
+
+		getChilds(Ul)[2].style.color = 'blue';
+
+
+		var Li = document.getElementById('li');
+
+		// Li.previousSibling.style.color = 'red';
+
+		getprvNode(Li).style.color = 'red';
+
+
+		// 解决上一个同胞
+		function getprvNode(obj){
+			var prev = obj.previousSibling;
+			while(prev.nodeType !=1){
+				// 如果当前这个节点不是元素节点就把上一个节点赋值给 prev 
+				prev = prev.previousSibling;
+			}
+			return prev;
+		}
+
+
+		// 解决下一个同胞
+		function getNextNode(obj){
+			var next = obj.nextSibling;
+			while(next.nodeType !=1){
+				// 如果当前这个节点不是元素节点就把上一个节点赋值给 prev 
+				next = next.nextSibling;
+			}
+			return next;
+		}
+
+
+		// 获取所有元素节点的儿子
+		function getChilds(obj){
+			// 获取所有的子节点
+			var childs =  obj.childNodes;
+			// 声明一个空数组来装 所有的元素节点的儿子
+			var arr = [];
+			for(var i=0;i<childs.length;i++){
+				if(childs[i].nodeType == 1){
+					arr[arr.length] = childs[i];
+				}
+			}
+			return arr;
+		}	
+
+
+		// 处理第一个子节点函数
+		function getFirstChild(obj){
+			var first = obj.firstChild;
+			while(first.nodeType != 1){
+				//  当前的节点不是元素节点
+				first = first.nextSibling;
+			}	
+			return first;
+		}
+
+
+		// 处理最后一个儿子
+		function getLastChild(obj){
+			var last = obj.lastChild;
+			while(last.nodeType !=1){
+				last = last.previousSibling;
+			}
+			return last;
+		}
+
+	</script>
+</body>
+</html>

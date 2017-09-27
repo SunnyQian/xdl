@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>测一测你是王者荣耀的谁</title>
+
+	<!-- 
+		设置viewport标签:viewport 视图窗口
+			width=device-width 	设置页面宽度为设备的宽度
+			minimum-scale=1.0 	页面最小缩放比例为1
+			maximum-scale=1.0 	页面最大缩放比例为1
+			user-scalable		是否允许用户进行页面缩放
+				no 					不允许
+				yes 				允许
+	-->
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+	<style>
+		#show{
+			display:none;
+		}
+	</style>
+</head>
+<body>
+	<h3>测一测你的前世是王者荣耀的谁</h3>
+	<input type="text" id="username">
+	<button id="btn">开启你的前世</button>
+
+	<div id="show">
+		<h3 id="heroName">英雄：后羿</h3>
+		<img id="heroImg" width="100%" src="./imgs/houyi.jpg" alt="">
+	</div>
+		
+</body>
+<script>
+	// 获取元素
+	var username = document.getElementById('username');
+	var btn = document.getElementById('btn');
+	var show = document.getElementById('show');
+	var heroName = document.getElementById('heroName');
+	var heroImg = document.getElementById('heroImg');
+
+	// 定义包含英雄信息的数组
+	var heros = [
+		{
+			name : '后羿',
+			img : './imgs/houyi.jpg'
+		},
+		{
+			name : '芈月',
+			img : './imgs/miyue.jpg'
+		},
+		{
+			name : '关羽',
+			img : './imgs/guanyu.jpg'
+		},
+		{
+			name : '荆轲',
+			img : './imgs/jingke.jpg'
+		},
+		{
+			name : '花木兰',
+			img : './imgs/huamulan.jpg'
+		}
+	];
+
+	// 单击
+	btn.onclick = function(){
+		// 要获取用户输入的姓名
+		// console.log(username.value)	// 输入框的值
+		var uname = username.value.trim();
+		// 判断用户名是否为空
+		if(uname==''){
+			// 提示用户
+			alert('用户名不允许为空');
+
+			// 终止程序执行
+			return;
+		}
+
+		// var index = rand(0,4);
+
+		// 每一个人名对应的英雄是固定的！
+		// 每一个字符都对应了一个固定的unicode字符
+		// console.log(uname);
+
+		// 将用户名的字符串每一个字符的unicode字符的值累加
+		var num = 0;
+		for(var i=0;i<uname.length;i++){
+			// console.log(uname.charCodeAt(i));
+			num += uname.charCodeAt(i);
+		}
+
+		// console.log(num);
+
+		// 将num对包含英雄信息的数组长度求余
+		var index = num%heros.length;
+		// console.log(index);
+
+		// 输出当前的值
+		// console.log(uname);
+
+		// 展示英雄的信息显示
+		show.style.display = 'block';
+
+		// 获取
+		heroName.innerHTML = '英雄：'+heros[index].name;
+
+		// 设置图片的src属性
+		heroImg.src = heros[index].img;
+	}
+
+	// 定义返回m,n之间的随机整数的函数
+	function rand(m,n){
+		return Math.floor(Math.random()*(n-m+1))+m;
+	}
+
+</script>
+</html>

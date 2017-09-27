@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>流程控制</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+		流程控制
+			顺序结构：程序是自上而下依次执行
+			分支结构：
+				如果有...就
+				如果没有...就
+			循环结构：
+				不停的重复某些事
+	*/
+
+	var a = 10;
+	var b = 20;
+
+	console.log(a);
+	console.log(b);
+
+	/*
+		分支结构;
+			单分支
+				if(表达式){
+					// 流程体
+					// 表达式为真，执行该流程
+				}
+			双分支
+				if(表达式){
+					// 真分支	
+				}else{
+					// 假分支
+				}
+			多分支
+				if(表达式1){
+					// 表达式1成立，执行该流程			
+				}else if(表达式2){
+					// 表达式2成立，执行该流程
+				}
+				...
+				else{
+					// 表示当以上条件都不满足时，执行该分支
+				}
+				
+				选择
+				switch(){
+					// case 表示一种情况
+					case :
+
+					// 表示流程终止
+					break;
+
+					// 当以上条件都不符合时，执行该分支
+					default:
+					break;
+				}
+			巢状分支结构：
+	*/
+
+	// 定义状态
+	var time = 15;
+
+	// 单分支
+	if(time<10){
+		console.log('老公，把甲鱼汤喝了...');
+	}
+
+	// 双分支·
+	if(time<20){
+		console.log('王八蛋，咱们离婚！');
+	}else{
+		console.log('老公，你比隔壁老王厉害多了...');
+	}
+
+	// 多分支
+	var sex = '妖';
+	if(sex=='男'){
+		console.log('如果没有喝醉，去男厕所!');
+	}else if(sex=='女'){
+		console.log('向前一小步，文明一大步!');
+	}else{
+		console.log('自己看着办...');
+	}
+
+	// 测试的成绩
+	var score = 100;
+
+	if(score>=90){
+		console.log('亲爱的，你想吃什么?都给你买！');
+	}else if(score>=70){
+		console.log('还凑活，继续努力...');
+	}else if(score>=60){
+		console.log('杨扬的小皮鞭已经在等你了...')
+	}else{
+		console.log('杨扬已经准备好了肥皂，轻点，疼！');
+	}
+
+	console.log(score);
+
+	// 根据用户的性别匹配不同的厕所
+	var sex = '男';
+
+	switch(sex){
+		// 第一种情况
+		case '男':
+			// 流程体
+			console.log('男厕所');
+
+		// break 结束当前流程
+		break;
+		case '女':
+			console.log('喝醉了，也可以男厕所');
+		break;
+
+		case '值':
+			// 流程体
+		break;
+
+		// 默认 当以上条件都不满足时执行该分支
+		default:
+			console.log('怎么开心怎么来!!');
+		break;
+	}
+
+	/*
+		多分支结构中if...else if 和 switch 结构功能上是等效的；
+			if ...else if 更多的匹配范围性结构
+			switch 更多的匹配固定值结构
+	*/ 
+
+	/*
+		巢状分支结构：
+			将以上几个结构一块儿使用的使用，叫做巢状分支结构
+	*/
+	var status = '单身';
+	var money = 1000000;
+	if(status=='单身'){
+		if(money>=1000){
+			console.log('可以娶两个老婆!');
+		}else if(money>=200){
+			console.log('可以娶一个');
+		}else{
+			console.log('少年，好好爱惜你的双手！');
+		}
+
+	}
+</script>
+</html>

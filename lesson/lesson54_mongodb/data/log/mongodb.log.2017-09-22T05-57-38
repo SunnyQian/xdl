@@ -1,0 +1,37 @@
+2017-09-22T13:56:20.436+0800 I CONTROL  [main] Hotfix KB2731284 or later update is not installed, will zero-out data files
+2017-09-22T13:56:20.440+0800 I CONTROL  [main] Trying to start Windows service 'MongoDB'
+2017-09-22T13:56:20.441+0800 I STORAGE  [thread1] Service running
+2017-09-22T13:56:20.441+0800 I CONTROL  [initandlisten] MongoDB starting : pid=3872 port=27017 dbpath=d:/data/db 32-bit host=PC201709082205
+2017-09-22T13:56:20.441+0800 I CONTROL  [initandlisten] targetMinOS: Windows Vista/Windows Server 2008
+2017-09-22T13:56:20.441+0800 I CONTROL  [initandlisten] db version v3.2.16-25-g1ebd782
+2017-09-22T13:56:20.441+0800 I CONTROL  [initandlisten] git version: 1ebd782eccc7a48766a2f3b97271c09129cd7c4b
+2017-09-22T13:56:20.441+0800 I CONTROL  [initandlisten] allocator: tcmalloc
+2017-09-22T13:56:20.442+0800 I CONTROL  [initandlisten] modules: none
+2017-09-22T13:56:20.442+0800 I CONTROL  [initandlisten] build environment:
+2017-09-22T13:56:20.442+0800 I CONTROL  [initandlisten]     distarch: i386
+2017-09-22T13:56:20.442+0800 I CONTROL  [initandlisten]     target_arch: i386
+2017-09-22T13:56:20.442+0800 I CONTROL  [initandlisten] options: { net: { bindIp: "127.0.0.1", port: 27017 }, security: { authorization: "enabled" }, service: true, storage: { dbPath: "d:/data/db", engine: "mmapv1" }, systemLog: { destination: "file", path: "d:/data/log/mongodb.log" } }
+2017-09-22T13:56:20.502+0800 I CONTROL  [initandlisten] 
+2017-09-22T13:56:20.502+0800 I CONTROL  [initandlisten] ** WARNING: This 32-bit MongoDB binary is deprecated
+2017-09-22T13:56:20.502+0800 I CONTROL  [initandlisten] 
+2017-09-22T13:56:20.502+0800 I CONTROL  [initandlisten] 
+2017-09-22T13:56:20.502+0800 I CONTROL  [initandlisten] ** NOTE: This is a 32 bit MongoDB binary.
+2017-09-22T13:56:20.502+0800 I CONTROL  [initandlisten] **       32 bit builds are limited to less than 2GB of data (or less with --journal).
+2017-09-22T13:56:20.502+0800 I CONTROL  [initandlisten] **       Note that journaling defaults to off for 32 bit and is currently off.
+2017-09-22T13:56:20.502+0800 I CONTROL  [initandlisten] **       See http://dochub.mongodb.org/core/32bit
+2017-09-22T13:56:20.502+0800 I CONTROL  [initandlisten] 
+2017-09-22T13:56:20.512+0800 I NETWORK  [HostnameCanonicalizationWorker] Starting hostname canonicalization worker
+2017-09-22T13:56:21.667+0800 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'd:/data/db/diagnostic.data'
+2017-09-22T13:56:21.669+0800 I NETWORK  [initandlisten] waiting for connections on port 27017
+2017-09-22T13:56:56.755+0800 I CONTROL  [serviceShutdown] got SERVICE_CONTROL_STOP request from Windows Service Control Manager, will terminate after current cmd ends
+2017-09-22T13:56:56.756+0800 I FTDC     [serviceStopWorker] Shutting down full-time diagnostic data capture
+2017-09-22T13:56:56.766+0800 I CONTROL  [serviceStopWorker] now exiting
+2017-09-22T13:56:56.766+0800 I NETWORK  [serviceStopWorker] shutdown: going to close listening sockets...
+2017-09-22T13:56:56.767+0800 I NETWORK  [serviceStopWorker] closing listening socket: 456
+2017-09-22T13:56:56.767+0800 I NETWORK  [serviceStopWorker] shutdown: going to flush diaglog...
+2017-09-22T13:56:56.767+0800 I NETWORK  [serviceStopWorker] shutdown: going to close sockets...
+2017-09-22T13:56:56.772+0800 I STORAGE  [serviceStopWorker] shutdown: waiting for fs preallocator...
+2017-09-22T13:56:56.772+0800 I STORAGE  [serviceStopWorker] shutdown: closing all files...
+2017-09-22T13:56:56.777+0800 I STORAGE  [serviceStopWorker] closeAllFiles() finished
+2017-09-22T13:56:56.777+0800 I STORAGE  [serviceStopWorker] shutdown: removing fs lock...
+2017-09-22T13:56:56.777+0800 I CONTROL  [serviceStopWorker] dbexit:  rc: 49

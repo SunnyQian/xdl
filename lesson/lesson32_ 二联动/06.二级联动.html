@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}	
+		select{width: 200px;height:30px;}	
+
+
+
+	</style>
+</head>
+<body>
+	<form name="likes">
+		<select name="class1" onchange="getData()">
+
+		</select><select name="class2">
+
+		</select>
+	</form>	
+	<script type="text/javascript">
+		// 准备数据		
+		// 一级分类
+		var data1 = ['请选择一个分类','电子数码','运动户外','情趣用品'];
+		// 二分类
+		var data2 = [
+			['请选择二个分类'],
+			['手机','电脑','平板','游戏机','数码相机'],
+			['球服','运动鞋','球拍','运动设备','健身器材'],
+			['皮鞭','蜡烛','抗日','小板凳','马赛克','视频教程']
+		];
+
+		// 找到 一级分类的对象
+		var class1 = document.likes.class1;
+
+		// 二级分类的对象
+		var class2 = document.likes.class2;
+
+		// 指定一级分类 的 option 个数
+		class1.length = data1.length;
+
+		// 把一级分类的数据 给 class1 对象
+		for(var i=0;i<data1.length;i++){
+			class1.options[i].text = data1[i];
+		}
+
+
+		// 获取二级分类的数据
+		function getData(){
+			// 当前选择的 一级分类是什么？ 知道过后 才可以给对应 二级分类的选项
+
+			// 获取当前选中一级分类的索引号
+			var index = class1.selectedIndex
+
+			// alert(index);
+
+			// 指定二级分类 的 option 个数
+			class2.length = data2[index].length;
+
+			// 把一级分类的数据 给 class1 对象
+			for(var i=0;i<data2[index].length;i++){
+				class2.options[i].text = data2[index][i];
+			}
+
+		}
+
+	</script>
+
+</body>
+</html>

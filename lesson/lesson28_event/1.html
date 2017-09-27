@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件</title>
+	<style>
+		.memeda{
+			width:200px;
+			height:200px;
+			border:1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div class="memeda"></div>
+	<div class="memeda"></div>
+	<div class="memeda" style="background:red"></div>
+	<div class="memeda"></div>
+</body>
+<script>
+	/*
+		事件：
+			页面发生一些情况或者是用户与页面进行交互时发生的情况
+
+		事件三要素：
+			谁...发生什么类型的事er....如果来进行处理
+			1. 事件源(事件对象)
+			2. 事件类型
+			3. 事件句柄(handdler 处理、操作)/事件处理函数
+
+	*/ 
+
+	// 获取元素
+	var divs = document.getElementsByClassName('memeda');
+	console.log(divs);
+
+	// 第一个div设置单击事件
+	divs[0].onclick = function(){
+		this.style.background = 'red';
+	}
+
+	// 鼠标移入和移出
+	divs[1].onmouseover = function(){
+		console.log('我要进来了....');
+	}
+	divs[1].onmouseout = function(){
+		console.log('出来了...');
+	}
+
+	// 鼠标移动事件
+	divs[1].onmousemove = function(){
+		console.log('不要动了...')
+	}
+
+	// 双击事件 dbl double
+	divs[2].ondblclick = function(){
+		console.log('1111');
+		this.style.background = 'blue';
+	}
+
+	// 右键事件
+	divs[3].oncontextmenu = function(){
+		console.log('杨扬又便宜了..');
+
+		// 默认事件--打开一个菜单
+		return false;
+	}
+</script>
+</html>

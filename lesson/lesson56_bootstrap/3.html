@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模态框</title>
+
+	<!-- 引入CSS文件 -->
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+
+	<!-- Bootstrap的js效果依赖于jQuery -->
+	<script src="./bootstrap/js/jquery.min.js"></script>
+
+	<!-- 引入JS文件 -->
+	<script src="./bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- 移动设备优先 -->
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no">
+
+	<!-- 使低版本的浏览器尽量以最高的形式解释文档 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body>
+	<div class="container">
+		<h3>模态框的使用</h3>
+		<button class="btn btn-primary" data-toggle="modal" data-target="#login">登录</button>
+
+		<!-- 定义登录框 -->
+		<div class="modal fade" tabindex="-1" id="login">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						欢迎登录么么哒网
+						<span class="close" data-dismiss="modal">
+							&times;
+						</span>
+					</div>
+					<div class="modal-body">
+						<h4>请详细填写登录信息</h4>
+						<form action="" class="form-horizontal">
+							<div class="form-group">
+								<label for="username" class="control-label col-md-2">账户</label>
+								<div class="col-md-8">
+									<input type="text" name="username" id="username" class="form-control">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="userpwd" class="control-label col-md-2">密码</label>
+								<div class="col-md-8">
+									<input type="password" name="userpwd" id="userpwd" class="form-control">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-md-8 col-md-offset-2">
+									<button class="btn btn-primary col-md-12">登录</button>	
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<p>只要钱到位，一切都好说！</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	// 进入页面时显示登录框
+	// $('#login').modal();
+
+	// 监测模态框的状态
+	$('#login').on('loaded.bs.modal',function(){
+		console.log('加载完毕le....');
+	})
+	$('#login').on('show.bs.modal',function(){
+		console.log('开始显示....');
+	})
+	$('#login').on('shown.bs.modal',function(){
+		console.log('显示完毕....');
+	})
+
+	$('#login').on('hide.bs.modal',function(){
+		console.log('开始隐藏了....');
+	})
+	$('#login').on('hidden.bs.modal',function(){
+		console.log('隐藏结束....');
+	})
+</script>
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>比较运算符</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+		比较运算符：最终的结果是一个布尔值
+			符合条件的返回真，不符合条件返回假
+	*/
+
+	// 定义变量
+	var a = 5;
+	var b = 5;
+
+	// > 
+	var res = a>b;
+	console.log(res);
+	if(a>b){
+		console.log('a的值大于b的值');
+	}
+
+	// < 符合条件返回真
+	if(a<b){
+		console.log('a的值小于b的值');
+	}
+
+	// >= 大于或者是等于都是符合条件的
+	if(a>=b){
+		console.log('a的值大于等于b的值');
+	}
+
+	// <= 小于等于都是符合条件的
+
+	// 判断两个变量的值是否相等 ==
+	var a = 4;
+	var b = 0;
+
+	/*
+	// a=b 赋值表达式
+	if(a=b){
+		console.log('我能不能输出！');
+	}
+	*/
+
+	// 定义变量
+	var a = '4';
+	var b = 4;
+
+	// == 判断值是否相等
+	if(a==b){
+		console.log('a和b的值是相等的');
+	}
+
+	// === 判断值和类型是否同时相等
+	if(a===b){
+		console.log('a和b是全等的');
+	}
+
+	// != 当两个值(仅仅判断值)不相等时返回真
+	if(a!=b){
+		console.log('a和b的值是不相等!');
+	}
+
+	var a = 3;
+	var b = 3;
+	// !== 不全等：当全等的时候返回假，其他情况返回真
+	if(a!==b){
+		console.log('a和b的值或者是类型至少有一个不同！');
+	}
+
+	console.log(a);
+	console.log(b);
+
+</script>
+</html>

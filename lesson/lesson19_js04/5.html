@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>三种方式声明的函数的区别</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+		在页面中所有的var关键字声明的变量会被优先(提取到代码的顶部)执行，被声明(执行到表达式所在的位置进行赋值)
+	*/
+
+	// 函数一次定义，允许多次调用
+
+	/*
+		1. 使用function关键字声明的函数可以在函数声明前、声明后、函数内部调用表达式
+			使用function关键字声明的函数具有优先级，在代码中优先被执行
+		2. 使用赋值表达式声明的函数只能在函数声明的后面或者是内部进行调用
+	*/	
+
+	// 函数定义前调用
+	hello();
+
+	// 定义函数
+	function hello(){
+		// alert('你好吗？');
+	}
+
+	// 调用
+	hello();
+
+	// 输出变量
+	console.log(memeda);
+
+	// 函数声明前调用
+	// memeda();
+
+	// 使用函数表达式的形式定义函数
+	var memeda = function(){
+		alert('I want memeda!');
+	}
+
+	// 函数声明后
+	memeda();
+
+	// 使用构造函数声明函数
+	 //ppp();
+	var ppp = new Function('alert("你好")');
+	ppp();
+</script>
+</html>

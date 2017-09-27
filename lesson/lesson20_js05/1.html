@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+		函数：是一段完成指定任务的已命名代码块
+
+		函数的声明方式：
+			1. 使用function关键字声明
+			2. 使用函数表达式进行赋值操作
+			3. 使用特定的构造函数 new Function()
+
+			注意事项：
+				a. 使用function关键字声明的函数允许在函数定义前、定义后还有函数自身内部进行调用
+				b. 其他两种方式只允许在函数定义后和自身内部进行调用
+
+
+		函数名的命名规则：
+			和变量命名规则一致
+			首字母必须是字母、下划线、$
+			后跟任意长度的数字、字母、下划线、$
+			严格区分大小写
+			命名尽量有意义
+			不允许使用系统的关键字和保留字
+			推荐使用驼峰命名法
+	*/
+
+	// 定义函数 
+	function hello(){
+		console.log('早上好，今天是周二，好开心呀！');
+	}
+
+	// 函数调用
+	hello();
+
+	/*
+		参数
+			形参：
+				函数定义时的参数，形参
+				局部变量
+			实参：
+				函数调用时的参数，实参
+	*/
+	function greet(username){
+		// username 现在是形参，是局部变量
+
+		console.log(username+'，你老婆好白！');
+
+		// 修改username的值
+		username = '隔壁老王';
+	} 
+
+	// 定义变量
+	var username = '诚诚';
+
+	// 调用	
+	// 实参 杨扬 传入函数，替换形参username出现的位置
+	greet(username);	
+
+	// 打印person
+	console.log(username);
+
+
+	/*
+		变量作用域：
+			函数声明后，在函数的内部有一个独立的作用域环境
+
+			局部变量(局部作用域)
+			全局变量(全局作用域)
+	*/
+
+	// 有一个皇帝 诚诚
+	var status = '活着';
+
+	// 定义计划
+	function cisha(){
+		// 把皇帝弄死
+
+		// 函数内部使用var关键字声明的变量是局部变量，不能够直接影响全局变量
+		// var status = '死了';
+
+		// 变成全局变量
+		// 按照作用域链查找规则，函数自身内部没有，会去查找父级作用域中的status变量
+		// console.log(status);
+
+		// 改变变量的值
+		// status = '死了';		
+
+		// 函数内部的值
+		// console.log('函数内部的值: '+status);
+
+		// 函数内部 var关键字定义变量
+		var status = '死了';
+
+		// return 关键字 将变量的值返回到函数的外部
+		return status;
+	}
+
+	// 当前的状态
+	// console.log(status);	// 函数未调用
+
+	// 调用函数,变量接收了函数调用的返回值
+	status = cisha();
+
+	// 输出状态
+	console.log(status);
+
+	/*
+		局部变量的值影响全局变量的方法：
+			1. 在函数的内部不使用var关键字操作变量
+			2. 使用return关键字将变量的值返回到函数的外部，对应的变量进行接收
+	*/
+
+</script>
+</html>

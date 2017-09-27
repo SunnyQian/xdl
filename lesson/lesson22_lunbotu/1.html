@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>疼</title>
+	<style>
+		div{
+			width:200px;
+			height:200px;
+			border:1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+<script>
+	/*
+		数组 Array：
+			存储值的容器
+	*/
+
+	/*
+		定义数组的方式
+			1. 使用构造函数 new Array()
+			2. 使用[]定义构造函数
+
+		数组属性 length 长度
+		数组的索引：
+			1. 从0开始，依次递增，纯数字
+			2. 索引的最大值是数组长度-1
+	*/
+	// 定义数组
+
+	// new Array() 只有一个数字，表示定义该数字长度的数组，里面的值默认都是undefined
+	var arr = new Array(10);
+
+	// 表示定义数组，两个单元，一个是10,一个是3
+	var arr = new Array(10,3);
+
+	console.log(arr);
+
+	/*
+		数组的遍历：
+			将每一个数组单元依次取出，然后你想干哈就干哈！
+
+			循环遍历(for/while/do..while)
+			forEach(这个只能是纯粹的数组才能用) 
+	*/
+
+	// 获取页面中所有的div元素
+	var divs = document.getElementsByTagName('div');
+	console.log(divs);
+
+	// 使用Array.isArray()方法判断是否是纯粹的数组
+	// 如果是纯数组，返回的是true
+	// console.log(Array.isArray(arr));		// true
+	console.log(Array.isArray(divs));		// false
+
+	// 使用循环遍历对象divs
+
+
+</script>
+</html>

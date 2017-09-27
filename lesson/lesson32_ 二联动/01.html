@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li id="first">蘑菇说：我像伞</li>
+		<li>核桃说：我像大脑</li>
+		<li>香蕉说：我们换个话题吧</li>
+	</ul>	
+	<script type="text/javascript">
+
+		var First = document.getElementById('first');	
+		First.style.color = 'red';	
+
+		var Lis = document.getElementsByTagName('li');
+		// Lis[0].style.background = 'yellow';
+
+		for(var i=0;i<Lis.length;i++){
+			Lis[i].style.background = 'yellow';
+		}
+
+		alert(Lis[0]);
+
+
+		// alert(Lis.length);
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

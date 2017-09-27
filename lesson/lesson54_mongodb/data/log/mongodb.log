@@ -1,0 +1,43 @@
+2017-09-22T13:57:45.790+0800 I CONTROL  [main] Hotfix KB2731284 or later update is not installed, will zero-out data files
+2017-09-22T13:57:45.794+0800 I CONTROL  [main] Trying to start Windows service 'MongoDB'
+2017-09-22T13:57:45.795+0800 I STORAGE  [thread1] Service running
+2017-09-22T13:57:45.795+0800 I CONTROL  [initandlisten] MongoDB starting : pid=1956 port=27017 dbpath=d:/data/db 32-bit host=PC201709082205
+2017-09-22T13:57:45.795+0800 I CONTROL  [initandlisten] targetMinOS: Windows Vista/Windows Server 2008
+2017-09-22T13:57:45.795+0800 I CONTROL  [initandlisten] db version v3.2.16-25-g1ebd782
+2017-09-22T13:57:45.795+0800 I CONTROL  [initandlisten] git version: 1ebd782eccc7a48766a2f3b97271c09129cd7c4b
+2017-09-22T13:57:45.795+0800 I CONTROL  [initandlisten] allocator: tcmalloc
+2017-09-22T13:57:45.795+0800 I CONTROL  [initandlisten] modules: none
+2017-09-22T13:57:45.796+0800 I CONTROL  [initandlisten] build environment:
+2017-09-22T13:57:45.796+0800 I CONTROL  [initandlisten]     distarch: i386
+2017-09-22T13:57:45.796+0800 I CONTROL  [initandlisten]     target_arch: i386
+2017-09-22T13:57:45.796+0800 I CONTROL  [initandlisten] options: { net: { bindIp: "127.0.0.1", port: 27017 }, security: { authorization: "enabled" }, service: true, storage: { dbPath: "d:/data/db", engine: "mmapv1" }, systemLog: { destination: "file", path: "d:/data/log/mongodb.log" } }
+2017-09-22T13:57:45.856+0800 I CONTROL  [initandlisten] 
+2017-09-22T13:57:45.856+0800 I CONTROL  [initandlisten] ** WARNING: This 32-bit MongoDB binary is deprecated
+2017-09-22T13:57:45.856+0800 I CONTROL  [initandlisten] 
+2017-09-22T13:57:45.856+0800 I CONTROL  [initandlisten] 
+2017-09-22T13:57:45.856+0800 I CONTROL  [initandlisten] ** NOTE: This is a 32 bit MongoDB binary.
+2017-09-22T13:57:45.856+0800 I CONTROL  [initandlisten] **       32 bit builds are limited to less than 2GB of data (or less with --journal).
+2017-09-22T13:57:45.856+0800 I CONTROL  [initandlisten] **       Note that journaling defaults to off for 32 bit and is currently off.
+2017-09-22T13:57:45.856+0800 I CONTROL  [initandlisten] **       See http://dochub.mongodb.org/core/32bit
+2017-09-22T13:57:45.856+0800 I CONTROL  [initandlisten] 
+2017-09-22T13:57:45.890+0800 I NETWORK  [HostnameCanonicalizationWorker] Starting hostname canonicalization worker
+2017-09-22T13:57:47.044+0800 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'd:/data/db/diagnostic.data'
+2017-09-22T13:57:47.045+0800 I NETWORK  [initandlisten] waiting for connections on port 27017
+2017-09-22T13:58:03.941+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:49383 #1 (1 connection now open)
+2017-09-22T13:58:03.946+0800 I ACCESS   [conn1] Unauthorized: not authorized on admin to execute command { getLog: "startupWarnings" }
+2017-09-22T13:58:03.947+0800 I ACCESS   [conn1] Unauthorized: not authorized on admin to execute command { replSetGetStatus: 1.0, forShell: 1.0 }
+2017-09-22T13:58:06.100+0800 I NETWORK  [conn1] end connection 127.0.0.1:49383 (0 connections now open)
+2017-09-22T14:00:27.018+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:49397 #2 (1 connection now open)
+2017-09-22T14:00:27.037+0800 I ACCESS   [conn2] SCRAM-SHA-1 authentication failed for huxiaoshuai on school from client 127.0.0.1 ; UserNotFound: Could not find user huxiaoshuai@school
+2017-09-22T14:00:27.038+0800 I NETWORK  [conn2] end connection 127.0.0.1:49397 (0 connections now open)
+2017-09-22T14:00:39.621+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:49399 #3 (1 connection now open)
+2017-09-22T14:00:39.644+0800 I ACCESS   [conn3] Successfully authenticated as principal huxiaoshuai on admin
+2017-09-22T14:00:43.463+0800 I NETWORK  [conn3] end connection 127.0.0.1:49399 (0 connections now open)
+2017-09-22T14:01:02.340+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:49400 #4 (1 connection now open)
+2017-09-22T14:01:02.363+0800 I ACCESS   [conn4] Successfully authenticated as principal meeda on school
+2017-09-22T14:01:02.365+0800 I ACCESS   [conn4] Unauthorized: not authorized on admin to execute command { getLog: "startupWarnings" }
+2017-09-22T14:01:02.366+0800 I ACCESS   [conn4] Unauthorized: not authorized on admin to execute command { replSetGetStatus: 1.0, forShell: 1.0 }
+2017-09-22T14:01:39.508+0800 I NETWORK  [conn4] end connection 127.0.0.1:49400 (0 connections now open)
+2017-09-22T14:01:44.661+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:49408 #5 (1 connection now open)
+2017-09-22T14:01:44.685+0800 I ACCESS   [conn5] Successfully authenticated as principal huxiaoshuai on admin
+2017-09-22T14:06:10.633+0800 I NETWORK  [conn5] end connection 127.0.0.1:49408 (0 connections now open)

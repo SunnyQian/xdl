@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JD移动APP</title>
+
+	<!-- 
+		设置viewport
+			width=device-width 		让页面的宽度等当前设备的视口宽度
+			inital-scale=1.0 		页面初始化缩放比例
+			maximum-scale=1.0 		页面允许最大的缩放比例
+			minimum-scale=1.0 		页面允许最小的缩放比例
+			user-scalable			是否允许用户缩放页面
+					no/0				禁止
+					yes/1 				允许
+	-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+
+	<!-- 定义CSS样式 -->
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+
+		/* 定义html元素的样式 */
+		html{
+			font-size:20px;
+		}
+
+		body{
+			height: 2000px;
+		}
+		#header-bar{
+			/*
+				rem 相对于根元素的倍率
+					html font-size 20px 
+
+					1rem ---> 20px
+			
+			*/
+			width:18.75rem;		/* 375px ---> 414px */
+
+			/*height:50px;*/
+			height: 18.75rem;
+			background:#E12F32;
+			position: fixed;
+			top:0;
+			left: 0px;
+
+			/* 为了保证永远处于页面的最顶层 */
+			z-index: 9999;
+		}
+
+		#logo{
+			/*
+				44px 转为 rem的值
+					88px/2 --> 44px / font-size 20px
+			
+			*/
+			/*width: 2.2rem;*/
+			width:44px;
+			height:44px;
+			margin-top:50px;
+		}
+		#logo img{
+			width: 100%;
+			height: 100%;
+			display: block;
+		}
+
+	</style>
+</head>
+<body>
+	<!-- <p>now 文字 的大小！</p> -->
+
+	<!-- 定义容器100%宽度 -->
+	<div id="header-bar"></div>
+	<div id="logo">
+		<img src="./imgs/feiji.png" alt="">
+	</div>
+</body>
+<script>
+	// 获取元素
+	var html = document.documentElement;
+	// var body = document.body;
+	// console.log(html);
+	
+	// PC端网页默认的视口宽度是980px
+	// iphone 6 实际视口宽度 375px
+
+	// 获取当前屏幕的窗口宽度 --- 可视窗口
+	// console.log(html.clientWidth);
+
+	/*
+		以iphone 6为原型：
+			html font-size 20px
+			视口宽度 375px
+
+	*/
+	var clientWidth = 375;
+	var fontSize = 20;
+
+	// 当前屏幕的视口宽度 
+	// html.clientWidth/clientWidth = newFontSize / fontSize;
+	var newFontSize = html.clientWidth*fontSize/clientWidth;
+
+	// console.log(newFontSize);
+	// 设置html元素的font-size值
+	html.style.fontSize = newFontSize+'px'; 
+
+
+	/* 
+		UI设计界面时：
+			2x  ---> HTML的视口宽度*2 ---> 设计图的宽度 375x2 = 750px
+			3x  ---> HTML的视口宽度*3
+	*/ 
+	
+</script>
+</html>

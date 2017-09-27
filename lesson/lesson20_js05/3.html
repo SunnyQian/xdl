@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数的类型</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// 无默认值函数
+	function hello(){
+		// 函数体
+		alert('你好');
+	}
+
+	// 直接调用函数
+	// hello();
+
+	// 有默认值的函数
+
+	// 文档注释：清晰的描述函数的作用以及需要的参数还有返回值的描述 
+
+	/**
+	* 定义输出表格的函数 table()
+	* @param number row 控制表格的行数,默认值8
+	* @param number col 控制表格的列数，默认值6
+	*/
+	// 在小括号位置设置默认参数，高版本的浏览器是支持的
+	function table(row=8,col=6){
+	// function table(col,row=8){
+	// function table(row,col){
+		// 定义变量
+		// var row = 8;	// 行数
+		// var col = 6;	// 列数
+
+		// 保证兼容性
+		/*
+		console.log(row);
+		console.log(col);
+
+		if(row==undefined){
+			row = 8;
+		}
+		if(col==undefined){
+			col = 6;
+		}
+		*/
+		// 判断row是否有值
+		// row = row?row:8;
+		// 判断col是否有值
+		// col = col?col:6;
+
+
+		// 定义每一行的高度是40
+		// 定义每一个单元格的宽度是60
+		var width = 60*col;
+		var height = 40*row;
+
+
+		// 定义7行8列的表格
+		document.write('<table align="center" border="1" width="'+width+'" height="'+height+'" cellspacing="0" cellpadding="5">');
+
+		// 控制输出行数
+		for(var i=0;i<row;i++){
+			document.write('<tr>');
+
+			// 控制输出列数
+			for(var j=0;j<col;j++){
+				document.write('<td></td>');
+			}
+
+			document.write('</tr>');
+		}
+
+		document.write('</table>');
+	}
+
+	// 调用函数
+
+	// 函数定义时有默认值，调用时不传递参数，表示使用默认的值
+	table(6);
+
+	// table(5,4);
+
+	/*
+		如果函数的形参，包含了有默认值参数和无默认值参数，那我们需要将有默认值的参数写在无默认值参数的后面
+	*/
+
+</script>
+</html>

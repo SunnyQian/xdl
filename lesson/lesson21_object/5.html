@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取元素的方式</title>
+	<style>
+		div{
+			width:200px;
+			height:200px;
+			/*border:1px solid #ccc;*/
+			/*margin-bottom:10px;*/
+		}
+
+		.memeda:first-child{
+			background:red;
+		}
+		.memeda:nth-child(2){
+			background:blue;
+		}
+		.memeda:nth-child(3){
+			background:yellow;
+		}
+
+		#green{
+			background:green;
+		}
+	</style>
+</head>
+<body>
+	<div class="memeda" name="test"></div>
+	<div class="memeda"></div>
+	<div class="memeda"></div>
+	<div class="demo" name="test"></div>
+</body>
+<script>
+	// 获取元素 -- 使用ID的方式 
+	var red = document.getElementById('red');
+	var blue = document.getElementById('blue');
+	console.log(red);
+
+	/*
+		获取元素的方式
+			ID			document.getElementById()
+				匹配的id的名称
+				获取的结果：只有1个
+
+			className 类名	document.getElementsByClassName()
+				匹配的是class的名
+				获取的结果：有可能有多个，但是返回的结果一定是[]
+
+			tagName 标签名 	document.getElementsByTagName() 
+				匹配的对应的tag标签名
+				获取的结果：有可能有多个，返回的结果一定是[]
+
+			name 	名称 	document.getElementsByName
+				匹配的所有具有相同name名称的元素
+				获取的结果：有可能有多个，返回的结果一定是[]
+	*/
+
+	// 通过类名获取元素,是一个类似于数组的集合
+	var memedas = document.getElementsByClassName('memeda');
+	console.log(memedas);
+
+	// 黄色元素的单击事件
+	// console.log(memedas[2]);
+	for(var i=0;i<memedas.length;i++){
+		// 相当于给memedas集合中所有元素，赋值单击事件
+		// 事件先被赋值，再被触发
+		// memedas[i].onclick = function(){
+
+		// 鼠标移入事件
+		memedas[i].onmouseover = function(){
+			// alert(i);
+
+			// i 一直是共用的状态，i的值3
+			// memedas[i].style.background = 'green';
+
+			// 认识this关键字，this表示自身
+			// console.log(this);
+			// this.style.background = 'green';
+
+			// 给当前元素添加id属性
+			this.setAttribute('id','green');
+		}
+
+		// 鼠标移出事件 --- 鼠标离开元素后，恢复原样式
+		memedas[i].onmouseout = function(){
+			console.log('离开了...');
+			// this.style.background = 'red';
+
+			// 当鼠标移出时，将添加的id属性移除
+			this.removeAttribute('id');
+		}
+	}
+
+	// 当上面的for循环执行完毕后，当前的i是3 ==> memedas.length
+	console.log(i);
+		
+
+	// 使用类名获取元素
+	var demos = document.getElementsByClassName('demo');
+	console.log(demos);
+
+	demos[0].onclick = function(){
+		this.style.background = 'green';
+	}
+
+	// 获取所有的div元素
+	var divs = document.getElementsByTagName('div');
+	console.log(divs);
+
+	// 通过name的名称
+	var tests = document.getElementsByName('test');
+	console.log(tests);
+</script>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义方法</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// 自定义反转数组的方法
+
+	/**
+	* 定义反转数组的方法 array_reverse()
+	* @param array arr 要反转的数组
+	* return array newArr 反转之后的数组结果
+	*/
+	function array_reverse(arr){
+		// console.log(arr);
+
+		// 定义存放结果的新数组
+		var newArr = []; 
+
+		// 获取每一个数组单元
+		arr.forEach(function(value,index,arrSelf){
+			// console.log(value+'--'+index);
+			// console.log(arrSelf);
+
+			// value 就是每一个数组单元的值 
+			// 反转
+			// unshift() 从数组的前面插入元素
+			newArr.unshift(value);
+		})
+
+		// 输出数组
+		// console.log(newArr);
+
+		// return 返回值 返回的是变量的值
+		return newArr;
+	}
+
+	// 定义数组
+	var arr = ['香蕉','苹果','梨'];
+
+	// 调用函数
+	var newArr = array_reverse(arr);
+
+	console.log(newArr);
+
+
+	/**
+	* 定义获取m,n之间随机整数的函数 rand()
+	* @param number m 获取随机整数的下限值
+	* @param number n 获取随机整数的上限值
+	* return number num 获取的随机整数
+	*/
+	function rand(m,n){
+		return Math.floor(Math.random()*(n-m+1))+m;
+	}
+
+
+	/**
+	* 自定义实现反转字符串的方法 str_reverse()
+	* @param string str 要反转的字符串
+	* return string newStr 反转之后的字符串结果
+	*/ 
+
+	/*
+	function str_reverse(str){
+		// split() 使用指定的字符分割字符串，返回数组
+		// reverse() 反转数组单元的方法
+		// join() 使用指定的字符拼接数组单元，返回的是字符串
+		// console.log(str.split('').reverse().join(''));
+		return str.split('').reverse().join('');
+	}
+	*/
+
+	function str_reverse(str){
+		// 对于字符串来说，可以按照数组的方式进行取值
+
+		// 获取字符串长度
+		var len = str.length;
+
+		// 定义接收字符串的变量
+		var newStr = '';
+
+		// 索引从最大值开始，依次递减
+		for(var i=len-1;i>=0;i--){
+			// console.log(str[i]);
+
+			// 依次拼接
+			// newStr = newStr + str[i];
+			newStr += str[i];
+		}
+
+		// console.log(newStr);
+		// 返回值
+		return newStr;
+	}
+
+
+	// 定义变量
+	var str = 'abcdef';
+
+	// 调用反转字符串的方法
+	var newStr = str_reverse(str);		// fedcba
+	console.log(newStr);
+
+
+</script>
+</html>

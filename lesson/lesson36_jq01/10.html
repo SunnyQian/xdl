@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<select>
+		<option value="1.jpg">1.jpg</option>	
+		<option value="2.jpg">2.jpg</option>	
+		<option value="3.jpg">3.jpg</option>	
+		<option value="4.jpg">4.jpg</option>	
+	</select>
+	<button>after</button>
+	<hr>
+
+	<img src="images/1.jpg">
+
+	<script src="../../lib/jquery-1.11.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		
+		$('button').click(function(){
+			var img  = $('select').val();	
+			// $('img:last').after('<img src="images/'+img+'">');
+
+			$('<img src="images/'+img+'">').insertAfter('img:last');
+
+		});
+
+
+
+
+
+	</script>
+</body>
+</html>

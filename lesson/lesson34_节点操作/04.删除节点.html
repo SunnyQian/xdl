@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<ul id="ul">
+		<li>扫地神僧</li>
+		<li id="a">前朝太监</li>
+		<li>独孤求败</li>
+		<li>逍遥派创始人</li>
+	</ul>
+	<button onclick="delnode();">删除</button>
+
+	<script type="text/javascript">
+	
+		// 父节点
+		var Ul = document.getElementById('ul');
+		var a = document.getElementById('a')
+
+		function delnode(){
+
+			Ul.removeChild(a);
+
+		}
+
+
+	</script>	
+
+</body>
+</html>

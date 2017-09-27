@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数学函数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+		数学对象 -- 内置对象
+			数学对象不需要实例化，可以直接使用
+	*/
+
+	// 获取随机数,返回0,1之间的随机数,[0,1)
+	console.log(Math.random())
+
+
+	// 1.5 取整
+	var num = 1.999;
+	// 向上取整
+	var newNum= Math.ceil(num);
+	console.log(newNum);
+
+	// 向下取整
+	var newNum = Math.floor(num);
+	console.log(newNum);
+
+	// 当前的数 -1.5
+	var num = -1.5;
+	console.log(Math.ceil(num));
+
+	/**
+	* 定义获取随机整数的函数 rand()
+	*/
+
+	// rand(1,3)	// 随机返回1,2,3
+	// rand(2,100)	// 随机返回2-100之间的整数
+
+	// 获取0-1之间的随机整数
+	var num = Math.floor(Math.random()*(1+1));		// 0-1之间的随机数，1-2之间随机数
+
+	// 获取1-3之间的随机整数
+	
+
+	console.log(num);
+</script>
+</html>

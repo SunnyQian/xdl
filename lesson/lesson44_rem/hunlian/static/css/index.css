@@ -1,0 +1,18 @@
+/* 顶部导航样式开始 */
+html{
+	font-size: 20px;
+}
+#nav{
+	width: 18.75rem;
+	height: 38px;
+	/*background:linear-gradient(0deg, #CF33E1 0%, #56059B 50%);*/
+	background: radial-gradient(52% 377%, #CF33E1,#56059B);
+}
+/* 顶部导航样式结束 */
+
+/* 滑动组件--轮播图样式开始 */
+#lun .swiper-slide img{
+	/*display: block;*/
+	width: 100%;
+}
+/* 滑动组件--轮播图样式结束 */

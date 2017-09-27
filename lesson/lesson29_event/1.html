@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件</title>
+	<style>
+		#red{
+			width:500px;
+			height:500px;
+			border-radius:50%;
+			background:red;
+			position:relative;
+		}
+
+		#blue,#green,#yellow,#purple{
+			position:absolute;
+			border-radius:50%;
+			top:50px;
+			left:50px;
+		}
+		#blue{
+			width:400px;
+			height:400px;
+			background:blue;
+		}
+		#green{
+			width:300px;
+			height:300px;
+			background:green;
+		}
+		#yellow{
+			width:200px;
+			height:200px;
+			background:yellow;
+		}
+		#purple{
+			width:100px;
+			height:100px;
+			background:purple;
+		}
+
+		#pink{
+			width:300px;
+			height:300px;
+			background:pink;
+		}
+		#yellowgreen{
+			width:200px;
+			height:200px;
+			background:yellowgreen;
+		}
+	</style>
+</head>
+<body>
+	<div id="red">
+		<div id="blue">
+			<div id="green">
+				<div id="yellow">
+					<div id="purple"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="pink">
+		<div id="yellowgreen">
+			
+		</div>
+	</div>
+</body>
+<script>
+	/*
+		鼠标事件：
+			onclick 		单击事件
+			ondblclick		双击事件
+			oncontextmenu	右键事件
+			onmouseover		鼠标移入
+			onmouseout		鼠标移出
+			onmousemove		鼠标移动
+			onmousedown		鼠标按下
+			onmouseup		鼠标抬起
+	*/ 
+
+	// 给每一个div都添加单击事件，当单击该元素时当前元素的背景颜色变成黑色
+	var divs = document.getElementsByTagName('div');
+	// console.log(divs);
+
+	/*
+		冒泡事件：
+			当触发某个元素的某个类型事件时，该元素所有的先辈元素触发同类型事件
+
+		阻止冒泡事件：
+			1. e.
+	*/
+
+	// 遍历每一个div元素，添加单击事件
+	for(var i=0;i<divs.length;i++){
+		divs[i].onclick = function(e){
+			this.style.background = 'black';
+			console.log(e);
+
+			// 方法:阻止事件冒泡
+			// e.stopPropagation();
+
+			// cancelBubble属性 阻止冒泡
+			e.cancelBubble = true;
+		}
+	}
+
+
+	// 获取pink和yellowgreen元素
+	var pink = document.getElementById('pink');
+	var yg = document.getElementById('yellowgreen');
+
+	// 设置鼠标的移入和移出事件
+	yg.onmouseover = function(){
+		console.log('鼠标移入了yg元素');
+	}
+	yg.onmouseout = function(){
+		console.log('鼠标移出了yg元素');
+	}
+	// 设置pink元素的鼠标移入和移出事件
+	pink.onmouseenter = function(){
+		console.log('鼠标移入了pink元素');
+	}
+	pink.onmouseleave = function(){
+		console.log('鼠标移出了pink元素');
+	}
+
+	/*
+		onmouseout和onmouseover事件：
+			在父级元素和子元素之间进行移动时同样会进行触发！
+
+		onmouseenter和onmouseleave事件：
+			enter		鼠标移入
+			leave		鼠标移出
+
+			在父级元素和子元素之间不进行触发!
+	*/
+
+	/*
+		定时器
+			设置周期性定时器
+				var run = setInterval(function(){},time)
+			清除周期性定时器
+				clearInterval(run)
+
+			设置一次性定时器
+				setTimeout()
+			清除一次性定时器
+				clearTimeout()
+	*/
+
+	// 设置一次性定时器
+	var run = setTimeout(function(){
+		console.log('2秒之后进行输出，然后完了...');
+	},2000);
+
+	// 清除一次性定时器
+	clearTimeout(run);
+</script>
+</html>

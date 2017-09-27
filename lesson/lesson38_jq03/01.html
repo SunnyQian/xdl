@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style type="text/css">
+#min{width: 384px;}
+#max{width: 300px;height: 300px;overflow:hidden;display: none;position: absolute;}
+</style>
+</head>
+<body>
+	<img id="min" src="images/Meinv155.jpg">
+	<div id="max">
+		<img src="images/Meinv155.jpg">	
+	</div>
+	<script src="../../lib/jquery-1.11.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		// 鼠标移动到图片上去
+		$('#min').mouseover(function(){
+			// 让放大的图片显示
+			$('#max').css('display','block');
+			// 获取小图的位置
+			var minP = $(this).offset();
+			// 指定放大图片的位置
+			$('#max').css({top:minP.top,left:minP.left+$(this).width()+10});
+		// 鼠标移除图片
+		}).mouseout(function(){
+			// 让放大的图片隐藏
+			$('#max').css('display','none');
+		}).mousemove(function(e){
+			// 设置大图容器 的滚动条的位置
+			$('#max').scrollTop(e.offsetY*5-150).scrollLeft(e.offsetX*5-150);
+		});
+	</script>
+</body>
+</html>

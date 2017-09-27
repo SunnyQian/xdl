@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>检测用户名是否合法</title>
+</head>
+<body>
+	<form action="">
+		账户：<input type="text" name="username" id="username">
+		<span id="msg"></span>
+	</form>
+</body>
+<script>
+	// 获取元素
+	var username = document.getElementById('username');
+	var msg = document.getElementById('msg');
+
+	// username的失去焦点事件
+	username.onblur = function(){
+		// 获取当前的值
+		console.log(this.value);
+
+		// 检测用户名是否为空
+		if(this.value.trim()==''){
+			// 提示用户账户允许为空
+			alert('账户不允许为空！');
+
+			// 终止程序执行
+			return;
+		}
+
+		// 当前的用户名
+		var uname = this.value.trim();
+
+		// 第一步 创建Ajax对象
+		var x = new XMLHttpRequest();
+
+		// 初始化的状态码 
+		console.log(x.readyState);
+
+		// 第二步 设置监听事件
+		x.onreadystatechange = function(){
+			// readyState 状态码 检测Ajax和服务器进行数据交互的状态
+			// console.log(this.readyState);
+
+			// 查询HTTP状态码
+			// console.log(this.status);
+
+			// 当响应已经完成，并且是一个成功的响应时，才进行处理
+			if(this.readyState==4 && this.status==200){
+				console.log('请求成功，响应成功...');
+
+				// responseText 专门接收从服务器位置响应的数据
+				// console.log(this.responseText);
+
+				// 约定返回的字符是 ok 表示账户名可用，返回 buok 表示账户名不可用
+				if(this.responseText=='ok'){
+					// 设置信息提示
+					msg.innerHTML = '恭喜你，账户名可用!';
+				}else{
+					msg.innerHTML = '不好意思，账户名已经被占了..';
+				}
+			}
+		}
+
+		// 第三步 初始化请求
+		// 选择以get方式请求数据
+		x.open('get','./checkUser.php?uname='+uname,true);
+
+		// 第四步 发送(携带数据给服务器)
+		x.send();
+	}
+
+</script>
+</html>

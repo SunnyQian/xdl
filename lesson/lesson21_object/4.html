@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// 数组是对象的一种，存储值的仓库(容器)
+
+	// 使用 new Array()定义数组
+	var stars = new Array('苍老师','小泽老师','张诚','杨扬');
+
+	// []
+	console.log(stars);
+
+	// 使用[]定义数组
+	var fruits = ['香蕉','苹果','茄子','辣椒','黄瓜'];
+	console.log(fruits);
+
+	/*
+		数组：
+			索引(下标/键) : 值
+
+			数组的索引一定是从0开始的,最大值是数组的长度.length-1
+	*/
+
+	// 获取数组单元的值 数组名[索引]
+	console.log(fruits[0]);
+	console.log(fruits[2]);
+	console.log(fruits[4]);
+
+	// 数组的长度
+	console.log(fruits.length);
+
+	// 遍历数组 -- 将数组单元的值挨个过一遍
+	// 使用循环来遍历数组
+	for(var i=0;i<stars.length;i++){
+		console.log(i+'===>'+stars[i]);
+	}
+
+	// 使用forEach遍历数组
+	stars.forEach(function(value,index,arrSelf){
+		// value 获取的就是数组单元的值
+		console.log(value);
+
+		// index 获取的是数组的索引
+		console.log(index);
+
+		// arrSelf 表示的是数组本身
+		console.log(arrSelf);
+	});
+	
+
+
+</script>
+</html>

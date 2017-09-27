@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style type="text/css">
+*{margin: 0;padding: 0;}
+ul{list-style: none;}
+.play{
+	position: relative;
+	width: 400px;
+	height: 224px;
+	margin: 100px auto;
+	overflow: hidden;
+}	
+.play ul{
+	position: absolute;
+	width: 1600px;
+	height: 224px;
+	animation: myplay 10s infinite;
+}
+.play ul li{
+	display: inline-block;
+}
+.play img{
+	width: 400px;
+	height: 224px;
+	display: block;
+}
+	
+@keyframes myplay{
+	0%{left:0;}	
+	33%{left:-400px;}
+	66%{left:-800px;}
+	100%{left:-1200px;}
+}
+
+</style>
+</head>
+<body>
+	<div class="play">
+		<ul>
+			<li>
+				<img src="images/1.jpg">
+			</li><li>
+				<img src="images/2.jpg">
+			</li><li>
+				<img src="images/3.jpg">
+			</li><li>
+				<img src="images/4.jpg">
+			</li>
+		</ul>	
+	</div>	
+</body>
+</html>

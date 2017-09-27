@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>舅舅乘法表</title>
+	<style>
+		table{
+			width:666px;
+			border:1px solid #ccc;
+			margin:0 auto;
+			border-collapse:collapse;
+		}
+
+		td{
+			height:30px;
+			text-align:center;
+			border:1px solid #ccc;
+		}
+
+		/* h3是一个块状元素，宽度是父级容器的宽度 */
+		h3{
+			text-align:center;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+		九九乘法表：口诀
+			当前行的列数不超过当前的行数
+	*/
+
+	document.write('<h3>使用for循环实现九九乘法表--左上角</h3>');
+	// 输出表格的基本结构
+	document.write('<table>');
+
+	// 输出行
+	for(var i=1;i<=9;i++){
+		// 1行的开始
+		document.write('<tr>');
+
+		// 每一行中有多少列 -- 不超过当前的行数
+		for(var j=1;j<=i;j++){
+			document.write('<td>');
+
+			// 输出口诀
+			document.write(j+'x'+i+'='+(i*j));
+
+			document.write('</td>');
+		}
+
+		// 行的结束
+		document.write('</tr>');
+	}
+
+	document.write('</table>');
+
+
+	document.write('<h3>使用for循环实现九九乘法表--左下角</h3>');
+	document.write('<table>');
+
+	// 输出行数
+	for(var i=9;i>=1;i--){
+		document.write('<tr>');
+
+		// 列数 -- 不超过当前的行数
+		for(var j=1;j<=i;j++){
+			document.write('<td>');
+
+			// 口诀
+			document.write(j+'x'+i+'='+i*j);
+
+			document.write('</td>');
+		}
+
+		document.write('</tr>');
+	}
+
+	document.write('</table>');
+
+	document.write('<h3>使用for循环实现九九乘法表--右上角</h3>');
+	document.write('<table>');
+
+	// 行数
+	for(var i=1;i<=9;i++){
+		document.write('<tr>');
+
+		// 引入第三个变量，控制空白单元格的输出
+		for(var k=0;k<(9-i);k++){
+			document.write('<td></td>');
+		}
+
+		// 输出列数
+		for(var j=i;j>=1;j--){
+			document.write('<td>');
+			document.write(j+'x'+i+'='+i*j);
+			document.write('</td>');
+		}
+
+		document.write('</tr>');
+	}
+
+	document.write('</table>');
+
+	document.write('<h3>使用for循环实现九九乘法表--右下角</h3>');
+	document.write('<table>');
+
+	// 定义行数
+	for(var i=9;i>=1;i--){
+		document.write('<tr>');
+		// 空白单元格
+		for(var k=0;k<(9-i);k++){
+			document.write('<td></td>');
+		}
+
+		// 控制列数
+		for(var j=i;j>=1;j--){
+			document.write('<td>');
+
+			// 口诀
+			document.write(j+'x'+i+'='+i*j);
+
+			document.write('</td>');
+		}
+
+		document.write('</tr>');
+	}
+
+	document.write('</table>');
+</script>
+</html>

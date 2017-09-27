@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>跨域</title>
+	<script src="./jquery.min.js"></script>
+</head>
+<body>
+	<button id="kuayu">跨域</button>
+</body>
+<script>
+	/*
+		Ajax 遵循同源策略：
+			同域名、同端口、同协议
+			http://www.baidu.com:80
+
+		解决跨域的第一种方式：
+			1. 对方服务器允许你进行访问
+				PHP 脚本 header('Access-Control-Allow-Origin:*');
+					为了安全，对请求是否合法进行判断？
+						允许A、B，但是不允许C
+					解决方法：
+						当请求时携带参数(Token值--随机的加密，不被外人知道的！)
+
+
+			2. 使用jsonp的形式
+				a. 手动创建script标签请求指定的url地址，解决跨域，传递的值在返回时放入一个指定的函数调用的字符串中
+				b. 使用jQuery的jsonp请求
+	*/
+
+	// 定义JSONP格式需要的函数
+	function memeda(a){
+		console.log(a);
+	}
+
+	$('#kuayu').click(function(){
+		
+		// 发送Ajax
+		$.ajax({
+			// url : 'http://localhost/H5-31/lesson45_ajax_jquery_jsonp/test.php',
+			url : 'https://bird.ioliu.cn/joke/?type=text',
+			
+			type : 'get',
+
+			// 写法令牌(Token值)
+			data : {
+				// token : 'H5-31'
+				token : 'hahaha'
+			},
+
+			success : function(info){
+				console.log(info);
+			},
+			error : function(errInfo){
+				console.log(errInfo);
+			}
+		});
+		
+
+		/*
+		// 手动创造元素而//
+		var script = $('<script><\/script>');
+		// console.log(script);
+		script.attr('src','http://localhost/H5-31/lesson45_ajax_jquery_jsonp/test.php');
+
+		// 将元素插入到HTML中
+		$('body').append(script);
+		*/
+
+		/*
+			使用jQuery的方式发送jsonp请求:
+				jQuery会自动创建一个随机的函数名，函数名会被发送给服务器
+		*/ 
+		/*
+		$.ajax({
+			url : 'http://localhost/H5-31/lesson45_ajax_jquery_jsonp/test.php',
+			type : 'get',
+
+			// jsonp中自动创建的函数会指向success
+			success : function(info){
+				console.log(info);
+			},
+
+			// 更改定义的参数名
+			// jsonp : 'memeda',
+
+			// 定义我要发送jsonp请求
+			dataType : 'jsonp',
+
+			// 指定jsonp发送的回调函数名
+			// jsonpCallback:'haha'
+		})
+		*/
+	});
+
+	/*
+		跨域的错误标志：Access-Control-Allow-Origin
+
+			XMLHttpRequest cannot load http://localhost/H5-31/lesson45_ajax_jquery_jsonp/test.php. No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'null' is therefore not allowed access.
+	*/ 
+</script>
+
+<!-- 
+	script/img/link 的src属性是不受同源策略的影响
+-->
+
+<!-- 使用script src属性请求URL地址 -->
+<!-- <script src="http://localhost/H5-31/lesson45_ajax_jquery_jsonp/test.php"></script> -->
+</html>

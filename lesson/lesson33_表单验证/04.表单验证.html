@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style type="text/css">
+
+*{margin: 0; padding: 0; }
+ul{list-style: none;}
+ul li{margin-top: 10px;}
+form{width: 900px;margin: 50px auto;}
+form span{font-size: 14px;}
+.ok{color:green;background: url('images/ok.gif') no-repeat 0px 2px;padding-left: 22px;margin-left:5px; }
+.info{color:#ccc;background: url('images/mo.gif') no-repeat 0px 2px;padding-left: 22px;margin-left:5px; }
+.err{color:red;background: url('images/no.gif') no-repeat 0px 2px;padding-left: 22px;margin-left:5px; }
+
+
+</style>
+</head>
+<body>
+	<form action="http://www.baidu.com" onsubmit="return test();">	
+	<ul>
+		<li>
+			用户：<input type="text" id="uname">
+			<span id="unameInfo"></span>
+		</li>
+		<li>
+			年龄：<input type="text" id="age">
+			<span id="ageInfo"></span>
+		</li>
+		<li>
+			邮箱：<input type="text" id="email">
+			<span id="emailInfo"></span>
+		</li>
+		<li>
+			<input type="submit" value="注册">
+		</li>
+	</ul>
+	</form>	
+	<script type="text/javascript">
+		// 检测表单是否需要提交
+		function test(){
+			//  在提交表单的时候 也得验证一下
+			var res1 = uname.onblur();
+			var res2 = age.onblur();
+			var res3 = email.onblur();
+			if(res1 && res2 && res3){
+				return true;
+			}else{
+				return false;
+			}
+		}
+
+		// 获取对象	
+		var uname = document.getElementById('uname');
+		var unameInfo = document.getElementById('unameInfo');
+		// 获取焦点	
+		uname.onfocus = function(){
+			unameInfo.innerHTML = '不以数字开头，8到20位的数字字母组合';
+			unameInfo.className = 'info';
+		}
+		// 失去焦点验证
+		uname.onblur = function(){
+			if(uname.value.match(/^[A-z][A-z0-9]{7,19}$/)){
+				unameInfo.innerHTML = '格式正确';
+				unameInfo.className = 'ok';
+				return true;
+			}else{
+				unameInfo.innerHTML = '格式不正确';
+				unameInfo.className = 'err';
+				return false;
+			}
+		}
+
+		// 获取年龄对象	
+		var age = document.getElementById('age');
+		var ageInfo = document.getElementById('ageInfo');
+		// 获取焦点	
+		age.onfocus = function(){
+			ageInfo.innerHTML = '年龄必须满 18 岁 小于 250 岁';
+			ageInfo.className = 'info';
+		}
+		// 失去焦点验证
+		age.onblur = function(){
+			if(age.value.match(/^\d+$/) && age.value>18 && age.value<250){
+				ageInfo.innerHTML = '格式正确';
+				ageInfo.className = 'ok';
+				return true;
+			}else{
+				ageInfo.innerHTML = '年龄必须满 18 岁 小于 250 岁';
+				ageInfo.className = 'err';
+				return false;
+			}
+		}
+
+
+		// 获取邮箱对象	
+		var email = document.getElementById('email');
+		var emailInfo = document.getElementById('emailInfo');
+		// 获取焦点	
+		email.onfocus = function(){
+			emailInfo.innerHTML = '请输入正确的邮箱格式';
+			emailInfo.className = 'info';
+		}
+		// 失去焦点验证
+		email.onblur = function(){
+			if( email.value.match( /^[A-z0-9_]+@[0-9A-z-]+\.[A-z]+$/) ){
+				emailInfo.innerHTML = '输入正确';
+				emailInfo.className = 'ok';
+				return true;
+			}else{
+				emailInfo.innerHTML = '请输入正确的邮箱';
+				emailInfo.className = 'err';
+				return false;
+			}
+		}
+
+	</script>
+</body>
+</html>

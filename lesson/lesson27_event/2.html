@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模式修正符</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// i 忽略大小写
+	// g 全局匹配
+
+	// exec()执行一次正则匹配
+
+	// 匹配字符串中所有的字母a，忽略大小写
+	var patt = /a/gi;
+
+	// 定义字符串
+	var str = 'aAmemeda';
+
+	// 执行匹配
+	// var res = patt.exec(str);	
+	// console.log(res);
+
+	// 将捕获的结果放入数组中
+	// 定义接收结果的数组
+	var arrRes = [];
+
+	do{
+		// 执行一次正则匹配
+		var res = patt.exec(str);
+
+		// console.log(res);
+
+		// 说明有匹配的结果
+		if(res){
+			// console.log(res[0]);
+			arrRes.push(res[0]);
+		}
+	}while(res);
+
+	console.log(arrRes);
+
+
+	// 有一些人名，筛选出所有姓王的人
+	var str = `王大锤\n王二麻子\n王大胆
+		王二狗
+		杨二狗
+		张三
+		李四
+		王五
+		李明
+	`;
+	console.log(str);
+
+	// m 模式修正符 将\n视作新的一行的开始
+
+	var patt = /^\s*(王.+)/gm;
+	// var res = patt.exec(str);
+	// console.log(res);
+
+	do{
+		var res = patt.exec(str);
+
+		// console.log(res);
+
+		// res是存在的
+		if(res){
+			console.log(res[1]);
+		}
+	}while(res);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

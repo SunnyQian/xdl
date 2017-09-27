@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		ul{list-style:none;}
+	</style>
+</head>
+<body>
+	<ul id="ul">
+		<li><input type="checkbox" name="likes[]">皮鞭</li>
+		<li><input type="checkbox" name="likes[]">蜡烛</li>
+		<li><input type="checkbox" name="likes[]">小板凳</li>
+		<li><input type="checkbox" name="likes[]">手套</li>
+		<li><input type="checkbox" name="likes[]">手铐</li>
+		<li><input type="checkbox" name="likes[]">口罩</li>
+		<li><input type="checkbox" name="likes[]">香蕉</li>
+		<li><input type="checkbox" name="likes[]">西瓜</li>
+		<li><input type="checkbox" name="likes[]">哈密瓜</li>
+	</ul>	
+	<button onclick="delgoods()">删除</button>
+	<script type="text/javascript">
+
+		var Ul = document.getElementById('ul');
+
+		var checkboxs = document.getElementsByName('likes[]');
+
+		function delgoods(){
+			for(var i=0;i<checkboxs.length;i++){
+				if(checkboxs[i].checked){
+					Ul.removeChild(checkboxs[i].parentNode);
+					i--;
+				}
+			}
+		}
+	</script>
+</body>
+</html>

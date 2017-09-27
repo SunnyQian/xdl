@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+		对象：包含了特性(属性)和功能(方法)的集合体
+	*/
+
+	// 定义对象--使用的是new Object()构造函数
+	var hou = new Object();
+
+	// 属性
+	hou.name = '孙悟空';
+	hou.sex = '妖';
+	hou.zhongzu = '石猴';
+
+	// 方法
+	hou.say = function(){
+		console.log('想当年去蟠桃园遇到七个仙女，然后后来，就有了葫芦娃');
+	}
+	hou.fly = function(){
+		console.log('能和太阳肩并肩');
+	}
+	hou.see = function(){
+		console.log('我有火眼金睛...');
+	}
+
+	// 获取变量的类型
+	console.log(typeof hou);
+
+	// 打印变量
+	console.log(hou);
+
+	// 输出对象的属性
+	console.log(hou.name);		// . 专门操作对象属性操作符
+	console.log(hou['sex']);		// [] 可以操作对象属性的操作
+
+	// 调用对象的方法
+	hou.say();
+	hou.see();
+
+	// 创建对象 使用字面量{}定义对象(json对象)
+	var dasheng = {
+		// 属性
+		name : '齐天大圣',
+		sex : '妖',
+
+		// 方法
+		bian : function(){
+			console.log('可以变身...');
+		},
+		zuan : function(){
+			console.log('嫂嫂，快张开嘴，xiaofeng来出来了....');
+		}
+	};
+
+	console.log(dasheng);
+
+	// 只能意会的方法
+	dasheng.zuan();
+</script>
+</html>

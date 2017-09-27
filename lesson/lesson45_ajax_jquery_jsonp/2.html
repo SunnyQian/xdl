@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>使用jQuery发送Ajax</title>
+	<!-- 引入jQuery -->
+	<script src="./jquery.min.js"></script>
+</head>
+<body>
+	<button id="get">使用Get方式发送Ajax</button>
+	<button id="post">使用Post方式发送Ajax</button>
+</body>
+<script>
+	// 使用get方式发送Ajax
+	$('#get').click(function(){
+		// 将当前this对象进行存储
+		var that = $(this);
+
+		$.get('./memeda.php',{
+			uname : '张三'
+		},function(info){
+			console.log(info);
+
+			// 还是想获取$('#get')元素
+			// $('#get') 获取元素
+			// that 表示$('#get')元素对象
+
+			console.log($(this));
+		})
+	});
+
+	// post请求
+	$('#post').click(function(){
+		$.post('./memeda.php',{
+			uname : '张三'
+		},function(info){
+			console.log(info);
+		});
+	});
+	
+</script>
+</html>

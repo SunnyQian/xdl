@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery的基本使用</title>
+	<!-- 
+		将jQuery文件引入 
+			1. 本地文件
+			2. 引入CDN的jquery文件
+	-->
+	<!-- // <script src="./jquery.min.js"></script> -->
+
+	<!-- 
+		引入CDN文件
+			1. 提高查询速度，提升用户体验
+			2. 走其他网站的流量，有自己的体验 
+	-->
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+	<!-- 
+		百度的CDN平台网址：
+			http://cdn.code.baidu.com/
+	-->
+
+	<style>
+		.memeda{
+			width:200px;
+			height:200px;
+			background:blue;
+			margin-top:10px;
+		}
+	</style>
+</head>
+<body>
+	<span></span>
+	<div class="memeda"></div>
+	<div class="memeda"></div>
+	<div class="memeda"></div>
+</body>
+<script>
+	// JS中script的标签位置：一定要写在要操作的元素的后面
+	/*
+		保证页面加载完毕，元素能够获取
+		1. window.onload 文档加载完毕
+		2. $(function(){
+			
+		})
+		3. $(document).ready(function(){
+			
+		})
+	*/ 
+
+	// 判断jquery是否加载完毕
+	// console.log($);
+
+
+	/*
+		为什么要使用jQuery？
+			1. jQuery对原生的JS进行了封装，比如获取元素的方式、动画设置、节点操作，并且对浏览器进行了兼容的处理
+			2. 使用快捷的方式、方法进行开发，提升开发效率，易维护升级
+
+		使用jQuery:
+			1. 获取元素
+			2. 封装的方法和事件
+	*/ 
+
+	/*
+		原生JS的方式获取元素，设置单击事件
+	*/ 
+
+	/*
+	// 1. 获取元素
+	var memedas = document.getElementsByClassName('memeda');
+	// console.log(memedas);
+
+	// 2. 遍历每一个元素，设置单击事件
+	for(var i=0;i<memedas.length;i++){
+		memedas[i].onclick = function(){
+			// this 指代当前对象，执行当前方法的对象
+			this.style.background = 'red';
+		}
+	}
+	*/
+
+	/* 使用jQuery的方式获取元素，设置单击事件 */
+	// console.log($('.memeda'));
+	$('.memeda').click(function(){
+		/*
+			this		原生JS对象，只拥有原生的属性和方法
+			$(this)		jQuery对象，拥有的是jQuery的属性和方法
+		*/
+
+		// 设置自身背景颜色为红色
+		// this.style.background = 'red';
+
+		// jQuery的方式设置css样式
+		// $(this).css('background','red');
+		// $(this).css('border-radius',20);		// jQuery自动添加px
+		// $(this).css('border-radius','20px');
+
+		// 使用{}对象的形式定义样式和值
+		// $(this).css({'background-color':'red','border-radius':20});
+
+		// 将样式属性专门定义变量
+		var style = {
+			'background':'red',
+			// borderRadius:20
+			'border-radius':20
+		};
+
+		// 设置样式
+		$(this).css(style);
+	});
+
+	// 手动触发第一个memeda元素的单击事件
+	// $('.memeda').eq(0).trigger('click');
+	// $('.memeda').first().trigger('click');
+	// $('.memeda:first').trigger('click');
+	// $('.memeda:eq(0)').trigger('click');
+
+	// 修饰.memeda是父级的第一个子元素
+	// $('.memeda:first-child').trigger('click');
+</script>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取函数的参数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+		定义一个函数，将参数的进行累加运算
+			假定传递三个参数，三个参数的累加和
+			4个参数，获取4个参数的累加和
+	*/
+	function sum(){
+		// 获取所有的参数 arguments对象，包含所有的传递进来的实参的值
+		console.log(arguments);	// 是一个对象，是一个数组
+		// console.log(typeof arguments);
+
+		// 数组的取值 数组名[索引]
+		// console.log(arguments[1]);
+
+		// 数组的长度，获取传递的参数的个数
+		console.log(arguments.length)
+
+		// 输出数组的值
+		// console.log(arguments[0]);
+		// 定义变量he，接收累加和
+		var he = 0;
+
+		// 使用循环，依次累加传递的参数
+		for(var i=0;i<arguments.length;i++){
+			he += arguments[i];
+		}
+		
+		// 返回结果
+		return he;
+	}
+
+	// 调用函数，并接收返回值
+	var he = sum(1,12);
+	console.log(he);
+</script>
+</html>

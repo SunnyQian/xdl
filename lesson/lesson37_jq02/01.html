@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#box img{width: 300px;height: 180px;border:5px solid pink;}		
+
+		#xifu img{width: 200px;height: 120px;}	
+
+		.border{border:3px solid red;border-radius: 50%;}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<img src="images/1.jpg">	
+	</div>	
+	<hr>
+	<button> 清空所有的姑娘 </button>
+	<hr>
+	<div id="xifu">
+		<img src="images/1.jpg">	
+		<img src="images/2.jpg">	
+		<img src="images/3.jpg">	
+		<img src="images/4.jpg">	
+		<img src="images/5.jpg">	
+		<img src="images/6.jpg">	
+	</div>
+	<script src="../../lib/jquery-1.11.1/jquery.min.js"></script>
+	<script type="text/javascript">
+
+		// 把每个待选择的图片 绑定 点击事件
+		$('#xifu img').click(function(){
+
+			// 在选择前把所有的图片边框取消掉
+			$('#xifu img').removeClass('border');	
+
+			// 把当前选择的图片加上边框
+			$(this).addClass('border')
+
+			//                           克隆    替换
+			$('#xifu img[class=border]').clone().replaceAll('#box img').removeClass('border');
+
+		});
+
+		$('button').click(function(){
+			$('#xifu').empty();	
+		});
+
+	</script>
+		
+</body>
+</html>

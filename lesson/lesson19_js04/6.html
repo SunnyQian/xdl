@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数的参数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+		形参：
+			形式上的参数，做代表
+			函数声明时的参数
+		实参：
+			实际上传入的参数，实际上的值
+			函数调用时的参数
+	*/
+
+	// 定义一个问好的函数
+	function qin(username){
+		console.log(username+'，你好吗？');
+	}
+
+
+	// 调用
+	qin('老李头');
+	qin('隔壁老王');
+
+	/*
+		函数作用域：
+			局部变量
+				变量是在函数内部使用var关键字声明的
+				局部变量无法直接影响外部的变量
+
+			全局变量
+				变量在函数的外部使用var关键字声明的
+	*/
+
+	// 全局变量 
+	var username = '擎天柱';
+
+	 // 函数
+	function intro(){
+	 	// 当函数调用时，没有传值，对应位置的形参的值是undefined
+
+	 	// 定义变量，局部变量
+	 	// var username = '大黄蜂';
+
+	 	/*
+			函数内部的变量查找规则：
+				1. 如果函数内部(当前层)有位置声明了该变量使用该位置的值
+				2. 如果函数内部是没有这个值的，那么向函数上一级(爸爸)去查找
+				3. 依次向上查找，查找到顶级的作用域window顶层作用域
+	 	*/
+	 	console.log('my name is '+username);
+
+	 	// 定义变量,只声明不赋值
+	 	// var username = '美国队长';
+
+	 	// 定义函数
+	 	function introOne(){
+	 		// var username = '你猜';
+	 		console.log(username);
+	 	}
+
+	 	// 调用函数
+	 	introOne();
+	}
+
+	// 调用
+	intro();
+
+	// 输出变量的值
+	// console.log(username);
+
+	/*
+		函数：是一段完成指定任务的已命名的代码块
+		函数声明时{}内部代表了一个作用域环境
+		函数内部的变量查找原则：
+			如果当前作用域内有改变量，使用该变量的值
+			如果当前作用域内没有，依次向上进行查找，一直到widow顶层作用域
+			查找时，只向上查找，不拐弯！
+		查找的特点：作用域链！
+	*/
+</script>
+</html>

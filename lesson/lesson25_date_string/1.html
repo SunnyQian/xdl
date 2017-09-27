@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取时间对象的方式</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// Date对象 获取的从1970年1月1日 0:0:0 到现在的毫秒数
+
+	// 1. 直接使用new Date()获取当前此刻的时间戳对象
+	var time = new Date();
+
+	// console.log(typeof time); // object
+
+	// 转换易读的方式输出
+	// console.log(time.toString());
+
+	// 本地化输出
+	// console.log(time.toLocaleString());
+
+	// 2. 获取指定时间的时间对象
+
+	// 传入一个合法的时间字符串
+	var time = new Date('2017-8-8 8:8:8');		
+	var time = new Date('2017/8/8 8:8:8');		
+
+	// 错误信息：Invalid Date 无效的时间对象
+
+	// 时区：本初子午线 0时区 分成24时区 中国在东八区
+
+	// 传入毫秒数
+	var time = new Date(9809809);
+
+	console.log(time.toLocaleString());
+
+	// 获取时间对象的毫秒数
+	var time = new Date();
+	console.log(time.getTime());
+</script>
+</html>

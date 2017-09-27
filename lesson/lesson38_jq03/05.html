@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style type="text/css">
+		a{
+			width: 200px;
+			height: 200px;
+			border:1px solid green;
+		}	
+
+	</style>
+</head>
+<body>
+	
+	<button>显示</button>
+	<button>隐藏</button>
+
+	<hr>
+
+	<a href="">aa</a>
+	<a href="">aa</a>
+	<a href="">aa</a>
+
+	<script src="../../lib/jquery-1.11.1/jquery.min.js"></script>
+	<script type="text/javascript">
+
+		$('button:eq(0)').click(function(){
+			$('a').show(3000);
+		});
+
+
+		$('button:eq(1)').click(function(){
+			$('a').hide(3000);
+		});
+	</script>
+</body>
+</html>

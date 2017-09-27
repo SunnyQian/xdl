@@ -1,0 +1,43 @@
+2017-09-21T16:16:14.653+0800 I CONTROL  [main] Hotfix KB2731284 or later update is not installed, will zero-out data files
+2017-09-21T16:16:14.660+0800 I CONTROL  [initandlisten] MongoDB starting : pid=5352 port=27017 dbpath=d:/data/db 32-bit host=PC201709082205
+2017-09-21T16:16:14.660+0800 I CONTROL  [initandlisten] targetMinOS: Windows Vista/Windows Server 2008
+2017-09-21T16:16:14.660+0800 I CONTROL  [initandlisten] db version v3.2.16-25-g1ebd782
+2017-09-21T16:16:14.661+0800 I CONTROL  [initandlisten] git version: 1ebd782eccc7a48766a2f3b97271c09129cd7c4b
+2017-09-21T16:16:14.661+0800 I CONTROL  [initandlisten] allocator: tcmalloc
+2017-09-21T16:16:14.661+0800 I CONTROL  [initandlisten] modules: none
+2017-09-21T16:16:14.661+0800 I CONTROL  [initandlisten] build environment:
+2017-09-21T16:16:14.661+0800 I CONTROL  [initandlisten]     distarch: i386
+2017-09-21T16:16:14.661+0800 I CONTROL  [initandlisten]     target_arch: i386
+2017-09-21T16:16:14.661+0800 I CONTROL  [initandlisten] options: { storage: { dbPath: "d:/data/db", engine: "mmapv1" }, systemLog: { destination: "file", path: "d:/data/log/mongodb.log" } }
+2017-09-21T16:16:14.733+0800 I CONTROL  [initandlisten] 
+2017-09-21T16:16:14.734+0800 I CONTROL  [initandlisten] ** WARNING: This 32-bit MongoDB binary is deprecated
+2017-09-21T16:16:14.734+0800 I CONTROL  [initandlisten] 
+2017-09-21T16:16:14.734+0800 I CONTROL  [initandlisten] 
+2017-09-21T16:16:14.734+0800 I CONTROL  [initandlisten] ** NOTE: This is a 32 bit MongoDB binary.
+2017-09-21T16:16:14.734+0800 I CONTROL  [initandlisten] **       32 bit builds are limited to less than 2GB of data (or less with --journal).
+2017-09-21T16:16:14.734+0800 I CONTROL  [initandlisten] **       Note that journaling defaults to off for 32 bit and is currently off.
+2017-09-21T16:16:14.734+0800 I CONTROL  [initandlisten] **       See http://dochub.mongodb.org/core/32bit
+2017-09-21T16:16:14.734+0800 I CONTROL  [initandlisten] 
+2017-09-21T16:16:14.743+0800 I NETWORK  [HostnameCanonicalizationWorker] Starting hostname canonicalization worker
+2017-09-21T16:16:15.900+0800 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'd:/data/db/diagnostic.data'
+2017-09-21T16:16:15.901+0800 I NETWORK  [initandlisten] waiting for connections on port 27017
+2017-09-21T16:16:20.573+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:59868 #1 (1 connection now open)
+2017-09-21T16:21:27.439+0800 I INDEX    [conn1] allocating new ns file d:/data/db\admin.ns, filling with zeroes...
+2017-09-21T16:21:27.710+0800 I STORAGE  [FileAllocator] allocating new datafile d:/data/db\admin.0, filling with zeroes...
+2017-09-21T16:21:27.711+0800 I STORAGE  [FileAllocator] creating directory d:/data/db\_tmp
+2017-09-21T16:21:27.978+0800 I STORAGE  [FileAllocator] done allocating datafile d:/data/db\admin.0, size: 64MB,  took 0.265 secs
+2017-09-21T16:21:28.027+0800 I COMMAND  [conn1] command admin.$cmd command: createUser { createUser: "huxiaoshuai", pwd: "xxx", roles: [ { role: "__system", db: "admin" } ], digestPassword: false, writeConcern: { w: "majority", wtimeout: 60000.0 } } keyUpdates:0 writeConflicts:0 numYields:0 reslen:22 locks:{ Global: { acquireCount: { r: 5, w: 5 } }, MMAPV1Journal: { acquireCount: { w: 10 } }, Database: { acquireCount: { W: 5 } }, Collection: { acquireCount: { W: 1 } }, Metadata: { acquireCount: { W: 7 } } } protocol:op_command 672ms
+2017-09-21T16:23:06.814+0800 I NETWORK  [conn1] end connection 127.0.0.1:59868 (0 connections now open)
+2017-09-21T16:23:08.734+0800 I CONTROL  [thread1] Ctrl-C signal
+2017-09-21T16:23:08.734+0800 I CONTROL  [consoleTerminate] got CTRL_C_EVENT, will terminate after current cmd ends
+2017-09-21T16:23:08.735+0800 I FTDC     [consoleTerminate] Shutting down full-time diagnostic data capture
+2017-09-21T16:23:08.739+0800 I CONTROL  [consoleTerminate] now exiting
+2017-09-21T16:23:08.740+0800 I NETWORK  [consoleTerminate] shutdown: going to close listening sockets...
+2017-09-21T16:23:08.740+0800 I NETWORK  [consoleTerminate] closing listening socket: 400
+2017-09-21T16:23:08.740+0800 I NETWORK  [consoleTerminate] shutdown: going to flush diaglog...
+2017-09-21T16:23:08.740+0800 I NETWORK  [consoleTerminate] shutdown: going to close sockets...
+2017-09-21T16:23:08.743+0800 I STORAGE  [consoleTerminate] shutdown: waiting for fs preallocator...
+2017-09-21T16:23:08.743+0800 I STORAGE  [consoleTerminate] shutdown: closing all files...
+2017-09-21T16:23:08.755+0800 I STORAGE  [consoleTerminate] closeAllFiles() finished
+2017-09-21T16:23:08.755+0800 I STORAGE  [consoleTerminate] shutdown: removing fs lock...
+2017-09-21T16:23:08.755+0800 I CONTROL  [consoleTerminate] dbexit:  rc: 12

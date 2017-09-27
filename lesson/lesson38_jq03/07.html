@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.box{width:400px;height: 400px;background: red;}
+	</style>
+</head>
+<body>
+	<button>slideUp</button>	
+	<button>slideDown</button>	
+	<button>slideToggle</button>	
+	<hr>
+	<div class="box"></div>	
+	<script src="../../lib/jquery-1.11.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$('button:eq(0)').click(function(){
+			$('.box').slideUp();
+		});		
+
+		$('button:eq(1)').click(function(){
+			$('.box').slideDown();
+		});		
+
+		$('button:eq(2)').click(function(){
+			$('.box').slideToggle();
+		});		
+	</script>
+</body>
+</html>

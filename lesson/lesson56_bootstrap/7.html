@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bootstrap的基本使用</title>
+
+	<!-- 设置 -->
+
+	<!-- 引入CSS文件 -->
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+
+	<!-- Bootstrap的js效果依赖于jQuery -->
+	<script src="./bootstrap/js/jquery.min.js"></script>
+
+	<!-- 引入JS文件 -->
+	<script src="./bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- 移动设备优先 -->
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no">
+
+	<!-- 使低版本的浏览器尽量以最高的形式解释文档 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<style>
+		#lun{
+			width:790px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h3>焦点轮播图</h3>
+
+		<!-- 轮播图的容器 -->
+		<div class="carousel center-block slide "  data-ride="carousel" id="lun">
+			<!-- 显示轮播的图片 -->
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="./imgs/1.jpg" alt="">
+				</div>
+				<div class="item">
+					<img src="./imgs/2.jpg" alt="">
+				</div>
+				<div class="item">
+					<img src="./imgs/3.jpg" alt="">
+				</div>
+				<div class="item">
+					<img src="./imgs/4.jpg" alt="">
+				</div>
+			</div>
+
+			<!-- 定义轮播图圆点 -->
+			<ul class="carousel-indicators">
+				<li data-target="#lun" class="active" data-slide-to="0"></li>
+				<li data-target="#lun" data-slide-to="1"></li>
+				<li data-target="#lun" data-slide-to="2"></li>
+				<li data-target="#lun" data-slide-to="3"></li>
+			</ul>
+
+			<!-- 左右箭头 -->
+			<a href="#lun" class="left carousel-control" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+			</a>
+			<a href="#lun" class="right carousel-control" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+			</a>
+		</div>
+	</div>
+</body>
+<script>
+	// 轮播图方法调用
+	$('#lun').carousel({
+		// 修改轮播周期
+		interval:2000
+	});
+
+	$('.left,.right').hide();
+	$('#lun').hover(function(){
+		$('.left,.right').show();
+	})
+</script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="number" id="num1">	
+	<select id="ys">	
+		<option value="+">+</option>
+		<option value="-">-</option>
+		<option value="*">x</option>
+		<option value="/">/</option>
+	</select>
+	<input type="number" id="num2">	
+	<button onclick="result()">=</button>
+	<input type="number" id="res">	
+	<script type="text/javascript">
+
+			
+		function result(){
+			// 获取第一个参与计算的值
+			var num1 = Number(document.getElementById('num1').value);
+			var num2 = Number(document.getElementById('num2').value);
+			var ys = document.getElementById('ys').value;
+			var Res = document.getElementById('res');
+
+			switch (ys) {
+				case '+':
+					Res.value = num1+num2;
+					break;
+				case '-':
+					Res.value = num1-num2;
+					break;
+				case '*':
+					Res.value = num1*num2;
+					break;
+				case '/':
+					Res.value = num1/num2;
+					break;
+
+			}	
+
+		}		
+
+
+	</script>
+</body>
+</html>

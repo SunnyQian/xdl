@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bootstrap的基本使用</title>
+
+	<!-- 设置 -->
+
+	<!-- 引入CSS文件 -->
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+
+	<!-- Bootstrap的js效果依赖于jQuery -->
+	<script src="./bootstrap/js/jquery.min.js"></script>
+
+	<!-- 引入JS文件 -->
+	<script src="./bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- 移动设备优先 -->
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no">
+
+	<!-- 使低版本的浏览器尽量以最高的形式解释文档 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body>
+	<div class="container">
+		<h3>折叠效果</h3>
+		<button class="btn btn-primary" data-target="#demo" data-toggle="collapse">折叠菜单</button>
+		<a href="#demo" data-toggle="collapse">这是a链接进行控制</a>
+		<div class="collapse" id="demo" style="margin-top:20px">
+			<div class="well">
+				注意隐藏和显示
+			</div>
+		</div>
+
+		<h3>折叠菜单--手风琴效果</h3>
+
+		<div class="panel-group" id="showfengqin">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<div class="panel-title">
+						<a href="#user" data-parent="#showfengqin" data-toggle="collapse">用户介绍</a>
+					</div>
+				</div>
+				<div class="collapse"  id="user">
+					<div class="panel-body">
+						这是一个逗比的人，这是闷骚的人，这是一个脱离低级趣味的人，这个人就是他，是她是她就是她，小逗比张诚
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<div class="panel-title">
+						<a href="#renwu" data-parent="#showfengqin" data-toggle="collapse">人物介绍</a>
+					</div>
+				</div>
+				<div class="collapse"  id="renwu">
+					<div class="panel-body">
+						这是一个逗比的人，这是闷骚的人，这是一个脱离低级趣味的人，这个人就是他，是她是她就是她，小逗比张松银
+					</div>
+				</div>
+			</div>
+		</div>
+			
+	</div>
+</body>
+</html>

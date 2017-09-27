@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>让input输入框中输入的字母都是大写字母</title>
+</head>
+<body>
+
+	<a href="http://www.baidu.com" onclick="return true">aaa</a>
+	<input type="text" id="letter">
+
+
+
+<script>
+	// 无论用户输入的字母是大写还是小写，统一转为大写!
+
+	// 获取元素
+	var letter = document.getElementById('letter');
+
+	// 键盘按下事件
+	letter.onkeydown = function(e){
+		// 这个位置的值
+		// console.log(this.value);
+
+		// 总的数据 = 之前input框中已有数据+当前要输入的数据
+		// this.value
+
+		// 当前字母的取值范围
+		// console.log(e.keyCode);
+		
+		// 满足此条件就说明是字母
+		if(e.keyCode>=65&&e.keyCode<=90){
+			// 当前要输入的值是什么？
+			// console.log(e.keyCode);
+			// console.log(e.key);
+
+			// 字符串对象的方法
+			var currentValue = String.fromCharCode(e.keyCode);
+			// console.log(currentValue);
+
+			// 之前的值是多少
+			// console.log(this.value);
+
+			// 最终的值 = 之前的值 + 当前的值
+			this.value = this.value + currentValue; 
+
+			// console.log(currentValue)
+			// console.log(this.value)
+
+			// 阻止键盘按下的默认事件
+			// return false;
+
+			// 使用事件源对象的方法
+			e.preventDefault();
+		}
+	}
+
+	letter.onkeyup = function(){
+		// 当前input输入框中的值
+		// console.log(this.value.toUpperCase());
+
+		// 将字符转为大写，再次给intput输入框赋值
+		// this.value = this.value.toUpperCase();
+	}
+
+</script>
+</html>

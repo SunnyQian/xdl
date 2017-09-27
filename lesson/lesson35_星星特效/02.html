@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		img{border: 5px solid #FFF;}	
+
+	</style>
+</head>
+<body>
+	<img src="images/1.jpg" alt="">
+	<img src="images/2.jpg" alt="">
+	<img src="images/3.jpg" alt="">
+	<img src="images/4.jpg" alt="">
+	<img src="images/5.jpg" alt="">
+	<img src="images/6.jpg" alt="">		
+
+	<script type="text/javascript">
+
+		// 获取对象
+		var Imgs = document.getElementsByTagName('img');	
+
+		// 给图片绑定事件
+		for(var i=0;i<Imgs.length;i++){
+			// 绑定事件
+			Imgs[i].onclick = function(){
+
+				// 在选择图片前，先把所有图片的样式初始
+				for(var j=0;j<Imgs.length;j++){
+					Imgs[j].style.border="5px solid #FFF";
+				}
+
+				// 让当前点击选中的图片 加上样式
+				this.style.border="5px solid yellow";
+			}
+		}
+
+	</script>
+</body>
+</html>

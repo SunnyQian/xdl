@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bootstrap的基本使用</title>
+
+	<!-- 设置 -->
+
+	<!-- 引入CSS文件 -->
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+
+	<!-- Bootstrap的js效果依赖于jQuery -->
+	<script src="./bootstrap/js/jquery.min.js"></script>
+
+	<!-- 引入JS文件 -->
+	<script src="./bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- 移动设备优先 -->
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no">
+
+	<!-- 使低版本的浏览器尽量以最高的形式解释文档 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<style>
+		.breadcrumb>li+li::before{
+			content:">";
+			color:red;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<!-- 
+			路径导航：防止用户在网站中"迷航"
+		-->
+		<h3>路径导航</h3>
+		<ol class="breadcrumb">
+			<li>首页</li>
+			<li>产品发布</li>
+			<li>么么么哒</li>
+		</ol>
+
+		<h3>分页</h3>
+		<nav>
+			<ul class="pagination">
+				<li class="disabled"><a href="#">上一页</a></li>
+				<li class="active"><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">下一页</a></li>
+			</ul>
+		</nav>
+
+		<h3>翻页</h3>
+		<nav>
+			<ol class="pager">
+				<li><a href="#">上一章</a></li>
+				<li class="col-md-offset-3"><a href="#">下一章</a></li>
+			</ol>
+		</nav>
+
+		<nav>
+			<ol class="pager">
+				<li class="previous"><a href="#">上一章</a></li>
+				<li class="next" ><a href="#" style="margin-right:10px">下一章</a></li>
+			</ol>
+		</nav>
+
+		<h3>当做标签</h3>
+		<h2>今天是周一! <label class="label label-default">哈哈哈！</label> </h2>
+		<h2>今天是周一! <label class="label label-success">哈哈哈！</label> </h2>
+		<h2>今天是周一! <label class="label label-danger">哈哈哈！</label> </h2>
+		<h2>今天是周一! <label class="label label-info">哈哈哈！</label> </h2>
+		<h2>今天是周一! <label class="label label-warning">哈哈哈！</label> </h2>
+		<h2>今天是周一! <label class="label label-primary">哈哈哈！</label> </h2>
+
+		<h2>今天是个好日子<small>今天是周一！</small></h2>
+
+		<h3>
+			<button class="btn btn-primary">
+				新消息 徽章 <span class="badge">10</span>
+			</button>
+		</h3>
+	</div>
+</body>
+</html>

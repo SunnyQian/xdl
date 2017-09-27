@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>导航条--折叠</title>
+	<!-- 引入CSS文件 -->
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+
+	<!-- Bootstrap的js效果依赖于jQuery -->
+	<script src="./bootstrap/js/jquery.min.js"></script>
+
+	<!-- 引入JS文件 -->
+	<script src="./bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- 移动设备优先 -->
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no">
+
+	<!-- 使低版本的浏览器尽量以最高的形式解释文档 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body style="height:2000px">
+	<div class="container">
+		<!-- 
+			.navbar-fixed-top 	固定顶部
+			.navbar-fixed-bottom 固定底部
+			.navbar-inverse 	反色导航
+		-->
+
+		<!-- 基本样式 -->
+		<nav class="navbar navbar-default navbar-inverse">
+			<!-- 定义导航条的头部 -->
+			<div class="navbar-header">
+				<button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#daohang">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<!-- 下面的标题 -->
+				<div class="navbar-brand" href="#">XDL</div>
+			</div>
+
+			<div id="daohang" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					
+					<li class="active"><a href="#">首页</a></li>
+					<li><a href="#">军事</a></li>
+					<li><a href="#">新闻</a></li>
+					<li class="dropdown">
+						<a href="#" data-toggle="dropdown">
+							音乐类节目
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#">我是歌手</a></li>
+							<li><a href="#">蒙面唱将</a></li>
+							<li><a href="#">中国新歌声</a></li>
+							<li><a href="#">中华好诗词</a></li>
+						</ul>
+					</li>
+				</ul>
+				
+
+				<!-- 定义表单 -->
+				<form action="" class="navbar-form navbar-left">
+					<div class="form-group">
+						<input type="text" name="username" class="form-control">
+					</div>
+					<button class="btn btn-default">搜索</button>
+				</form>
+
+				<!-- 定义右侧的分类 -->
+				<ul class="nav navbar-nav navbar-right" style="margin-right:15px;">
+					<li><a href="#">么么哒</a></li>
+					<li><a href="#">哈哈哈</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+</body>
+</html>

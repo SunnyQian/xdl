@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}	
+		body{font-family: '楷体';background: #000;color:#fff;}
+		div{
+			font-size: 60px;
+			float: left;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div>淫</div>
+	<div>荡</div>
+	<div>的</div>
+	<div>一</div>
+	<div>周</div>
+	<div>又</div>
+	<div>要</div>
+	<div>结</div>
+	<div>束</div>
+	<div>了</div>
+	<div>，</div>
+	<div>大</div>
+	<div>家</div>
+	<div>吃</div>
+	<div>好</div>
+	<div>，</div>
+	<div>喝</div>
+	<div>好</div>
+	<div>！</div>
+	<script src="../../lib/jquery-1.11.1/jquery.min.js"></script>
+	<script type="text/javascript">
+
+		// 这样写有点累， 动画效果不多是可以
+/*		$('div:eq(0)').show(500,function(){
+			$('div:eq(1)').show(500,function(){
+				$('div:eq(2)').show(500,function(){
+					$('div:eq(3)').show(500);
+				});
+			});
+		});
+*/
+			
+		$('div:eq(0)').show(500,function myshow(){
+			// 递归调用
+			$(this).next().show(500,myshow);
+		})
+
+
+	</script>			
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>变量类型转换</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+		JS是一个弱类型的语言，能够将变量强制或者自动由一个变量类型转为另外一个变量类型！
+
+		强制类型转换
+			Boolean()		转为布尔值
+			Number()		转为数值
+			String()		转为字符串
+			Object()		转为对象
+			Function()		转为函数
+			undefined		赋值为undefined
+
+		自动类型转换
+			变量在某个执行环境内自动发生类型转换
+	*/
+
+	/*
+		其他类型的变量转为布尔值类型，值为false的情况
+			1. 布尔值类型 false
+			2. 数值类型的 0/0.0/NaN
+			3. 字符串类型的 空字符串
+			4. undefined
+			5. 对象Object中的null(空，什么都没有)
+	*/ 
+
+	// 布尔值
+	var bool = false;
+	var res = Boolean(bool);
+
+	// 数值类型 
+	// var num = 1;
+	var num = 0.0000000000000000000000000000000001;
+	// var num = NaN;
+	var res = Boolean(num);
+	console.log(res);
+
+	// 字符串类型
+	var str = '0';
+	var res = Boolean(str);
+	console.log(res);
+
+	// 函数都是真
+	// undefined 
+	var u = undefined;
+
+	// false
+	console.log(Boolean(u));
+
+
+</script>
+</html>

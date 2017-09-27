@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery的基本使用</title>
+	<script src="./jquery.min.js"></script>
+
+	<style>
+		.memeda{
+			width:200px;
+			height:200px;
+			background:blue;
+			margin-top:10px;
+		}
+
+		.active{
+			background:red;
+		}
+	</style>
+</head>
+<body>
+	<div class="memeda"></div>
+</body>
+<script>
+	/*
+		通过JS设置元素样式：
+			1. css()方法
+			2. 通过给元素添加ID、类名
+	*/ 
+
+	// 给元素添加类名
+	$('.memeda').mouseover(function(){
+		// 添加：在原有的基础上添加一个
+		$(this).addClass('active');
+
+		// 设置类名的值
+		// this.setAttribute('class','active');
+	});
+
+	$('.memeda').mouseout(function(){
+		// 移除指定的类名
+		$(this).removeClass('active');
+
+		// 移除所有的类名class
+		// $(this).removeClass();
+	});
+
+	/*
+		设置元素的属性和值
+
+		原生：
+			设置	setAttribute(attr,value);
+			获取	getAttribute(attr);
+			移除	removeAttribute(attr);
+		jQuery:
+			获取 	$(选择器).attr(attr)	那个属性
+			设置 	$(选择器).attr(attr,value)	设置属性的值
+			移除	$(选择器).removeAttr(attr)	移除
+	*/
+</script>
+</html>

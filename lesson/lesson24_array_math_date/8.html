@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数学对象</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// 数学对象是所有的内置对象中唯一一个不经过实例化(new) 直接进行调用
+
+	// 常量
+	// console.log(Math.PI);
+
+	// 数学方法
+	// Math.floor()		// 舍去取整
+	// Math.ceil() 		// 进一取整
+	// Math.random() 	// 获取随机数 [0,1)
+
+	// 获取绝对值 
+	var newNum = Math.abs(-1);
+	console.log(newNum);	
+
+	// Math.round() 四舍五入
+	console.log(Math.round(2.4));
+
+	// Math.max() 返回所传递的参数的最大值
+	var max = Math.max(2,3,5,6);
+	console.log(max);
+
+	// 最小值
+	var min = Math.min(2,3,5,6);
+	console.log(min);
+
+	// 幂
+	var num = Math.pow(729,-1/3);
+	console.log(num);
+
+	// 开方
+	var res = Math.sqrt(4);
+	console.log(res+'和'+-res);
+</script>
+</html>

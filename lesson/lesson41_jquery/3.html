@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>使用jQuery实现元素的全选、反选、全不选</title>
+	<script src="./jquery.min.js"></script>
+</head>
+<body>
+	<form action="数据提交地址">
+		<input class="sport" type="checkbox">篮球<br><br>
+		<input class="sport" type="checkbox">足球<br><br>
+		<input class="sport" type="checkbox">乒乓球<br><br>
+		<input class="sport" type="checkbox">羽毛球<br><br>
+		<input class="sport" type="checkbox">排球<br><br>
+		<input class="sport" type="checkbox">男排<br><br>
+		<input class="sport" type="checkbox">女排<br><br>
+		<input class="sport" type="checkbox">男篮<br><br>
+	</form>
+	<button id="all">全选</button>
+	<button id="fan">反选</button>
+	<button id="noall">全不选</button>
+</body>
+<script>
+	// 获取所有的checkedbox
+	var sports = document.getElementsByClassName('sport');
+
+	// 判断jQuery是否加载成功
+	// console.log($);
+	$(function(){
+		// 全选的单击事件
+		$('#all').click(function(){
+			// 所有的checkbox的checked值设置true
+			// $('.sport').attr('checked',true);
+
+			// prop() property 属性
+			$('.sport').prop('checked',true);
+		});
+		// 反选的单击事件
+		$('#fan').click(function(){
+			// 原先是true，现在是false；原先是false，现在是true
+			// console.log($('.sport:first').prop('checked'));
+
+			/*
+			for(var i=0;i<sports.length;i++){
+				// console.log(sports[i].checked)
+
+			
+				if(sports[i].checked){
+					sports[i].checked = false;
+				}else{
+					sports[i].checked = true;
+				}
+			
+
+				// 反选
+				sports[i].checked = !sports[i].checked;
+			}
+			*/
+			// 给每一个多选框都取反
+			// this.checked = !this.checked
+
+			// jQuery中如何进行遍历
+			// console.log($('.sport'))
+			/*
+				each(function(index,item){
+					index 索引
+					item 当前对象值
+				})
+			*/
+			$('.sport').each(function(index,item){
+				// 原生的item
+				item.checked = !item.checked;
+
+				// 如果将原生的JS对象转为jQuery对象呢?
+				// console.log($(item).prop('checked'));
+				// $(item).prop('checked',!$(item).prop('checked'));
+			})
+		})
+		// 全不选的单击事件
+		$('#noall').click(function(){
+			// prop() property 属性
+			$('.sport').prop('checked',false);
+		});
+	})
+
+	// 使用input checkbox 控制全选和取消全部选中
+
+</script>
+</html>

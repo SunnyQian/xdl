@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>胡小帅的博客</title>
+</head>
+<body>
+	<h3>欢迎光临....<%= title %></h3>
+
+	<div id="msg">
+		<h4>博主的信息</h4>
+		<p>姓名：<%= person.uname %></p>
+		<p>年龄：<%= person.age %></p>
+		<p>邮箱：<%= person.email %></p>
+
+		<!-- ejs中的条件判断 -->
+		<p>
+			是否婚配：
+				<% if(person.isOnlyOne=='yes'){ %> 
+					是 
+				<%}else{ %>
+					否
+				<% } %>
+		</p>
+		<p>性别：
+			<% if(person.sex==1){ %>
+				男
+			<%}else if(person.sex==2){ %>
+				女
+			<%}else{ %>
+				保密
+			<%} %>
+		</p>
+		<p>
+			性别：
+			<%= person.sex==1?'男':(person.sex==2?'女':'保密') %>
+		</p>
+		<p>地址：<%= person.address %></p>
+	</div>
+
+
+	<% 
+		// console.log(topics)
+	%>
+	<ul>
+		<% topics.forEach(function(topic){ %>
+			<li>
+				<img width="48" src="/uploads/<%= topic.img %>" alt="">
+				<span><%= topic.uname %></span>
+				<span><%= topic.title %></span>
+			</li>
+
+		<% }) %>
+		
+	</ul>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义函数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+		1. 定义获取随机数的函数
+			Math.random() 获取是 [0,1) 随机数
+	*/
+	// 获取从 0,1之间的随机整数
+	// Math.floor(Math.random()*(1-0+1)) + 0
+
+	// 获取从1,3之间的随机整数
+	var num = Math.floor(Math.random()*(3-1+1))+1
+	// console.log(num);
+
+	/**
+	* 定义获取m,n之间随机整数的函数 rand()
+	* @param number m 随机整数的起始值
+	* @param number n 随机整数的结束值
+	* return number num 返回的随机整数
+	*/
+	function rand(m,n){
+		// 获取随机数
+		var num = Math.floor(Math.random()*(n-m+1))+m;
+
+		// 返回随机数
+		return num;
+	}
+
+	// 获取1-5之间的随机数
+	var num = rand(1,5);
+	// console.log(num);
+
+	// 定义变量计数
+	var num_1 = 0,
+		num_2 = 0,
+		num_3 = 0,
+		num_4 = 0,
+		num_5 = 0;
+
+	// 统计获取1000次随机数，1-5之间的值出现的次数
+	for(var i=0;i<1000;i++){
+		// 随机数
+		var num = rand(1,5);
+
+		// 匹配每一个数
+		switch(num){
+			case 1:
+				num_1++;
+			break;
+			case 2:
+				num_2++;
+			break;
+			case 3:
+				num_3++;
+			break;
+			case 4:
+				num_4++;
+			break;
+			case 5:
+				num_5++;
+			break;
+		}
+	}
+
+	console.log('1出现的次数'+num_1/1000*100+'%');
+	console.log('2出现的次数'+num_2/1000*100+'%');
+	console.log('3出现的次数'+num_3/1000*100+'%');
+	console.log('4出现的次数'+num_4/1000*100+'%');
+	console.log('5出现的次数'+num_5/1000*100+'%');
+
+</script>
+</html>

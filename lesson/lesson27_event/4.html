@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单中的一些事件</title>
+	<style>
+		input:focus{
+			/*background:red;*/
+		}
+	</style>
+</head>
+<body>
+	<form action="">
+		账户：<input type="text" name="username" id="username" placeholder="请输入用户名">
+
+	</form>
+</body>
+<script>
+	// 获取元素
+	var username = document.getElementById('username');
+
+	// console.log(username);
+
+	// 设置元素的获取焦点事件
+	username.onfocus = function(){
+		// console.log('获取焦点了');
+
+		// 设置当前的值为空
+		// this.value = '';
+		console.log(this.placeholder);
+
+		// 设置属性的值
+		// this.placeholder = '';
+	}
+
+	// 失去焦点事件
+	username.onblur = function(){
+		console.log('你不要离开我...');
+
+		// 获取当前输入框的值
+		console.log(this.value);
+	}
+
+</script>
+</html>

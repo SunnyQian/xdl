@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组类型</title>
+	<style>
+		table{
+			width:666px;
+			border-collapse:collapse;
+			border:1px solid #ccc;
+			margin:0 auto;
+		}
+		td,th{
+			height:30px;
+			border:1px solid #ccc;
+		}
+
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+		数组类型划分(维度)
+			一维数组
+			二维数组
+			三维数组
+			多维数组
+	*/
+
+	// JS中只存在一维数组
+	var arr = ['美国队长','黑寡妇','钢铁侠','浩克','蜘蛛侠','蝙蝠侠','鹰眼'];
+	console.log(arr);
+
+	// JS中表现二维或者多维数组时：数组的值是另外一个数组
+	var arr = [
+		['美国队长他爸','美国队长他妈','美国队长'],
+		'黑寡妇'
+	]
+	console.log(arr);
+
+	// 定义三维数组
+	var arr = [
+		['楚乔','宇文玥'],
+		[
+			'燕洵',
+			'元淳',
+			[
+				'杨扬1号',
+				'杨扬2号'
+			]
+		]
+	]
+
+	// 数组中的值：字符串、布尔值、数值、函数、对象、undefined
+	var test = [
+		'哈哈',
+		100,
+		true,
+		function(){
+			alert('七个小矮人和七个葫芦娃');
+		},
+		{
+			name : '1号矮人',
+			sex : '男'
+		},
+		undefined
+	];
+	console.log(test);
+
+	// 数组取值
+	// test[3]()
+
+	// 定义数组
+	var users = [
+		{
+			name : '唐三藏',
+			sex : '男',
+			jiguan : '大唐',
+			intro : '去往西天拜佛求经...'
+		},
+		{
+			name : '孙悟空',
+			sex : '妖',
+			jiguan : '花果山',
+			intro : 'TNND，如来佛祖又骗我...'
+		},
+		{
+			name : '猪八戒',
+			sex : '猪妖',
+			jiguan : '高老庄',
+			intro : '想当年，玉帝让我去完成日常任务，我给理解错了...'
+		},
+		{
+			name : '沙僧',
+			sex : '男',
+			jiguan : '流沙河',
+			intro : '王母那老娘们，不就是摔坏一个杯子吗...琉璃盏...'
+		}
+	];
+
+	// 使用JS输出表格
+	document.write('<table>');
+	document.write('<tr>');
+	document.write('<th>编号</th>')
+	document.write('<th>姓名</th>')
+	document.write('<th>性别</th>')
+	document.write('<th>籍贯</th>')
+	document.write('<th>介绍</th>')
+	document.write('</tr>');
+
+	// 有一个人就有一个tr
+	users.forEach(function(item,index){
+		// item接收的就是数组当前的值
+		console.log(item);
+		// console.log(index);
+		document.write('<tr>');
+		document.write('<td>'+index+'</td>')
+		document.write('<td>'+item.name+'</td>')
+		document.write('<td>'+item.sex+'</td>')
+		document.write('<td>'+item.jiguan+'</td>')
+		document.write('<td>'+item.intro+'</td>')
+		document.write('</tr>');
+	});
+
+	document.write('</table>');
+</script>
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数据发送方式</title>
+</head>
+<body>
+	<button id="get">GET方式请求</button>
+	<button id="post">POST方式请求</button>
+</body>
+<script>
+	// 获取元素
+	var get = document.getElementById('get');
+	var post = document.getElementById('post');
+
+	// 单击事件
+	get.onclick = function(){
+		// 1. 创建Ajax对象
+		var x = new XMLHttpRequest();
+
+		// 2. 设置事件监听
+		x.onreadystatechange = function(){
+			// Ajax的交互状态码
+			// console.log(this.readyState);
+			// HTTP 网络状态码
+			// console.log(this.status);
+
+			// 响应结束并成功
+			if(this.status==200&&this.readyState==4){
+				console.log('一切都停止了...');
+			}
+		}
+
+		// 数据传递 id=10
+		var num = 10;
+		var level = 2;
+		// method.php?id=10
+		var paramStr = '?id='+num+'&level='+level;
+
+
+		// 3. 初始化请求
+		x.open('get','./method.php'+paramStr,true);
+
+		// 4. 发送
+		x.send();
+	}
+
+	/*
+		1. 在控制台上的 network 网络，查询相关的网络请求信息
+		2. 当我们点开某一个链接时，在response选项可以看到服务器响应的原始数据
+		3. 在preview(预览)选项可以查询浏览器将响应的数据进行的HTML解析
+	*/ 
+
+	// post元素的单击事件
+	post.onclick = function(){
+		// 1. 创建Ajax对象
+		var x = new XMLHttpRequest();
+
+		// 2. 设置监听事件
+		x.onreadystatechange = function(){
+			console.log(this.readyState);
+			console.log(this.status);
+		}
+
+		// 3. 初始化请求
+		x.open('post','./method.php',true);
+
+		// 设置指定的文档头信息
+		x.setRequestHeader('content-type','application/x-www-form-urlencoded');
+
+		// 4. 发送
+		x.send('id=10');
+	}
+
+</script>
+</html>

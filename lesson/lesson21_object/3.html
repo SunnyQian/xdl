@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象的属性和方法操作</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+		定义对象：
+			属性的添加、获取、修改、删除
+	*/
+
+	// 定义对象
+	var spiderMan = {
+		// 属性
+		name : '蜘蛛侠',
+		sex : '男',
+
+		// 方法
+		tusi : function(){
+			console.log('I Can make bread while called tusi');
+		}
+	};
+
+	// 打印对象
+	console.log(spiderMan);
+
+	// gf相当于有属性，但是没有赋值
+	console.log(spiderMan.gf);
+
+	// 添加属性或方法
+	spiderMan.playGo = function(){
+		console.log('要是没事儿，玩去...');
+	}
+	spiderMan.gf = 'rousier';
+
+	console.log(spiderMan);
+	console.log(spiderMan.gf);
+
+	// 调用方法
+	spiderMan.playGo();
+
+	/*
+		typeof 变量类型 显式的类型
+		两种类型区分：
+			基本类型值：
+				变量在内存中存储时，就表示的是当前实际的值
+			引用类型值：
+				object 
+				保存的是内存中存储值的地址
+	*/
+
+	// 删除对象的属性
+	delete spiderMan.playGo;
+
+	console.log(spiderMan);
+
+	// 方法的调用
+	// spiderMan.playGo();
+
+	// 属性输出
+	console.log(spiderMan.name);
+	console.log(spiderMan['name']);
+
+	// 变量形式操作对象的属性或方法
+	var i = 'sex';
+	console.log(spiderMan[i]);		// 当前位置i是一个变量
+
+	// . 表示的就是某个属性的名
+	console.log(spiderMan.i);	// 相当于查找spiderMan身上的i属性
+
+	// 使用[]方式调用方法
+	spiderMan['tusi']();
+
+	// 修改
+	spiderMan.name = '超人';
+	console.log(spiderMan);
+
+</script>
+</html>

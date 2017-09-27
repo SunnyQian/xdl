@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组函数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// map() 映射，将数组的每一个单元都应用的回调函数进行处理
+
+	// 定义数组
+	var arr = [1,2,3,4,5,6];
+
+	// 获取arr数组单元中的值的平方
+	/*
+	
+	// 第一种方式
+	var newArr = [];
+	arr.forEach(function(value){
+		// console.log(value);
+
+		// 平方
+		// console.log(value*value);
+
+		// 将平方的值，压入到新数组中
+		newArr.push(value*value);
+	});
+
+	console.log(newArr);
+	*/
+
+	// 第二种方式
+	var newArr = arr.map(function(value){
+		// console.log(value);
+
+		// 返回值会返回到新数组中
+		return value*value;
+	});
+	console.log(newArr);
+	console.log(arr);
+
+	// filter() 过滤，符合条件的过滤取来，返回真的要过滤出来
+
+	// 过滤出数组中所有的偶数
+	var arr = [0,1,2,3,4,5,6,7,8,9,10];
+
+	var newArr = arr.filter(function(value){
+		// console.log(value);
+
+		// 返回true的结果的值放入到新数组中
+		if(value%2==0){
+			return true;
+		}else{
+			return false;
+		}
+	});
+
+	console.log(newArr);
+
+	console.log('===============');
+
+	// every() 所有的数组单元都符合条件时才返回真；否则返回假
+	var users = ['女','女','女','女'];
+
+	// 如果都是男，返回真
+	var res = users.every(function(value){
+		// 函数内的表达式类似于下面的结构
+		if(value=='男'){
+			return true;
+		}
+	});
+	console.log(res);
+
+	// some() 某些，只要有符合条件的就返回真；否则返回假
+	// 判断有一个男的就返回真
+	var res = users.some(function(value){
+		if(value=='男'){
+			return true
+		}
+	});
+	console.log(res);
+
+
+	// 数组排序 sort()，进行排序时需要给排序的条件(回调函数)
+	var arr = [100,90,80,70,60];
+
+	// 数组的值正序(递增)排列
+	var newArr = arr.sort(function(a,b){
+		/*
+			该回调函数就是排序的标准:
+			该函数要满足的条件：
+				1. 两个数进行判断
+				2. 
+					如果a>b，返回正数
+					如果a<b，返回负数
+					如果a==b,返回0
+		*/ 
+		if(a>b){
+			return 2;
+		}else if(a<b){
+			return -2;
+		}else{
+			return 0
+		}
+	});
+
+	console.log(newArr);
+
+	/*
+		join() 将数组的单元进行拼接
+		toString() 将数组的单元转为字符串格式显示
+	*/
+	var arr = ['香蕉','苹果','梨'];
+
+	// 默认返回一个以,进行拼接的字符串
+	console.log(arr.join());
+
+	// 指定拼接的字符串
+	console.log(arr.join('@'));
+
+	// toString() 转成字符串格式显示
+	console.log(arr.toString());	// 香蕉,苹果,梨
+
+
+	/*
+		slice() 从数组进行截取,不影响原数组
+	*/
+	var arr = ['香蕉','苹果','梨','西瓜','南瓜','冬瓜','北瓜'];
+
+	// 截取
+	var newArr = arr.slice(1);	// 从索引1位置开始进行截取，截取到末尾
+
+	// 从索引1开始，到索引3结束，要钱不要后 [1,3)
+	var newArr = arr.slice(1,3);	
+
+	// 从索引1开始，到倒数第2个结束，要钱不要后
+	var newArr = arr.slice(1,-2);
+
+	console.log(newArr);	
+	console.log(arr);
+
+	/*
+		splice() 从数组中进行截取并填充,影响原数组
+	*/
+	var arr = ['香蕉','苹果','梨','西瓜','南瓜','冬瓜','北瓜'];
+
+	// 截取
+	// var newArr = arr.splice(2);		// 从索引2开始，截取到末尾
+	// var newArr = arr.splice(-2);		// 从倒数第2个开始，截取到末尾
+	// var newArr = arr.splice(2,4);		// 从索引2开始，截取4个
+
+	// 从索引2开始，截取4个，使用后续的参数填充
+	// var newArr = arr.splice(2,4,'么么哒','啪啪啪');	
+
+	// 新数组的长度是几？ == 4
+	var newArr = arr.splice(2,4,['哈哈','哦哦哦']);
+	console.log(newArr);
+	console.log(arr);
+
+
+</script>
+</html>

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字符串对象</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// 定义数值类型变量
+	var num = 10;
+
+	// 数值对象
+	var num = new Number(123);
+	console.log(typeof num)
+
+	console.log(num+12);
+
+	// 布尔值对象
+	// var bool = new Boolean(true);
+	var bool = false;
+	console.log(bool);
+
+	// 定义数值
+	var num = 12.456897;
+
+	// 保留两位小数 toFixed() 设置保留的位数
+	console.log(num.toFixed(2));
+
+	/*
+		字符串定义方式
+			1. 单引号
+			2. 双引号
+			3. 反引号
+			4. 使用 new String() 方式定义字符串
+	*/ 
+	var str = new String('妹妹坐船头');
+	console.log(str);
+
+	// document.write(str);
+
+	// 字符串长度
+	console.log(str.length);
+
+	// 字符串取值  类似于数组的取值方式,对象的取值方式
+	var obj = {
+		0 : '么么哒哒'
+	};
+	// console.log(obj[0])
+	console.log(str[2]);
+
+	// 字符串方法
+
+	// charCodeAt() 返回的是字符串索引位置的字符的unicode编码值
+	var str = '中国人';
+	var res = str.charCodeAt(2); 
+	console.log(res);
+
+	// charAt() 返回对应的索引位置的字符
+	console.log(str.charAt(2));		// 等效于 str[2]
+
+	// toUpperCase() 转为大写
+	var str = 'AaAa';
+	console.log(str.toUpperCase());
+
+	// toLowerCase() 转为小写
+	console.log(str.toLowerCase());
+
+	// concat() 拼接字符串
+	var str1 = '停车坐爱枫林晚,';
+	var str2 = '霜叶红于二月花.';
+	console.log(str1.concat(str2));
+
+	// slice() 字符串的截取
+	var str = '停车坐爱枫林晚';
+	var newStr = str.slice(2);		// 从索引2位置开始，截取到末尾
+	var newStr = str.slice(2,3)		// 从索引2开始，到索引3结束，[2,3) 要钱不要后
+	var newStr = str.slice(-2);
+	console.log(newStr);
+
+	// split() 分割,返回分割后的单元
+	var str = 'HTML$CSS$JavaScript';
+	var newStr = str.split('$');		// 使用指定的字符进行分割，还可以用正则
+	console.log(newStr);
+
+	// 定义字符串
+	var str = 'abccba';
+
+	// search() 搜索,返回第一个能否被匹配到结果的索引，不存在返回-1
+	var res = str.search('9');
+	console.log(res);
+
+	// indexOf() 正序查询
+	var res = str.indexOf('9');
+	console.log(res);
+	// lastIndexOf() 倒序查询
+	var res = str.lastIndexOf('9');
+	console.log(res)
+
+
+	// trim() 去除字符串左右两侧的空白符
+	var str = ' \n孙悟空 ';
+	var newStr = str.trim();
+	console.log(newStr.length);
+
+	// match() 在字符串中匹配结果，如果有返回数组信息，如果没有返回null
+	var str = 'abccba';
+	var res = str.match('a');
+	console.log(res);
+
+	// repeat
+	var newStr = 'a'.repeat(6);
+	console.log(newStr);
+
+	// replace() 替换 
+
+	// 敏感词汇：色情、暴力、反动、传播不良信息
+	// 在网站中进行替换 ***** 
+	var str = '男生厕所：枪支、迷药、包小姐：1383838438,迷药';
+
+	// 定义包含敏感词汇的数组
+	var dangerWords = ['枪支','迷药','包小姐','杨扬','法轮功'];
+
+	// 遍历数组
+	dangerWords.forEach(function(word){
+		// 使用正则表达式进行匹配和替换
+		var reg = new RegExp(word,'g');		// g 表示全局
+		// console.log(reg)
+
+		// console.log(word);
+		str = str.replace(reg,'*'.repeat(word.length));
+		// str = str.replace(word,'*'.repeat(word.length));
+	});
+	console.log(str);
+
+	// substr() 截取
+	// substring() 截取
+	var str = '这是中文英文混abcd合的字符串';
+	var newStr = str.substr(1);		// 从索引1位置开始截取到末尾
+	var newStr = str.substr(1,3);	// 从索引1位置开始取出3个
+	console.log(newStr);
+
+	// substring() 类似于substr
+	var newStr = str.substring(1);		// 从索引1开始，截取到末尾
+	var newStr = str.substring(1,3);	// 从索引1开始，索引3结束 [1,3) 要钱不要后
+	console.log(newStr); 
+
+</script>
+</html>

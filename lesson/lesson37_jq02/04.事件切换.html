@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		
+		.hover{background: yellow;}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>aaaaaaaaaaaa</li>
+		<li>bbbbbbbbbbbb</li>
+		<li>ccccccccccccc</li>
+		<li>dddddddddddd</li>
+	</ul>
+	<script src="../../lib/jquery-1.11.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		
+
+
+		$("li").hover(function () {
+			$(this).addClass("hover");
+		},function () {
+			$(this).removeClass("hover");
+		});
+
+
+	</script>	
+</body>
+</html>

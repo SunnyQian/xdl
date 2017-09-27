@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>break和continue关键字</title>
+</head>
+<body>
+</body>
+<script>
+	/*
+		break 	表示终止，停止当前层循环
+		continue 表示跳过，跳过当前层循环
+	*/
+
+	// 输出1-10之间的循环
+	for(var i=1;i<=10;i++){
+		document.write(i+' ');
+
+		// 输出5以后就停止输出
+		if(i==5){
+			break;
+		}
+	}
+
+	document.write('<hr />');
+
+	// 输出1-10之间的数，不输出5
+	for(var i=1;i<=10;i++){
+		// 判断是5
+		if(i==5){
+			// 跳过，在它后面的代码不再执行，直接到表达式3的位置
+			continue;
+		}
+
+		// 输出
+		document.write(i+' ');
+	}
+
+	// hr 水平线
+	document.write('<hr />');
+
+
+	/*
+		利用循环输出以下形状
+		01 02 03 04 05 06 07 08 09 10
+		11 12 13 14 15 16 17 18 19 20
+		21 22 23 24 25 26 27 28 29 30
+		31 32 33 34 35 36 37 38 39 40
+		41 42 43 44 45 46 47 48 49 50
+	*/
+	for(var i=1;i<=50;i++){
+		// 判断10以下的数要输出0
+		if(i<10){
+			document.write(0)
+		}
+
+		// 输出i
+		document.write(i+' ');
+
+		// 10的倍数
+		if(i%10==0){
+			document.write('<br />');
+		}
+	}
+
+	document.write('<hr />');
+
+
+	/*
+		100块钱100只鸡！
+
+			公鸡 5块钱/1只
+			母鸡 3块钱/1只
+			小鸡 1块钱/3只
+
+		问：
+			如何100块钱买100只鸡，公鸡多少，母鸡有多少，小鸡有多少！
+	*/
+
+	// 分别定义公鸡母鸡小鸡的数量x,y,z
+	// 枚举 把每一种情况都进行列举
+	for(var x=0;x<=100/5;x++){
+		for(var y=0;y<=100/3;y++){
+			for(var z=0;z<=100;z++){
+				// 条件
+				var num = x+y+z;
+				var money = x*5 + y*3 + z/3;
+
+				// 满足条件
+				if(num==100 && money==100){
+					document.write('公鸡: '+x);
+					document.write(' 母鸡: '+y);
+					document.write(' 小鸡: '+z);
+
+					// 换行
+					document.write('<br />');
+				}
+			}
+		}
+	}
+
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>监听事件</title>
+	<style>
+		div{
+			width:300px;
+			height:300px;
+			background:red;
+		}
+	</style>
+</head>
+<body>
+	<div id="memeda"></div>
+</body>
+<script>
+	// 获取元素
+	var memeda = document.getElementById('memeda');
+	
+	// 单击事件
+	memeda.onclick = function(){
+		console.log('别瞎点..')
+	}
+
+	// 重复赋值
+	memeda.onclick = function(){
+		console.log('我九点...');
+	}
+
+	// 绑定事件 addEventListener，允许监听同类型事件，进行多个处理方式
+	// memeda.addEventListener('eventType',callback)
+	memeda.addEventListener('click',function(){
+		console.log('addEventListener...');
+	});
+	memeda.addEventListener('click',function(){
+		console.log('这个位置也有反应le...');
+	})
+</script>
+</html>

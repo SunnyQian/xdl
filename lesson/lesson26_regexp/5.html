@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>元字符</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// {n} 修饰其前原子恰好出现n次
+	var patt = /ca{2}b/;		// aab
+	var str = 'zhe shi asb caasb aaabba';
+
+	// {n,} 修饰其前原子至少出现n次
+	var patt = /a{1,}b/;
+
+	// {n,m} 至少n次，最多m次
+	var patt = /a{1,2}b/;	// ab|aab
+
+	// 匹配
+	var res = patt.exec(str);
+	console.log(res);
+
+	// ^ 抑扬符 表示字符串的开始位置
+	// $ 表示的字符串结束位置
+
+	// 用户名 使用字母、下划线、数字组成，首字母不允许是数字,总共6-18位
+	var patt = /^[a-zA-Z_][a-zA-Z0-9_]{5,17}$/;
+
+	// 定义用户名
+	var username = 'abcdddasaskhfdkahdskjfhkahdkfhakdj';
+	var res = patt.exec(username);
+	console.log(res);
+
+	// \b 表示单词的边界位置 
+	// \B 表示单词的非边界位置
+	var str = 'this is a island!';
+
+	// 匹配is字符串
+	var patt = /\bis\b/g;
+	var patt = /\Bis\B/g;
+
+
+	// match() 字符串方法
+	var res = str.match(patt);
+	console.log(res);
+
+	// 匹配一个任意的unicode字符
+	var patt = /\u1234/;
+
+	console.log('\u1234');
+
+	var str = 'ሴI am a string';
+	var res = patt.exec(str);
+	console.log(res);
+
+	// 判断是否包含中文汉字 \u4E00-\u9FA5
+	console.log('\u4E00');
+	console.log('\u9FA5');
+
+	// [^\u4E00-\u9FA5] // 匹配非中文字符
+	// A \u0041 65 a 97
+	console.log('\u0061');
+
+	/*
+		计算机不认0、1以外的数字
+			每一个字符都进行编码，每一个字符对应是一个数字
+
+			ASCII码
+			中文	GBK GB2312 国标码
+			日本
+			韩国
+			印度
+			巴基斯坦
+
+			万国码：Unicode字符
+			utf-8
+	*/ 
+</script>
+</html>

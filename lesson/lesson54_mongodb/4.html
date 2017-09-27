@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单</title>
+
+	<!-- 设置 -->
+
+	<!-- 引入CSS文件 -->
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+
+	<!-- Bootstrap的js效果依赖于jQuery -->
+	<script src="./bootstrap/js/jquery.min.js"></script>
+
+	<!-- 引入JS文件 -->
+	<script src="./bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- 移动设备优先 -->
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no">
+
+	<!-- 使低版本的浏览器尽量以最高的形式解释文档 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body>
+	<h3>表单样式</h3>
+	<div class="container">
+		<form action="" class="">
+			<!-- 表单组  -->
+			<div class="form-group">
+				<label for="">账户</label>
+				<input type="text" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="">密码</label>
+				<input type="password" class="form-control">
+			</div>
+
+			<div class="form-group">
+				<button class="btn btn-primary">登录</button>
+			</div>
+		</form>
+		
+		<h3>水平排列的表单</h3>
+		<form action="" class="form-horizontal">
+			<div class="form-group">
+				<label for="" class="contrl-label col-xs-1 text-right">账户</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" placeholder="请输入账户名">	
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="" class="contrl-label col-xs-1 text-right">密码</label>
+				<div class="col-xs-6">
+					<input type="password" class="form-control">	
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="" class="control-label col-xs-1 text-right">性别</label>
+				<div class="col-xs-6">
+					<div class="radio-inline">
+						<label>
+							<input type="radio" name="sex" value="1">男
+						</label>
+						
+					</div>
+					<div class="radio-inline">
+						<label>
+							<input type="radio" name="sex" value="1">男
+						</label>
+					</div>
+					<div class="radio-inline">
+						<label>
+							<input type="radio" name="sex" value="1">男
+						</label>
+						
+					</div>
+				</div>	
+			</div>
+
+			<div class="form-group">
+				<label for="" class="control-label col-xs-1 text-right">爱好</label>
+				<div class="col-xs-6">
+					<div class="checkbox-inline">
+						<label>
+							<input type="checkbox" name="sex" value="1">篮球
+						</label>
+					</div>
+					<div class="checkbox-inline">
+						<label>
+							<input type="checkbox" name="sex" value="1">篮球
+						</label>
+					</div>
+					<div class="checkbox-inline">
+						<label>
+							<input type="checkbox" name="sex" value="1">篮球
+						</label>
+						
+					</div>
+				</div>	
+			</div>
+			<div class="form-group">
+				<label class="control-label col-xs-1 text-right">学历</label>
+				<div class="col-xs-6">
+					<select class="form-control" name="" id="">
+						<option value="幼儿园小班">幼儿园小班</option>
+						<option value="幼儿园中班">幼儿园中班</option>
+						<option value="幼儿园大班">幼儿园大班</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-xs-1 text-right">邮箱</label>
+				<div class="col-xs-6 form-control-static">
+					huxiaoshuai@qq.com
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-xs-1 text-right">签名</label>
+				<div class="col-xs-6">
+					<textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<button class="btn btn-success col-xs-offset-2">登录</button>
+				<button class="btn btn-danger">重置</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

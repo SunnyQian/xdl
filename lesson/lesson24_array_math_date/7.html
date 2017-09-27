@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组函数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// reduce() 数组方法
+
+	// 定义数组
+	var arr = [2,3,4,5];
+
+	// 计算数组的累加和
+
+	/*
+		prevValue 		上一个值
+		currentValue 	当前值
+		currentIndex 	当前索引
+		arrSelf			数组本身
+		initValue		初始化的值
+	*/
+	// arr.reduce(function(prevValue,currentValue,currentIndex,arrSelf){},initValue);
+	var res = arr.reduce(function(prevValue,currentValue){
+		// console.log(currentValue);
+		// console.log(prevValue);
+
+		// 上一次的值 累加 当前值
+		var value = prevValue + currentValue;
+		console.log(value);
+		// 返回
+		return value;
+	},0);
+
+	console.log(res);
+
+	// reduceRight() 类似于reduce()，只是从右向左依次执行
+
+
+	// 定义包含特定对象的数组
+	var users = [
+		{
+			uname : '诚诚',
+			money : 100
+		},
+		{
+			uname : '杨扬',
+			money : 2000
+		},
+		{
+			uname : '苍老师',
+			money : 10000
+		}	
+	];
+
+	// 过滤钱>1000的人
+	var youqianren = users.filter(function(item){
+		// console.log(item);
+		// if(item.money>1000){
+		// 	return true;
+		// }else{
+		// 	return false;
+		// }
+		
+		// 返回值
+		return item.money>1000;
+	});
+
+	console.log(youqianren);
+</script>
+</html>

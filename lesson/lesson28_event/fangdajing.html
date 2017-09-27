@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>放大镜</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		#show{
+			width:400px;
+			height:400px;
+			border:1px solid #ccc;
+			margin-left:100px;
+			margin-top:50px;
+			position:relative;
+			/*background:red;*/
+		}
+		#smallPic{
+			width:100%;
+			display:block;
+		}
+		#move{
+			width:160px;
+			height:160px;
+			background:rgba(255,242,0,0.3);
+			position:absolute;
+			left:0;
+			top:0;
+			cursor:move;
+			display:none;
+		}
+		#bigPic{
+			width:400px;
+			height:400px;
+			border:1px solid #ccc;
+			overflow:hidden;
+			position:absolute;
+			left:410px;
+			top:-1px;
+			display:none;
+		}
+		#bigImg{
+			position:absolute;
+			display:block;
+		}
+		#list{
+			width:400px;
+			height:100px;
+			border:1px solid #ccc;
+			margin-left:100px;
+			margin-top:2px;
+		}
+		#list img{
+			display:block;
+		}
+		#list li{
+			width:100px;
+			height:100px;
+			float:left;
+			list-style:none;
+		
+		}
+		#list li img{
+			width:100%;
+		}
+	</style>
+</head>
+<body>
+	<!-- 整个轮播图的显示区域 -->
+	<div id="show">
+		<img id="smallPic" src="./imgs/2.jpg" alt="">
+		<div id="move"></div>
+
+		<div id="bigPic">
+			<img id="bigImg" src="./imgs/2.jpg">
+		</div>
+	</div>
+	<div id="list">
+		<ul>
+			<li>
+				<img src="./imgs/2.jpg" alt="">
+			</li>
+			<li>
+				<img src="./imgs/3.jpg" alt="">
+			</li>
+			<li>
+				<img src="./imgs/4.jpg" alt="">
+			</li>
+			<li>
+				<img src="./imgs/5.jpg" alt="">
+			</li>
+		</ul>
+	</div>
+</body>
+<script>
+	// 获取元素
+	var show = document.getElementById('show');
+	var smallPic = document.getElementById('smallPic');
+	var move = document.getElementById('move');
+	var bigImg = document.getElementById('bigImg');
+	var bigPic = document.getElementById('bigPic');
+	var list = document.getElementById('list');
+
+	// 获取图片列表中所有的li
+	var lis = list.children[0].children;
+	// console.log(lis);
+
+	/*
+		小滑块中的内容 === 就是右侧大图显示的所有区域
+		move.width / show.width = bigPic.width / bigImg.width
+			?	/	400 	=	400 	/ 1000 ===? 
+			? = 
+	*/ 
+
+	// 鼠标移入时，小滑块和右侧大图显示
+	show.onmouseover = function(){
+		move.style.display = 'block';
+		bigPic.style.display = 'block';
+	}
+
+	// 鼠标移出
+	show.onmouseout = function(){
+		move.style.display = 'none';
+		bigPic.style.display = 'none';
+	}
+
+	// 研究小滑块的移动
+	show.onmousemove = function(e){
+		// 当前坐标点
+		// console.log(e.clientX+':'+e.clientY);
+
+		// 鼠标处于小滑块的几何中心
+		// 鼠标与滑块左上角的偏移值 = 小滑块自身宽度、高度的/2
+		// 小滑块的left = e.clientX - 小滑块.width/2 - show.offsetLeft
+		var newLeft = e.clientX - move.offsetWidth/2 - show.offsetLeft;
+		var newTop = e.clientY - move.offsetHeight/2 - show.offsetTop;
+
+		// 临界点判断 -- 水平方向
+		if(newLeft<=0){
+			newLeft = 0;
+		}
+
+		// 水平方向最大偏移值
+		console.log(show.offsetWidth);
+		console.log(move.offsetWidth);
+
+		// 减去show.border-width
+		var maxLeft = show.offsetWidth -1 - move.offsetWidth;
+		if(newLeft>=maxLeft){
+			newLeft = maxLeft;
+		}
+
+		// 临界点判断 --- 垂直方向
+		if(newTop<0){
+			newTop = 0;
+		}
+
+		// 垂直方向最大值
+		var maxTop = show.offsetHeight -1 - move.offsetHeight;
+		if(newTop>=maxTop){
+			newTop = maxTop;
+		}
+
+		/*
+			小滑块的.newLeft / show.offsetWidth = bigImg.left / bigImg.width
+		*/
+
+		// 右侧大图对应的偏移值
+		var newBigLeft = newLeft*bigImg.offsetWidth / show.offsetWidth;
+		var newBigTop = newTop*bigImg.offsetHeight / show.offsetHeight;
+
+
+		// 赋值
+		move.style.left = newLeft + 'px';
+		move.style.top = newTop + 'px';
+
+		// 赋值大图
+		bigImg.style.left = -newBigLeft+'px';
+		bigImg.style.top = -newBigTop+'px';
+	}
+
+	// 每一图片li都有鼠标移入事件
+	for(var i=0;i<lis.length;i++){
+		lis[i].onmouseover = function(){
+			// 知道我是谁?
+			// console.log(this.children[0].src);
+			var imgUrl = this.children[0].src;
+
+			// 将smallPic的图切换
+			smallPic.src = imgUrl
+			// 将bigImg的图切换
+			bigImg.src = imgUrl;
+		}
+	}
+</script>
+</html>

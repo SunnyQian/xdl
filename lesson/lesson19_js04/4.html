@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>问你们个问题</title>
+	<style>
+		table{
+			border:1px solid #ccc;
+			margin:0 auto;
+			border-collapse:collapse;
+		}
+
+		td{
+			border:1px solid #ccc;
+			height:30px;
+			width:60px;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+		函数 function
+			概念：一段完成指定任务的已命名的代码块 
+	*/
+
+	// 函数式编程
+
+	// 第一种方式：使用function关键字声明函数
+	function table(){
+		// 函数体
+		// 定义实现表格的函数
+
+		document.write('<table>');
+
+		// 控制行数
+		for(var i=0;i<8;i++){
+			document.write('<tr>');
+
+			// 控制输出列数
+			for(var j=0;j<8;j++){
+				document.write('<td></td>');
+			}
+
+			document.write('</tr>');
+		}
+
+		document.write('</table>');
+	}
+
+	// 函数调用
+	table();
+
+	// 第二种方式：以函数表达式的形式声明函数
+	var hello = function(){
+		alert('Hello Wolrd!');
+	}
+
+	// 调用
+	hello();
+
+	/*
+		第三种方式：使用特定的构造函数声明函数
+			new Function()
+				前面传递的都是参数
+				最后一个位置的参数相当于函数的函数体
+	*/ 
+	var memeda = new Function('username','alert(username)');
+
+	console.log(memeda);
+
+	// 函数调用
+	memeda('老王');
+</script>
+</html>

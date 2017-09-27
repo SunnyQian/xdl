@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>循环实现表格</title>
+	<style>
+		table{
+			width:666px;
+			height:400px;
+			border:1px solid #ccc;
+			margin:0 auto;
+
+			/* 
+				border-collapse 是否合并单元格边框
+					seperated 		分割
+					collapse 		合并
+			*/
+			border-collapse:collapse;
+		}
+
+		td{
+			border:1px solid #ccc;
+		}
+
+		/* 定义偶数行的背景颜色 */
+		.even{
+			background:red;
+		}
+
+		/* 定义奇数行的背景颜色 */
+		.odd{
+			background:yellow;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+		1. 考虑通过JS输出表格
+		2. 为了方便，为了更加简洁，使用循环控制行的输出
+		3. 在每一行中有很多列，以列为单位，重复显示列
+		4. 隔行换色：奇数行一个颜色，偶数行一个颜色
+	*/ 
+	document.write('<table>');
+
+	// 使用循环控制输出行
+	for(var i=0;i<7;i++){
+		// 定义变量类名，控制奇偶行的背景颜色
+		var className = i%2==0?'even':'odd';
+
+		// 在一行里面有多个列
+		document.write('<tr class="'+className+'">');
+
+		// 使用循环控制输出列
+		for(var j=0;j<8;j++){
+			document.write('<td></td>');
+		}
+		
+		document.write('</tr>');
+	}
+
+	document.write('</table>');
+
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// JSON 对象 --- 使用花括号{}定义对象
+	var obj = {
+		name : '张三',
+		age : 20,
+		sex : '男'
+	};
+
+	console.log(obj);
+
+	// JSON字符串 ： 结构上类似于 JSON对象 格式的字符串
+	var str = '{"name":"张三","age":20,"sex":"男"}';
+
+	// JSON 是数据的一种格式
+
+	// 将JSON对象转为JSON字符串
+	var objStr = JSON.stringify(obj);
+	console.log(objStr);
+
+	// 将JSON字符串转为JSON对象
+	var newObj = JSON.parse(str);
+
+	console.log(newObj);
+
+	// eval() 将符合JS语法结构的语句进行解析
+	// var str = 'var a = 10';
+
+	// 解析str语句
+	eval('var newObj2 = '+str);
+	console.log(newObj2);
+</script>
+</html>

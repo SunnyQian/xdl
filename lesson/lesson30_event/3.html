@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>防止用户复制文字/粘贴内容</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		#menu{
+			width:200px;
+			height:250px;
+			background:#F1F1F1;
+			box-shadow:0px 0px 25px 10px #ccc;
+			position:absolute;
+			left:0;
+			top:0;
+			display:none;
+		}
+
+		#menu ul li{
+			list-style:none;
+			height:30px;
+			width:100%;
+			/*background:red;*/
+			line-height:30px;
+			border-bottom:1px solid #fff;
+		}
+		#menu ul li span{
+			margin-left:20px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 定义文本域 -->
+	<textarea id="mark" rows="10" cols="40"></textarea>
+
+	<div id="menu">
+		<ul>
+			<li><span>新建文件</span></li>
+			<li><span>新建目录</span></li>
+			<li><span>重命名</span></li>
+		</ul>
+	</div>
+</body>
+<script>
+	/*
+		防止用户复制文字：
+			1. 右键复制
+			2. 快捷键 Ctrl+C
+	*/ 
+
+	// 获取元素
+	var mark = document.getElementById('mark');
+	var menu = document.getElementById('menu');
+
+	// 1. 将右键事件取消
+	mark.oncontextmenu = function(){
+		return false;
+	}
+
+	// 2. 将快捷键Ctrl+C(组合键)取消默认事件
+	mark.onkeydown = function(e){
+		// 判断是否是同时按下了ctrl+c
+		if(e.keyCode==67&&e.ctrlKey){
+			return false;
+		}
+
+		// 禁止用户粘贴
+		if(e.keyCode==86&&e.ctrlKey){
+	
+			alert('禁止粘贴文本');
+			// 终止默认事件
+			return false;
+		}
+	}
+
+	// 自定义右键菜单
+	window.oncontextmenu = function(e){
+		// 获取当前鼠标单击的位置
+		// console.log(e.clientX+':'+e.clientY)
+
+		// 遇到边界的临界点问题！--- 每个人补充写上！！！
+
+		// 设置元素显示
+		menu.style.display = 'block';
+
+		var x = e.clientX;
+		var y = e.clientY;	
+
+		var maxWidth = document.documentElement.clientWidth - menu.offsetWidth;
+		var maxHeight = document.documentElement.clientHeight - menu.offsetHeight;
+		console.log(maxWidth);
+		console.log(maxHeight);
+
+		if(x>=maxWidth){ 
+			x = maxWidth
+		}
+		if(y>=maxHeight){ 
+			y = maxHeight
+		}
+		
+
+		// 设置菜单div元素的位置
+		menu.style.left = x + 'px';
+		menu.style.top = y + 'px';
+
+
+		// 取消默认的右键事件
+		return false;
+	}
+
+	// 当单击menu自身时不隐藏
+	menu.onclick = function(e){
+		// 阻止冒泡事件，以免触发window的单击事件
+		// e.stopPropagation();
+
+		// 阻止冒泡
+		e.cancelBubble = true;
+	}
+
+	window.onclick = function(){
+		menu.style.display = 'none';
+	}
+
+	/*
+		阻止默认事件：
+			1. return false
+			2. e.preventDefault()
+
+		阻止事件冒泡：
+			1. e.stopPropagation()
+			2. e.cancelBubble = true
+	*/
+
+	/*
+		扩展：
+			1. 判断鼠标进入和移出div的方向
+			2. 锤子官网的轮播图特效(3D变换效果)
+			3. 使用键盘上下左右键控制div(小球)的移动
+	*/
+</script>
+</html>

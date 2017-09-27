@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组的排序</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// 如何交换两个变量的值
+	var a = 10;
+	var b = 20;
+
+	// 定义第三个变量
+	var t = a;
+	a = b;	// 将b赋值给a
+	b = t;	// 将t的值赋值给b
+
+	// console.log(a);
+	// console.log(b);
+
+	// 定义数组
+	var arr = [100,90,80,70,60];
+
+	// 数组排序：升序，值从小到大
+	// 取出两个值，相互比较 --- 5个比较4次
+
+	// 比较的位置
+	for(var j=0;j<arr.length-1;j++){
+		// 第一次比较
+		for(var i=0;i<arr.length-1-j;i++){
+			// i+1 最大值是4！
+			// 当前值和下一个值进行比较
+			if(arr[i]>arr[i+1]){
+				// 交换两个值
+				var t = arr[i];
+				arr[i] = arr[i+1];
+				arr[i+1] = t;
+			}
+		}
+	}
+
+	// 每一次都是将最大值向后移动：冒泡排序
+	console.log(arr);
+
+	var arr = [999,-20,0,2,1,45,5,9,888,666];
+
+	function sort_1(arr){ 
+		for(var i=0; i<arr.length-1; i++){
+			for(var j=0; j<arr.length-1-i; j++){ 
+				if(arr[j]>arr[j+1]){ 
+					var t = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = t;
+				} 
+			}
+		}
+	}
+	sort_1(arr);
+	console.log(arr);
+</script>
+</html>

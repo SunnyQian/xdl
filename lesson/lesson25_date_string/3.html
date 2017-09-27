@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网站时间</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		#time{
+			width:500px;
+			height:60px;
+			background:blue;
+			margin:0 auto;
+			margin-top:40px;
+			font-size:30px;
+			color:#fff;
+			text-align:center;
+			line-height:60px;
+			font-weight:bold;
+		}
+	</style>
+</head>
+<body>
+	<div id="time">
+		
+	</div>
+</body>
+<script>
+	// 获取元素
+	var time = document.getElementById('time');
+
+	// 定义设置时间字符串的函数
+	function setTime(){
+		// 网站的时间肯定是当前此刻的时间
+		var date = new Date();
+
+		// 获取年
+		var year = date.getFullYear();
+		// 获取月份
+		var month = zeroFill(date.getMonth()+1);
+
+		// 日 调用补充前导0函数
+		var day = zeroFill(date.getDate());
+		
+		// 小时
+		var hour = zeroFill(date.getHours());
+
+		// 分钟
+		var minute = zeroFill(date.getMinutes());
+
+		// 秒
+		var second = zeroFill(date.getSeconds());
+
+		// console.log(second);
+
+		// 定义包含星期的数组
+		var weeks = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六']
+		var week = weeks[date.getDay()];
+
+		// 定义时间字符串
+		var timeStr = year+'年'+month+'月'+day+'日 '+hour+':'+minute+':'+second+' '+week;
+
+		// 将时间字符串赋值给time
+		time.innerHTML = timeStr;
+	}
+
+	// 进入页面时要直接赋值一次
+	setTime();
+
+	// 设置定时器
+	setInterval(function(){
+		// 再次调用函数
+		setTime();
+	},1000);
+		
+
+	/**
+	* 定义补充前导0的函数 zeroFill()
+	*/
+	function zeroFill(num){
+		// 判断
+		if(num<10){
+			num = '0'+num;
+		}
+
+		// 返回
+		return num;
+	}
+
+</script>
+</html>

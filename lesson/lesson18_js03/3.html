@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>循环--do...while</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+		结构：
+			do{
+				// 循环体
+			}while(表达式条件)
+
+		do...while
+			上来就执行循环体，再判断表达式
+				满足条件，再次执行循环体，自动判断表达式
+				不满足，直接结束循环
+
+		while 
+			先判断是否满足条件
+				满足条件，执行循环体，自动判断表达式
+				不满足，结束循环
+
+		区别：
+			do...while 上来就揍，再问服不服？
+			while 	服吗？
+	*/
+
+	// 输出1-100之间的数
+	var i = 101;
+
+	do{
+		console.log(i);
+		// 改变i的值(趋向于结束循环的方向)
+		i++;
+	}while(i<=100);
+
+	console.log(i);
+</script>
+</html>

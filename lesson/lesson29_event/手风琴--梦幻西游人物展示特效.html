@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>手风琴--梦幻西游人物展示特效</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		html{
+			font-family:微软雅黑;
+		}
+		body{
+			background:#F5F7FB;
+		}
+		#roles{
+			width:960px;
+			height:230px;
+			/*background:red;*/
+			margin:0 auto;
+			margin-top:20px;
+		}
+		.zu{
+			/*width:;*/
+			float:left;
+		}
+
+		/* 每一个种族的名称 */
+		.zuname{
+			width:70px;
+			height:230px;
+			background:#3B8BED;
+			float:left;
+			position:relative;
+			cursor:pointer;
+		}
+		.zuname span{
+			display:block;
+			font-size:22px;
+			color:#FFF;
+			width:30px;
+			/*background:green;*/
+			text-align:center;
+			margin:0 auto;
+			margin-top:80px;
+			/*font-weight:bold;*/
+		}
+
+		/* 箭头 */
+		.arrow{
+			width:0;
+			height:0;
+			border-width:8px;
+			border-style:solid;
+			/*border-color:transparent;*/
+			/*border-left-color:#F24854;*/
+			border-color:transparent transparent transparent #F24854;
+			position:absolute;
+			top:50%;
+			right:-16px;
+			margin-top:-10px;
+			display:none;
+			z-index:10000;
+		}
+
+		/* 该种族下的所有人物角色 */
+		.role{
+			/* 960 - 70*3 = 750px */
+			width:0;
+			height:230px;
+			/*background:yellow;*/
+			/*display:none;*/
+			float:left;
+
+			/* 设置宽度过渡的效果 */
+			transition:width 0.3s linear;
+
+			/* 超出部分隐藏 */
+			overflow:hidden;
+		}
+
+		/* 每一个人物角色的样式 */
+		.role ul li{
+			list-style:none;
+			float:left;
+		}
+
+		/* 角色名称 */
+		.role .rolename{
+			width:60px;
+			height:228px;
+			background:#EAF1FA;
+			border:1px solid #fff;
+			float:left;
+			position:relative;
+			cursor:pointer;
+		}
+		.rolename .roletext{
+			width:20px;
+			font-size:16px;
+			height:54px;
+			/*background:blue;*/
+			text-align:center;
+			line-height:18px;
+			margin:0 auto;
+			margin-top:20px;
+			color:#3c3c3c;
+		}
+
+		.rolename .roleimg{
+			width:100%;
+			height:120px;
+			/*background-color:red;*/
+			background-repeat:no-repeat;
+			background-position:bottom center;
+			position:absolute;
+			bottom:20px;
+
+			/* 将页面所有色彩元素过滤为灰色 */
+			-webkit-filter:grayscale(100%);
+			fliter:grayscale(100%);
+		}
+
+		.rolename .line{
+			width:1px;
+			height:54px;
+			background:#bfd0e5;
+			display:block;
+			position:absolute;
+			top:20px;
+			left:-1px;
+			display:none;
+		}
+
+		/* 角色信息面板 */
+		.role .roleinfo{
+			/* 750px - 62*6 = 378px */
+			width:0;
+			height:230px;
+			background:#F5F9FF;
+			float:left;
+			background-repeat:no-repeat;
+			/*display:none;*/
+			transition:width 0.3s linear;
+		}
+
+
+
+
+		/* 当前显示的种族下的人物信息展示 */
+		#active .role{
+			/*display:block;*/
+			width:750px;
+		}
+		#active .zuname{
+			background:#F24854;
+		}
+		#active .arrow{
+			display:block;
+		}
+
+		/* 显示当前人物角色 */
+		.active_role .rolename{
+			background:#F5F9FF;
+			border-color:#F5F9FF;
+		}
+
+		.active_role .roleimg{
+			-webkit-filter:grayscale(0%);
+			filter:grayscale(0%);
+		}
+
+		.active_role .roleinfo{
+			/*display:block;*/
+			width:378px;
+		}
+
+		.active_role .line{
+			display:block;
+		}
+	</style>
+</head>
+<body>
+	<!-- 角色展示 -->
+	<div id="roles">
+		<div class="zu" id="active">
+			<div class="zuname">
+				<span>人族</span>
+				<div class="arrow"></div>
+			</div>
+			<div class="role">
+				<ul>
+					<!-- 每一个人物角色 -->
+					<li class="active_role">
+						<!-- 角色面板信息 -->
+						<div class="roleinfo" style="background-image:url(./imgs/ren/role_01.png)"></div>
+
+						<!-- 角色名称 -->
+						<div class="rolename">
+							<div class="roletext">剑侠客</div>
+							<div class="roleimg" style="background-image:url(./imgs/ren/jxk.png)"></div>
+							<span class="line"></span>
+						</div>
+					</li>
+					<li>
+						<!-- 角色面板信息 -->
+						<div class="roleinfo" style="background-image:url(./imgs/ren/role_02.png)"></div>
+
+						<!-- 角色名称 -->
+						<div class="rolename">
+							<div class="roletext">逍遥生</div>
+							<div class="roleimg" style="background-image:url(./imgs/ren/xiaoyao.png)"></div>
+							<span class="line"></span>
+						</div>
+					</li>
+					<li>
+						<!-- 角色面板信息 -->
+						<div class="roleinfo" style="background-image:url(./imgs/ren/role_03.png)"></div>
+
+						<!-- 角色名称 -->
+						<div class="rolename">
+							<div class="roletext">飞燕女</div>
+							<div class="roleimg" style="background-image:url(./imgs/ren/fyn.png)"></div>
+							<span class="line"></span>
+						</div>
+					</li>
+					<li>
+						<!-- 角色面板信息 -->
+						<div class="roleinfo" style="background-image:url(./imgs/ren/role_04.png)"></div>
+
+						<!-- 角色名称 -->
+						<div class="rolename">
+							<div class="roletext">英女侠</div>
+							<div class="roleimg" style="background-image:url(./imgs/ren/ynx.png)"></div>
+							<span class="line"></span>
+						</div>
+					</li>
+					<li>
+						<!-- 角色面板信息 -->
+						<div class="roleinfo" style="background-image:url(./imgs/ren/role_05.png)"></div>
+
+						<!-- 角色名称 -->
+						<div class="rolename">
+							<div class="roletext">巫蛮儿</div>
+							<div class="roleimg" style="background-image:url(./imgs/ren/mwomen.png)"></div>
+							<span class="line"></span>
+						</div>
+					</li>
+					<li>
+						<!-- 角色面板信息 -->
+						<div class="roleinfo" style="background-image:url(./imgs/ren/role_06.png)"></div>
+
+						<!-- 角色名称 -->
+						<div class="rolename">
+							<div class="roletext">偃无师</div>
+							<div class="roleimg" style="background-image:url(./imgs/ren/rn.png)"></div>
+							<span class="line"></span>
+						</div>
+					</li>
+					
+				</ul>
+			</div>
+		</div>
+		<div class="zu">
+			<div class="zuname">
+				<span>魔族</span>
+				<div class="arrow"></div>
+			</div>
+			<div class="role">
+				<ul>
+					<!-- 每一个人物角色 -->
+					<li class="active_role">
+						<!-- 角色面板信息 -->
+						<div class="roleinfo" style="background-image:url(./imgs/ren/role_01.png)"></div>
+
+						<!-- 角色名称 -->
+						<div class="rolename">
+							<div class="roletext">剑侠客</div>
+							<div class="roleimg" style="background-image:url(./imgs/ren/jxk.png)"></div>
+							<span class="line"></span>
+						</div>
+					</li>
+					<li>
+						<!-- 角色面板信息 -->
+						<div class="roleinfo" style="background-image:url(./imgs/ren/role_02.png)"></div>
+
+						<!-- 角色名称 -->
+						<div class="rolename">
+							<div class="roletext">逍遥生</div>
+							<div class="roleimg" style="background-image:url(./imgs/ren/xiaoyao.png)"></div>
+							<span class="line"></span>
+						</div>
+					</li>
+					<li>
+						<!-- 角色面板信息 -->
+						<div class="roleinfo" style="background-image:url(./imgs/ren/role_03.png)"></div>
+
+						<!-- 角色名称 -->
+						<div class="rolename">
+							<div class="roletext">飞燕女</div>
+							<div class="roleimg" style="background-image:url(./imgs/ren/fyn.png)"></div>
+							<span class="line"></span>
+						</div>
+					</li>
+					<li>
+						<!-- 角色面板信息 -->
+						<div class="roleinfo" style="background-image:url(./imgs/ren/role_04.png)"></div>
+
+						<!-- 角色名称 -->
+						<div class="rolename">
+							<div class="roletext">英女侠</div>
+							<div class="roleimg" style="background-image:url(./imgs/ren/ynx.png)"></div>
+							<span class="line"></span>
+						</div>
+					</li>
+					<li>
+						<!-- 角色面板信息 -->
+						<div class="roleinfo" style="background-image:url(./imgs/ren/role_05.png)"></div>
+
+						<!-- 角色名称 -->
+						<div class="rolename">
+							<div class="roletext">巫蛮儿</div>
+							<div class="roleimg" style="background-image:url(./imgs/ren/mwomen.png)"></div>
+							<span class="line"></span>
+						</div>
+					</li>
+					<li>
+						<!-- 角色面板信息 -->
+						<div class="roleinfo" style="background-image:url(./imgs/ren/role_06.png)"></div>
+
+						<!-- 角色名称 -->
+						<div class="rolename">
+							<div class="roletext">偃无师</div>
+							<div class="roleimg" style="background-image:url(./imgs/ren/rn.png)"></div>
+							<span class="line"></span>
+						</div>
+					</li>
+					
+				</ul>
+			</div>
+		</div>
+		<div class="zu">
+			<div class="zuname">
+				<span>仙族</span>
+				<div class="arrow"></div>
+			</div>
+			<div class="role">
+				<ul>
+					<!-- 每一个人物角色 -->
+					<li class="active_role">
+						<!-- 角色面板信息 -->
+						<div class="roleinfo" style="background-image:url(./imgs/ren/role_01.png)"></div>
+
+						<!-- 角色名称 -->
+						<div class="rolename">
+							<div class="roletext">剑侠客</div>
+							<div class="roleimg" style="background-image:url(./imgs/ren/jxk.png)"></div>
+							<span class="line"></span>
+						</div>
+					</li>
+					<li>
+						<!-- 角色面板信息 -->
+						<div class="roleinfo" style="background-image:url(./imgs/ren/role_02.png)"></div>
+
+						<!-- 角色名称 -->
+						<div class="rolename">
+							<div class="roletext">逍遥生</div>
+							<div class="roleimg" style="background-image:url(./imgs/ren/xiaoyao.png)"></div>
+							<span class="line"></span>
+						</div>
+					</li>
+					<li>
+						<!-- 角色面板信息 -->
+						<div class="roleinfo" style="background-image:url(./imgs/ren/role_03.png)"></div>
+
+						<!-- 角色名称 -->
+						<div class="rolename">
+							<div class="roletext">飞燕女</div>
+							<div class="roleimg" style="background-image:url(./imgs/ren/fyn.png)"></div>
+							<span class="line"></span>
+						</div>
+					</li>
+					<li>
+						<!-- 角色面板信息 -->
+						<div class="roleinfo" style="background-image:url(./imgs/ren/role_04.png)"></div>
+
+						<!-- 角色名称 -->
+						<div class="rolename">
+							<div class="roletext">英女侠</div>
+							<div class="roleimg" style="background-image:url(./imgs/ren/ynx.png)"></div>
+							<span class="line"></span>
+						</div>
+					</li>
+					<li>
+						<!-- 角色面板信息 -->
+						<div class="roleinfo" style="background-image:url(./imgs/ren/role_05.png)"></div>
+
+						<!-- 角色名称 -->
+						<div class="rolename">
+							<div class="roletext">巫蛮儿</div>
+							<div class="roleimg" style="background-image:url(./imgs/ren/mwomen.png)"></div>
+							<span class="line"></span>
+						</div>
+					</li>
+					<li>
+						<!-- 角色面板信息 -->
+						<div class="roleinfo" style="background-image:url(./imgs/ren/role_06.png)"></div>
+
+						<!-- 角色名称 -->
+						<div class="rolename">
+							<div class="roletext">偃无师</div>
+							<div class="roleimg" style="background-image:url(./imgs/ren/rn.png)"></div>
+							<span class="line"></span>
+						</div>
+					</li>
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	// 获取元素
+	var roles = document.getElementById('roles');
+
+	// 获取每一个种族
+	var zus = document.getElementsByClassName('zu');
+	// console.log(zus);
+
+	// 给每一个种族添加单击事件
+	for(var i=0;i<zus.length;i++){
+		zus[i].onclick = function(){
+			// 之前具有active选项的元素移除active属性值
+			var active = document.getElementById('active');
+			// console.log(active);
+
+			// 移除id
+			active.removeAttribute('id');
+
+			// 当前元素添加active选项
+			this.setAttribute('id','active');
+		}
+	}
+
+
+	// 获取所有的li元素 --- 只获取角色展示位置的li
+	var lis = roles.getElementsByTagName('li');
+	// console.log(lis);
+
+	// 创建定时器标记
+	var hover;
+
+	// 每一个元素的鼠标移入事件
+	for(var i=0;i<lis.length;i++){
+		/*
+			鼠标移入和移出是在鼠标进入或者离开元素时立刻触发！
+			有时候为了避免用户操作错误(有可能只是单纯的划过去，而不是为了想看对应的效果)，鼠标移入和移出事件进行延迟处理！
+		*/ 
+
+		// 证明用户真的想看 --- 在该元素上停留2s，显示
+
+		// 鼠标移入
+		lis[i].onmouseenter = function(){
+			// 只获取当前种族的角色下的active_role
+			// console.log(this.parentElement);
+
+			// 之前具有active_role属性值的元素移除该class属性
+			var active_role = this.parentElement.getElementsByClassName('active_role')[0];
+
+			// 存储当前对象
+			var selfThis = this;
+
+			// 设置定时器
+			hover = setTimeout(function(){
+				// 该值的this指向的是当前的回调函数 
+
+				// 当前具有类名active_role元素移除类名class
+				active_role.removeAttribute('class');
+
+				// 当前位置添加active_role属性
+				selfThis.setAttribute('class','active_role');
+			},500);
+		}
+
+		// 鼠标离开时停止定时器
+		lis[i].onmouseleave = function(){
+			// 清除之前的定时器
+			clearTimeout(hover);
+		}
+	}
+</script>
+</html>

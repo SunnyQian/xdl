@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>什么是闭包</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// 定义变量
+	var uname = '老王';
+
+	// 定义函数
+	function greet(){
+		// 定义局部变量
+		var uname = '老李';
+
+		// 函数的作用域是在函数声明时确定的！
+
+		// 定义函数
+		// function memeda(){
+			// console.log(uname);
+		// }	
+
+		// 将函数返回到当前函数体的外部	
+		return function(){
+			console.log(uname);
+		};
+	}
+
+	// 调用
+	var memeda = greet();
+
+	console.log(memeda);
+
+	// 调用函数
+	memeda();
+
+	/*
+		闭包的目的：
+			保留函数在定义时的作用域环境
+	*/
+</script>
+</html>

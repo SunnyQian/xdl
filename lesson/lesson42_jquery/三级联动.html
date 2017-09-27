@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>城市地址三级联动</title>
+	<!-- 引入jQuery -->
+	<script src="./js/jquery.min.js"></script>
+
+	<!-- 引入包含全国地址信息的js文件 -->
+	<script src="./js/location.js"></script>
+
+	<style>
+		#city,#county{
+			display:none;
+		}
+	</style>
+</head>
+<body>
+	地址：
+		<!-- 省份 -->
+		<select name="" id="pro">
+			<option value="">请选择</option>
+		</select>
+		<!-- 市 -->
+		<select name="" id="city">
+			<option value="">请选择</option>
+		</select>
+		<!-- 县 -->
+		<select name="" id="county">
+			<option value="">请选择</option>
+		</select>
+</body>
+<script>
+	// 定义包含城市地址信息的数组
+	/*
+	var citys = {
+		// 0 索引对应的就是所有的省份
+		'0':{
+			// 每一个省份有自己独有的编号
+			'1':'北京市',
+			'14' : '河北省',
+		},
+
+		// 0,n开头的字符，表示编号为n下的所有的市/区
+		'0,1':{
+			'2':'昌平区',
+			'3':'朝阳区',
+			'4':'海淀区'
+		},
+
+		// 昌平区下所有的地区
+		'0,1,2':{
+			'5':'回龙观',
+			'6':'霍营',
+			'7':'朱辛庄'
+		},
+
+		'0,1,3' : {
+			'8':'国贸',
+			'9':'望京',
+			'10':'三里屯'
+		},
+
+		'0,1,4' : {
+			11 : '海淀一区',
+			12 : '海淀二区',
+			13 : '海淀三区'
+		},
+
+		// 定义河北省
+		'0,14' : {
+			'15' : '唐山',
+			'16' : '石家庄',
+			'17' : '张家口'
+		},
+
+		'0,14,15' : {
+			'18' : '滦县',
+			'19' : '乐亭',
+			'20' : '唐山1区'
+		},
+
+		'0,14,16' : {
+			'21' : '赵县',
+			'22' : '赞皇',
+			'23' : '高邑'
+		},
+
+		'0,14,17' : {
+			'24' : '涿鹿',
+			'25' : '怀来',
+			'26' : '蔚县'
+		}
+	}
+	*/
+
+	// 获取所有的省份
+	var proStr = '<option value="">请选择</option>';
+
+	// 遍历所有的省份
+	// console.log(citys[0])
+	
+	// 遍历对象
+	for(var i in citys[0]){
+		// console.log(citys[0][i]);
+		proStr += '<option value="0,'+i+'">'+citys[0][i]+'</option>';
+	}
+
+	// 将省份字符串追加进入pro元素中
+	$('#pro').html(proStr);
+
+	// 省份的change事件
+	$('#pro').change(function(){
+		// 当前的值
+		// console.log($(this).val());
+		if($(this).val()==''){
+			// 将市和县进行隐藏
+			$('#city').hide();
+			$('#county').hide();
+
+			// 程序终止执行
+			return;
+		}
+
+		// 将市进行显示
+		$('#city').show();
+		// 将县隐藏
+		$('#county').hide();
+
+		// 当前对应的省份下的市的索引
+		// console.log($(this).val())
+		// 所有包含市信息的对象 citys[$(this).val()] citys['0,1']
+		// console.log(citys[$(this).val()]);
+		var cityIndex = $(this).val();
+
+		// 定义市对应的字符串
+		var cityStr = '<option value="">请选择</option>';
+
+		// 遍历该省份下的所有的市
+		for(var i in citys[cityIndex]){
+			// console.log(citys[cityIndex][i]);
+			cityStr += '<option value="'+cityIndex+','+i+'">'+citys[cityIndex][i]+'</option>';
+		}
+
+		// 将字符串写入到市
+		$('#city').html(cityStr);
+	});
+
+	// 市的change事件
+	$('#city').change(function(){
+		// 当前市的索引值
+		// console.log($(this).val());
+		if($(this).val()==''){
+			// 将县隐藏
+			$('#county').hide();
+
+			return;
+		}
+
+		// 将县显示
+		$('#county').show();
+
+		// 查询对应市下面所有的县
+		// console.log(citys[$(this).val()]);
+		var countyIndex = $(this).val();
+
+		// 初始化字符串
+		var countyStr = '<option value="">请选择</option>';
+
+		for(var i in citys[countyIndex]){
+			countyStr += '<option value="">'+citys[countyIndex][i]+'</option>';
+		}
+
+		// 将字符串信息写入县
+		$('#county').html(countyStr);
+
+	});
+
+</script>
+</html>

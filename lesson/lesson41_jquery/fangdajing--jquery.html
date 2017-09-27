@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>放大镜</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		#show{
+			width:400px;
+			height:400px;
+			border:1px solid #ccc;
+			margin-left:100px;
+			margin-top:50px;
+			position:relative;
+			/*background:red;*/
+		}
+		#smallPic{
+			width:100%;
+			display:block;
+		}
+		#move{
+			width:160px;
+			height:160px;
+			background:rgba(255,242,0,0.3);
+			position:absolute;
+			left:0;
+			top:0;
+			cursor:move;
+			display:none;
+		}
+		#bigPic{
+			width:400px;
+			height:400px;
+			border:1px solid #ccc;
+			overflow:hidden;
+			position:absolute;
+			left:410px;
+			top:-1px;
+			display:none;
+		}
+		#bigImg{
+			position:absolute;
+			display:block;
+		}
+		#list{
+			width:400px;
+			height:100px;
+			border:1px solid #ccc;
+			margin-left:100px;
+			margin-top:2px;
+		}
+		#list img{
+			display:block;
+		}
+		#list li{
+			width:100px;
+			height:100px;
+			float:left;
+			list-style:none;
+		
+		}
+		#list li img{
+			width:100%;
+		}
+	</style>
+
+	<!-- 引入jquery -->
+	<script src="./jquery.min.js"></script>
+</head>
+<body>
+	<!-- 整个轮播图的显示区域 -->
+	<div id="show">
+		<img id="smallPic" src="./imgs/2.jpg" alt="">
+		<div id="move"></div>
+
+		<div id="bigPic">
+			<img id="bigImg" src="./imgs/2.jpg">
+		</div>
+	</div>
+	<div id="list">
+		<ul>
+			<li>
+				<img src="./imgs/2.jpg" alt="">
+			</li>
+			<li>
+				<img src="./imgs/3.jpg" alt="">
+			</li>
+			<li>
+				<img src="./imgs/4.jpg" alt="">
+			</li>
+			<li>
+				<img src="./imgs/5.jpg" alt="">
+			</li>
+		</ul>
+	</div>
+</body>
+<script>
+	// 一、在图片上移动鼠标时，小滑块跟着移动，鼠标处于小滑块的中心位置
+	$('#show').mousemove(function(e){
+		// 将小滑块显示
+		$('#move,#bigPic').show();
+
+		// 跟随鼠标 设置move元素的left和top的值
+		// console.log(e.pageX);
+		var newLeft = e.pageX - $('#show').offset().left - $('#move').width()/2;
+		var newTop = e.pageY - $('#show').offset().top - $('#move').height()/2;
+
+		// 水平方向最大值
+		if(newLeft >= ($('#show').width()-$('#move').width())){
+			newLeft =  $('#show').width()-$('#move').width()
+		}
+		// 水平方向最小值
+		if(newLeft<=0){
+			newLeft = 0;
+		}
+
+		// 垂直方向最大值
+		if(newTop >= ($('#show').height()-$('#move').height())){
+			newTop =  $('#show').height()-$('#move').height()
+		}
+		// 垂直方向最小值
+		if(newTop<=0){
+			newTop = 0;
+		}
+
+		// 设置小滑块的样式
+		$('#move').css({
+			// 直接是数值，自动添加px；如果想手动写，必须字符串格式
+			left : newLeft,
+			top : newTop
+		});
+
+		/*
+			计算右侧大图img需要移动的位置
+				大图img水平方向偏移值/大图img自身的宽度 = newLeft(小滑块左侧偏移值) / show的宽度
+		*/ 
+
+		// 小滑块右移动，图片左移动
+		var newImgLeft = -$('#bigImg').width()*newLeft / $('#show').width();
+		var newImgTop = -$('#bigImg').height()*newTop / $('#show').height();
+
+		// 设置CSS样式
+		$('#bigImg').css({
+			left : newImgLeft,
+			top : newImgTop
+		});
+	}).mouseout(function(){
+		// 小滑块和右侧大图要隐藏
+		$('#move,#bigPic').hide();
+	});
+
+	// 商品列表图片切换
+	$('#list img').click(function(){
+		// 当前我是谁
+		// console.log($(this));
+
+		// src图片路径的值赋值给bigImg/show中smallPic
+		$('#smallPic').attr('src',$(this).attr('src'));
+		$('#bigImg').attr('src',$(this).attr('src'));
+	})
+</script>
+</html>

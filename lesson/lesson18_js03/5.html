@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>使用循环输出表格</title>
+
+	<style>
+		td{
+			height:40px;
+		}
+	
+		/*
+			偶数：
+				2n
+				even
+			奇数:
+				odd
+				2n+1
+		*/
+
+		/*
+		tr:nth-child(even){
+			background:red;
+		}
+		tr:nth-child(odd){
+			background:yellow;
+		}
+		*/
+	</style>
+</head>
+<body>
+	<!-- <table></table> -->
+</body>
+<script>
+	// 使用JS输出表格
+	
+	// 定义五行六列的表格
+
+	// 输出开始标签
+	document.write('<table border="1" align="center" width="666" cellspacing="0" cellpadding="3">');
+
+	// 使用循环，输出行
+	// 定义一行
+	for(var i=1;i<=8;i++){
+		// 隔行换色 偶数行一个颜色，奇数行一个颜色
+		/*
+		if(i%2==0){
+			// 开始标签
+			document.write('<tr bgcolor="red">');
+		}else{
+			document.write('<tr bgcolor="yellow">');
+		}
+		*/
+
+		// 定义变量bgColor
+		// var bgColor = 'yellow';
+		var bgColor = i%2==0?'yellow':'red';
+
+		// 输出行的开始
+		document.write('<tr bgcolor="'+bgColor+'">');
+
+		// 使用for循环定义列数
+		// 定义列
+		for(var j=1;j<=8;j++){
+			document.write('<td>'+i+'</td>');
+		}
+		
+		// 结束标签
+		document.write('</tr>');
+	}
+		
+
+	// 输出结束标签
+	document.write('</table>');
+</script>	
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>循环结构</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+		循环结构
+			while
+				while(表达式){
+					// 循环体
+				}
+
+				表达式成立，执行循环体;自动再次判断表达式
+					成立，执行循环体，重复流程
+					不成立，跳出循环
+
+			do...while
+			for
+	*/
+
+	// 计算1-100的累计和
+	var i = 101;
+	// 定义变量sum，接收累加和
+	var sum = 0;
+
+	/*
+		执行规则：
+			判断表达式是否成立
+				不成立，循环不执行，该干嘛干嘛去
+				成立，执行循环体，循环体执行完毕，自动再次判断表达式
+					不成立，跳出循环
+					成立，再来一遍....
+	*/
+	while(i<=100){
+		// console.log(i);
+
+		// 在页面中输出数据
+		document.write(i+'<br>');
+		// document.write('<br>');
+
+		// 每次让sum加上当前的值,重新给sum赋值
+		sum += i;	// sum = sum + i
+
+		// 改变i的值
+		i++;
+	}
+
+	console.log(sum);
+
+	// 计算1-100之间的所有偶数的累加和！
+	var i = 1;
+
+	// 定义变量sum接收累加和
+	var sum = 0;
+
+	while(i<=100){
+		// console.log(i);
+
+		// 将每一次的值(是偶数的值)进行累加！
+		/*
+		if(i%2==0){
+			sum += i;
+		}
+		*/
+
+		// 运算符的优先级问题
+		sum += i%2==0?i:0;
+		
+		// 改变i
+		i++;
+	}
+
+	// 输出sum的值
+	console.log(sum);
+
+
+
+
+</script>
+</html>

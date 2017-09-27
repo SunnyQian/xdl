@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>评价</title>
+	<style>
+		#show{
+			width:400px;
+			height:400px;
+			border:1px solid #CCC;
+			margin-top:5px;
+		}
+	</style>
+
+	<!-- 引入jQuery -->
+	<script src="./jquery.min.js"></script>
+</head>
+<body>
+	<button id="good" class="tab">好评</button>
+	<button id="soso" class="tab">中评</button>
+	<button id="bad" class="tab">差评</button>
+	<div id="show">
+		<ul>
+			<li>
+				这件衣服穿衣来跟没有穿一样，好评
+			</li>
+		</ul>
+	</div>
+</body>
+<script>
+	// 好评的单击事件
+	$('.tab').click(function(){
+		// 获取要请求的评价类型
+		var tabType = $(this).attr('id');
+		// console.log(tabType);
+
+		// 使用$.ajax发送
+		$.ajax({
+			url : './getComment.php',
+			type : 'get',
+			data : {
+				// 将请求的评价类型传递到服务器
+				tabType : tabType
+			},
+
+			// 约定返回的数据类型
+			dataType : 'json',
+
+			success:function(info){
+				// console.log(typeof info);
+				// console.log(info);
+
+				// 将字符串转为JS对象
+				// eval()将合法的JS语法结构字符串进行解析
+				// eval('var objInfo='+info);
+				// var objInfo = JSON.parse(info);
+
+				// 包含了评价信息的数组
+				// console.log(objInfo);
+
+				// 初始化字符串
+				var liStr = '';
+
+				info.forEach(function(item,index,arrSelf){
+					liStr += '<li>'+item+'</li>';
+				});
+
+			
+
+				// 赋值
+				$('#show>ul').html(liStr);
+
+			},
+			error : function(errInfo){
+				console.log(errInfo);
+			}
+		});
+	});
+</script>
+</html>

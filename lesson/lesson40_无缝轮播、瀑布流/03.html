@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../../lib/jquery-1.11.1/jquery.min.js"></script>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}	
+		ul,ol{list-style: none;}
+		#play {
+			width: 500px;
+			height: 280px;
+			margin: 50px auto;
+			overflow: hidden;
+			position: relative;
+		}
+		#play ul.img{
+			height: 280px;
+			position: absolute;
+		}
+		#play ul.img li{
+			float: left;	
+
+		}
+		#play ul.img li img{
+			width: 500px;
+			height: 280px;
+		}
+		
+		#play .ol{
+			position: absolute;
+			bottom: 10px;
+			left:217px;
+		}
+
+		#play .ol li{
+			width: 10px;
+			height: 10px;
+			border:1px solid green;
+			float: left;
+			margin: 2px;
+			border-radius: 50%;
+		}
+
+		#play .prev,#play .next{
+			font-size: 28px;
+			padding: 5px;
+			position: absolute;
+			top: 110px;
+			display: none;
+		}
+		#play .prev{
+			left:10px;
+		}
+		#play .next{
+			right:10px;
+		}
+
+		.bg{background: #FFF;}
+	</style>
+</head>
+<body>
+	<div id="play">
+		<ul class="img">
+			<li><img src="images/1.jpg"></li>
+			<li><img src="images/2.jpg"></li>
+			<li><img src="images/3.jpg"></li>
+			<li><img src="images/4.jpg"></li>
+		</ul>
+		<ol class="ol">
+			<li class="bg"></li>	
+			<li></li>
+			<li></li>
+			<li></li>
+		</ol>
+		<button class="prev"> &lt; </button>
+		<button class="next"> &gt; </button>
+	</div>
+	<script type="text/javascript">
+		// 获取一下幻灯片容器的宽度
+		var w = $('#play').width();	
+
+		// 默认0 默认显示 第 0 张
+		var i = 0;
+
+		// 自动播放的时间
+		var autoTime = 4000;
+
+		// 自动播放的定时器
+		var autoPlaytime
+
+		// 克隆第一张图片
+		var firstImg = $('.img li').first().clone();
+
+		// 把克隆的第一张图片z追加在 ul 容器之后 。设置 ul 宽度
+		$('#play .img').append(firstImg).width(w*$('.img li').length);
+
+		// 下一张
+		$('#play .next').click(function(){
+			// alert();
+			i++;
+			// 自行动画
+			moveImg();
+		});
+
+		// 上一张
+		$('#play .prev').click(function(){
+			i--;
+			// 自行动画
+			moveImg();
+		})
+
+		// 自动播放
+		function autoPlay(){
+			autoPlaytime = setInterval(function(){
+				i++;
+				// 自行动画
+				moveImg();
+			},autoTime);			
+		}
+
+		// 鼠标移入幻灯片
+		$('#play').mouseover(function(){
+			// 清除自动播放的定时器
+			clearInterval(autoPlaytime);
+			// 显示按钮
+			$('.prev,.next').show();
+		}).mouseout(function(){
+			// 调用自动播放的函数
+			autoPlay();
+			// 隐藏按钮
+			$('.prev,.next').hide();
+		})
+
+
+		$('#play .ol li').click(function(){
+			//  index()  返回当前对象的索引
+			i = $(this).index();
+			// 自行动画
+			moveImg();
+		});
+
+
+		// 移动到指定的图片
+		function moveImg(){
+			// alert(i);
+			// 之前是最后一张图片
+			if(i==$('.img li').length){
+				$('.img').css({left:0});
+				i = 1;
+			}
+			// 之前第一张图片
+			if(i==-1){
+				$('.img').css({left:($('.img li').length-1)*-w});
+				i = $('.img li').length - 2;
+			}
+
+			if(i == $('.img li').length-1){
+				$('ol li').eq(0).addClass('bg').siblings().removeClass('bg');
+			}else{
+				// 图片的标记
+				$('.ol li').eq(i).addClass('bg').siblings().removeClass('bg');
+			}
+
+
+
+			// 执行动画
+			$('#play .img').stop().animate({left:-i*w},500);	
+		}
+
+
+	</script>
+</body>
+</html>

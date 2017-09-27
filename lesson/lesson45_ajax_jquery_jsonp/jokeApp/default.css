@@ -1,0 +1,51 @@
+/* 去除元素的内外边距 */
+*{
+	margin:0;
+	padding:0;
+}
+li{
+	list-style:none;
+}
+
+/* 顶部的导航样式开始 */
+header{
+	width:100%;
+	height:40px;
+	background:#FFD52B;
+}
+nav>ul>li{
+	width:50%;
+	height:40px;
+	float:left;
+	/*background:blue;*/
+	text-align:center;
+	line-height:40px;
+	font-size:20px;
+	color:#FFF;
+}
+nav>ul>.active{
+	background:#FFE36F;
+}
+/* 顶部的导航样式结束 */
+
+/* 笑话的容器样式开始 */
+#joke{
+	width:90%;
+	height:auto; 
+	/*background:blue;*/
+	margin:0 auto;
+	margin-top:20px;
+
+}
+#content{
+	width:100%;
+}
+#next{
+	display:block;
+	width:80px;
+	height:30px;
+	line-height:30px;
+	margin:0 auto;
+	margin-top:20px;
+}
+/* 笑话的容器样式结束 */

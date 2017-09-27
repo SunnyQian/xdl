@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../../lib/jquery-1.11.1/jquery.min.js"></script>
+	<style type="text/css">
+		ul{list-style: none;}
+		li{margin-top: 10px;}
+		.box{width: 400px;height: 100px;border:1px solid blue;}
+
+	</style>
+</head>
+<body>
+	<ul>
+		<li><input type="number" name=""></li>
+		<li><button>查看金庸小说人物排名</button></li>
+		<li class="box"></li>
+	</ul>
+
+	<script type="text/javascript">
+
+		$('button').click(function(){
+			// alert($('.box').html());
+			$('.box').html(function(){
+				switch ($('input').val()) {
+					case '1':
+						return '扫地僧';
+						break;
+					case '2':
+						return '前朝太监';
+						break;
+					case '3':
+						return '独孤求败';
+						break;
+					default:
+						return '老子天下第一';
+						break;
+				}
+			});
+		})
+		
+	</script>	
+
+</body>
+</html>

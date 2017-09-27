@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.box{width:500px;height:500px;border:1px solid green;}
+	</style>
+</head>
+<body>
+	<div class="box" id="box"></div>
+	<button onclick="addA()">添加一个超链接</button>
+	<button onclick="addImg()">添加一个img</button>
+	<button onclick="addImgA()">添加一个带链接的图片</button>
+
+
+	<script type="text/javascript">
+		
+		function addA(){
+			// 1. 创建一个节点
+			var aNode = document.createElement('a');
+			// 2.给节点添加内容
+			aNode.innerHTML = '百度一下';
+			// 3. 添加属性
+			aNode.href = 'http://www.baidu.com';
+
+			// 4. 获取父级元素
+			var Box = document.getElementById('box');
+
+			Box.appendChild(aNode);
+			// console.log(aNode);
+			// alert(aNode);
+		}
+
+
+		function addImg(){
+			// 1. 创建节点
+			var imgObj = document.createElement('img');
+			imgObj.src = 'images/16.jpg';	
+			imgObj.width = '300';
+			// 4. 获取父级元素
+			var Box = document.getElementById('box');
+			Box.appendChild(imgObj);	
+		} 
+
+		function addImgA(){
+			// 创建节点
+			var aObj = document.createElement('a');	
+			var imgObj = document.createElement('img');	
+			// 给节点添加属性
+			aObj.href = 'http://www.sina.com';
+			imgObj.src = "images/16.jpg";
+			imgObj.width = '400';
+
+			aObj.appendChild(imgObj);
+
+			// 4. 获取父级元素
+			var Box = document.getElementById('box');
+
+			// 追加一个子节点	
+			Box.appendChild(aObj);
+
+		}
+
+	</script>
+
+
+
+</body>
+</html>

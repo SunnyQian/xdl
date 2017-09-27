@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组函数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	* 定义函数：实现获取数组中的最大值
+	*/
+
+	// 定义数组
+	var arr = [[500,0,190,108],300,0,-1,-2,-4,-5];
+
+	/**
+	* 定义获取数组最大值的函数 maxValue()
+	*/
+	function maxValue(arr){
+		// console.log(arr);
+
+		// 定义初始变量
+		var max;
+
+		// 遍历arr
+		// arr.forEach(function(value){});
+		arr.forEach(function(value){
+			// console.log(value);
+
+			// 判断当前的值是数还是一个数组
+			if(Array.isArray(value)){
+				// 针对数组调用获取最大值的函数
+				// 判断
+				if(max==undefined){
+					max = maxValue(value);
+				}else{
+					if(maxValue(value)>max){
+						// 将针对该数组调用获取的最大值赋值给max
+						max = maxValue(value);
+					}
+				}		
+			}else{
+				// 第一次比较
+				if(max==undefined){
+					max = value;
+				}else{
+					// 判断max的值和value值的大小
+					if(value>max){
+						max = value;
+					}
+				}
+			}	
+		});
+
+		// 返回最大值
+		return max;
+	}
+
+	// 调用函数
+	var max = maxValue(arr);
+	console.log(max);
+
+	// 计算数组单元的个数
+	// var arr = [1,2,34,[2,3,5]];
+	// console.log(arr.length);
+
+	// 一维数组
+	var arr = [1,2,3,6,[2,3,4,[2,3,4]],4];
+
+	// 自定义函数计算数组单元的个数
+	function arrCount(arr){
+		// 定义变量 num，计算数量
+		var num = 0;
+
+		// 将数组单元进行遍历，有一个计数1次
+		arr.forEach(function(value){
+			num++;
+
+			// 判断当前的value是否是一个数组
+			if(Array.isArray(value)){
+				// 针对当前数组调用获取数组单元个数的函数
+				num += arrCount(value);
+			}
+		});
+
+		// 返回结果
+		return num;
+	}
+
+	// 调用
+	var num = arrCount(arr);
+	console.log(num);
+</script>
+</html>

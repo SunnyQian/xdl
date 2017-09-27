@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form action="http://www.baidu.com" onsubmit="return test()">
+		暗号：<input type="text" onfocus="this.style.background='red'" onblur="this.style.background='blue'" id="token" name="token">	
+		<input type="submit">
+	</form>	
+	<script type="text/javascript">
+
+		//  9527
+		//  阻断表单提交的一种方法。
+		function test(){
+			var token = document.getElementById('token').value;
+			if(token=='9527'){
+				return true;
+			}else{
+				return false;
+			}
+		}
+
+	</script>
+</body>
+</html>

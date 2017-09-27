@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		/*div{width:100px;height: 100px;}*/
+
+		.box{
+			width: 100px;
+			height: 100px;
+			border:1px solid green;
+		}
+
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>	
+
+	<button id="btn">btn</button>
+	<button id="btn1">btn</button>
+
+
+	<hr>
+
+
+	<div class="box">牛逼</div>
+
+	<script src="../../lib/jquery-1.11.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		
+/*
+		$('div').css('background','yellow');
+
+
+		var Btn = document.getElementById('btn');
+
+		Btn.onclick = function(){
+			alert('ok');
+		}
+
+		// 函数方法化
+		$('#btn1').click(function(){
+			alert('ookk');
+		})
+*/
+
+		// 链式操作
+		$('.box').css('background','#ccc')
+		.css('color','red').click(function(){
+			console.log('ok');
+		}).mouseout(function(){
+			$(this).css('background','yellow');
+		}).mouseover(function(){
+			$(this).css('fontSize','30px');
+		});
+
+
+		alert($('.box').html('好牛逼'));
+
+
+		$(function(){
+
+
+			alert('okaaa')
+		})
+
+
+		alert('11111');
+
+	</script>
+
+</body>
+</html>

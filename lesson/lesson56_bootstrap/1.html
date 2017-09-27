@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bootstrap的基本使用</title>
+
+	<!-- 设置 -->
+
+	<!-- 引入CSS文件 -->
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+
+	<!-- Bootstrap的js效果依赖于jQuery -->
+	<script src="./bootstrap/js/jquery.min.js"></script>
+
+	<!-- 引入JS文件 -->
+	<script src="./bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- 移动设备优先 -->
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no">
+
+	<!-- 使低版本的浏览器尽量以最高的形式解释文档 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body>
+	<div class="container">
+		<!-- 巨幕 -->
+		<div class="jumbotron">
+			<h1 class="text-center">Hello H5!</h1>
+			<p class="text-center">
+				好吧好吧好吧好吧好吧好吧好吧好吧好吧好吧好吧好吧
+			</p>
+			<img class="center-block" src="./1.png" alt="">
+		</div>
+
+		<div class="page-header">
+		  <h1>Example page header <small>Subtext for header</small></h1>
+		</div>
+
+
+		<h3>警告框</h3>
+		<div class="alert alert-success">
+			恭喜你，注册成功!
+			<span class="close" data-dismiss="alert">
+				&times;
+			</span>
+		</div>
+		<div class="alert alert-danger" data-dismiss="alert">
+			恭喜你，注册成功!
+			<span class="close">
+				&times;
+			</span>
+		</div>
+		<div class="alert alert-warning" data-dismiss="alert">
+			恭喜你，注册成功!
+			<span class="close">
+				&times;
+			</span>
+		</div>
+		<div class="alert alert-info" data-dismiss="alert">
+			恭喜你，注册成功!
+			<span class="close">
+				&times;
+			</span>
+		</div>
+
+		<h3>进度条</h3>
+		<div class="progress">
+			<div class="progress-bar progress-bar-success active progress-bar-striped" style="width:60%">50%</div>
+		</div>
+		<div class="progress">
+			<div class="progress-bar progress-bar-danger" style="width:20%" >0%</div>
+		</div>
+
+		<h3>组合进度条</h3>
+		<div class="progress">
+			<div class="progress-bar progress-bar-success" style="width:20%"></div>
+			<div class="progress-bar progress-bar-danger" style="width:20%"></div>
+			<div class="progress-bar progress-bar-warning" style="width:20%"></div>
+			<div class="progress-bar progress-bar-info" style="width:20%"></div>
+		</div>
+	</div>
+</body>
+</html>

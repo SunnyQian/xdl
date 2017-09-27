@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		img{border: 5px solid #FFF;}	
+
+	</style>
+</head>
+<body>
+	<img index="0" src="images/1.jpg" alt="">
+	<img index="1" src="images/2.jpg" alt="">
+	<img index="2" src="images/3.jpg" alt="">
+	<img index="3" src="images/4.jpg" alt="">
+	<img index="4" src="images/5.jpg" alt="">
+	<img index="5" src="images/6.jpg" alt="">		
+
+	<script type="text/javascript">
+		// 获取对象
+		var Imgs = document.getElementsByTagName('img');	
+		for(var i=0;i<Imgs.length;i++){
+			// 给每个图片绑定事件
+			Imgs[i].onclick = function(){
+				// 获取当前点击图片的索引
+				var num = this.getAttribute('index');
+				// 
+				for(var j=0;j<Imgs.length;j++){
+					if(num==j){
+						// 选择 添加边框
+						Imgs[num].style.border = '5px solid green';
+					}else{
+						// 没有选择加默认样式
+						Imgs[j].style.border = '5px solid #FFF';
+					}
+				}
+			}
+		}
+	</script>
+</body>
+</html>

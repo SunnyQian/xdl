@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>元字符</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// . 匹配除了换行符以外的任意一个字符
+
+	// ? 修饰其前原子的数量为0个或1个
+	var patt = /a?b/;	// 相当于 [ab|b]
+
+	// 定义字符串
+	var str = 'this axxoob ab zifuchuan';
+
+	var res = patt.exec(str);
+	console.log(res);
+
+	/*
+		+ 修饰其前原子出现1个或多个
+			贪婪模式：匹配数据尽可能多的结果
+			拒绝贪婪模式：.+?
+	*/ 
+	// var patt = /a+b/;	// ab aab aaaab aaaaaaab ...
+	// var patt = /a.+b/;		// 有贪婪模式	
+	var patt = /a.+?b/;		// 拒绝贪婪模式	
+	var res = patt.exec(str);
+	console.log(res);
+
+	// 字符串
+	var str = '<img title="百度" src="http://www.baidu.com/bd-logo.png" alt="没有正常加载" />';
+
+	// 正则表达式中元字符 () 模式单元，匹配的到数据会在返回的结果中显示
+
+	// 获取图片的地址
+	var patt = /<img.+?src="(.+?)".+\/>/;
+
+	var res = patt.exec(str);
+	console.log(res);
+
+	/*
+		* 修饰其前原子出现0次、1次或多次
+			具有贪婪模式，获取最多的结果
+	*/ 
+	var str = 'abcasdkajhdkjac';
+	// var patt = /a.*c/;	// 贪婪模式
+	var patt = /a.*?c/;		// 拒绝贪婪模式
+	var res = patt.exec(str);
+	console.log(res);
+</script>
+</html>

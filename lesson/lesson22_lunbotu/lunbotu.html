@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>京东轮播图</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		#lun{
+			width:790px;
+			height:340px;
+			border:1px solid #ccc;
+			margin:0 auto;
+			margin-top:40px;
+			position:relative;
+			/*overflow:hidden;*/
+		}
+		a{
+			text-decoration:none;
+		}
+		li{
+			list-style:none;
+		}
+		#lun>ul>li>img{
+			display:block;
+		}
+		#lun>ul>li{
+			position:absolute;
+			top:0;
+			left:0;
+			/*display:none;*/
+			opacity:0;
+
+			/* 过渡 */
+			transition:opacity 0.4s linear;
+		}
+		#lun>ul>.active{
+			/*display:block;*/
+			opacity:1;
+		}
+
+		#list-circle{
+			width:200px;
+			height:20px;
+			background:rgba(255,255,255,0.5);
+			border-radius:20px;
+			position:absolute;
+			bottom:22px;
+			/*margin:0 auto;*/
+
+			/* 设置元素距离左侧 50% */
+			left:50%;
+
+			/* 向左偏移自身宽度的一半 */
+			margin-left:-100px;
+		}
+
+		#list-circle>ul>li{
+			width:12px;
+			height:12px;
+			border-radius:50%;
+			background:#fff;
+			float:left;
+
+			/*  (200-12*8)/9  */
+			margin-left:11.5px;
+			margin-top:4px;
+		}
+		#list-circle>ul>.list-active{
+			background:#f00;
+		}
+
+		/* 左右箭头的样式 */
+		#left,#right{
+			width:30px;
+			height:60px;
+			background:rgba(0,0,0,0.3);
+			color:#fff;
+			position:absolute;
+			top:50%;
+			margin-top:-30px;
+			font-size:20px;
+			text-align:center;
+			line-height:60px;
+			display:none;
+
+			/* 设置鼠标样式 */
+			cursor:pointer;		/* pointer 小手 */
+
+			/* 左右箭头中的文本不允许被选中 */
+			-ms-user-select:none;
+			-moz-user-select:none;
+			-webkit-user-select:none;
+			user-select:none;
+		}
+		#right{
+			right:0;
+		}
+
+		#left:hover,#right:hover{
+			background:rgba(0,0,0,0.5);
+		}
+	</style>
+</head>
+<body>
+	<!-- 页面布局 -->
+	<div id="lun">
+		<ul>
+			<li class="active"><a href=""><img src="./imgs/1.jpg" alt=""></a></li>
+			<li><a href=""><img src="./imgs/2.jpg" alt=""></a></li>
+			<li><a href=""><img src="./imgs/3.jpg" alt=""></a></li>
+			<li><a href=""><img src="./imgs/4.jpg" alt=""></a></li>
+			<li><a href=""><img src="./imgs/5.jpg" alt=""></a></li>
+			<li><a href=""><img src="./imgs/6.jpg" alt=""></a></li>
+			<li><a href=""><img src="./imgs/7.jpg" alt=""></a></li>
+			<li><a href=""><img src="./imgs/8.jpg" alt=""></a></li>
+		</ul>
+
+		<!-- 轮播图底部的轮播圆点 -->
+		<div id="list-circle">
+			<ul>
+				<li class="list-active"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+
+		<!-- 定义左右箭头 -->
+		<div id="left"><</div>
+		<div id="right">></div>
+	</div>
+</body>
+<script>
+	// 将类名active赋值给li，当前这个li就是显示的
+
+	// 轮播图：周期内进行轮播显示
+
+	// 获取当前的轮播图容器
+	var lun = document.getElementById('lun');
+
+	// 获取容器下的ul 
+	// .children 获取该元素下的所有子级元素
+	// console.log(lun.children);
+
+	// lun的第一个子元素
+	// console.log(lun.children[0]);
+
+	// 获取轮播图下的所有li元素
+	var lis = lun.children[0].children;
+	console.log(lis);
+
+	// 获取所有的轮播圆点li元素
+	var listCircle = document.getElementById('list-circle');
+	var lists = listCircle.children[0].children;
+	// console.log(lists);
+
+	// 获取左右箭头
+	var left = document.getElementById('left');
+	var right = document.getElementById('right');
+
+
+	// 定义变量index，表示当前显示的图片索引
+	var index = 0;
+
+	// 获取轮播图的li元素数量
+	var len = lis.length;
+	// console.log(len);
+
+	// 当前显示的li
+	// console.log(lis[index]);
+
+	// 轮播图的轮显时间为2s
+
+	// 定义轮播图显示的标记
+	var run;
+
+	// 将轮播图封装函数
+	function autoRun(){
+		// 定时器 setInterval 返回一个标记
+		run = setInterval(function(){
+			// 当前显示的元素li，移除类名class，下一个li元素添加类名class=active
+			lis[index].removeAttribute('class'); 
+
+			// 当前轮播的圆点移除类名
+			lists[index].removeAttribute('class');
+
+			// 当前索引++
+			index++;
+
+			// 判断右侧最大值的临界点
+			if(index==8){
+				// 重置为0
+				index = 0;
+			}
+
+			// 下一个显示
+			lis[index].setAttribute('class','active');
+			// 下一个圆点显示
+			lists[index].setAttribute('class','list-active');
+		},2000)
+	}
+
+	// 调用轮播图函数
+	autoRun();
+		
+
+	// console.log(run);
+	// 停止计时器/定时器
+	// clearInterval(run);
+
+
+	// 当鼠标移入轮播图，轮播暂停显示
+	lun.onmouseover = function(){
+		// 停止定时器
+		clearInterval(run);
+
+		// 显示左右箭头
+		left.style.display = 'block';
+		right.style.display = 'block';
+	}
+	// 当鼠标移出轮播图，轮播继续
+	lun.onmouseout = function(){
+		// 再次调用轮播图函数
+		autoRun();
+
+		// 隐藏左右箭头
+		left.style.display = 'none';
+		right.style.display = 'none';
+	}
+
+	// 针对轮播图的轮播圆点有鼠标移入和移出事件
+	for(var i=0;i<lists.length;i++){
+		// 移入
+		lists[i].onmouseover = (function(i){
+			// 当前显示的li索引
+			// console.log(index);
+
+			// 要显示的li索引？
+			// console.log(i);
+
+			return function(){
+				// console.log(i);
+
+				// 当前显示的li、和圆点移除类名
+				lis[index].removeAttribute('class');
+				lists[index].removeAttribute('class');
+
+				// 修改索引,将当前的对应的i索引赋值给index
+				index = i; 
+
+				// 要显示的li和圆点添加类名
+				lis[index].setAttribute('class','active');
+				lists[index].setAttribute('class','list-active');
+			}
+		})(i)
+
+		// 移出
+		lists[i].onmouseout = function(){
+
+		}
+	}
+		
+	// 右键头的单击事件
+	right.onclick = function(){
+		// 当前隐藏 index
+		lis[index].removeAttribute('class');
+		lists[index].removeAttribute('class');
+
+		// 下一个显示
+		index++;
+
+		// 最大值临界点
+		if(index==len){
+			index = 0; 
+		} 
+
+		// 显示
+		lis[index].setAttribute('class','active');
+		lists[index].setAttribute('class','list-active');
+	}
+
+	// 左箭头的单击事件
+	left.onclick = function(){
+		// 当前隐藏
+		lis[index].removeAttribute('class');
+		lists[index].removeAttribute('class');
+
+		// 上一个显示
+		index--;
+
+		// 最小值的临界点
+		if(index<0){
+			// 最后一张的index索引是长度-1
+			index = len - 1;
+		}
+
+		// 显示
+		lis[index].setAttribute('class','active');
+		lists[index].setAttribute('class','list-active');
+	}
+</script>
+</html>

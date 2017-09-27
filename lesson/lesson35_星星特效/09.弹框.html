@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<button onclick="gogo()">约吗？</button>	
+
+	<a href="http://www.baidu.com" onclick="return confirm('你要去百度吗？')">百度</a>
+
+
+	<button onclick="test()">提示框</button>
+	<script type="text/javascript">
+		
+		// alert()
+
+		// 确认框
+		// alert(confirm('要去小树林吗？'));
+
+		function gogo(){
+			var res = confirm('要去小树林吗？')	
+			if(res){
+				alert('时刻准备着');	
+			}else{
+				alert('不约儿童');
+			}
+		}
+
+
+		function test(){
+			var res = prompt('暗号');	
+			alert(res);
+		}
+
+
+	</script>
+</body>
+</html>

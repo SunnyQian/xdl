@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>随机点名器</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		#show{
+			width:500px;
+			height:300px;
+			border:1px solid #ccc;
+			margin:0 auto;
+			margin-top:40px;
+			background:maroon;
+		}
+		#text{
+			width:280px;
+			height:60px;
+			background:yellow;
+			border-radius:10px;
+			margin:0 auto;
+			margin-top:80px;
+			text-align:center;
+			line-height:60px;
+			font-size:30px;
+		}
+		#btn{
+			width:120px;
+			height:40px;
+			display:block;
+			margin:0 auto;
+			margin-top:40px;
+			font-size:20px;
+		}
+	</style>
+</head>
+<body>
+	<div id="show">
+		<div id="text">孙悟空</div>
+		<button id="btn">开始</button>
+	</div>
+</body>
+<script>
+	/*
+		随机点名器：
+			随机的将一些人选出
+	*/
+
+	// 定义包含人名的数组
+	var users = ['孙悟空','唐僧','沙悟净','猪八戒','小白龙','白骨精','观音菩萨','嫦娥','后羿','如来佛祖','二郎神','哮天犬','哪吒'];
+
+	// 取值
+	// console.log(users[0]);
+
+	// 定义获取m,n之间的随机整数
+	function rand(m,n){
+		// 获取随机数
+		var num = Math.floor(Math.random()*(n-m+1))+m;
+		// 返回结果
+		return num;
+	}
+
+	// 只要将数组的索引随机取值，那么获取人名就是随机的！
+	// var index = rand(0,users.length-1);
+	// console.log(users[index]);
+
+	// 获取元素
+	var text = document.getElementById('text');
+	var btn = document.getElementById('btn');
+
+	// console.log(name);
+	// console.log(btn);
+	// console.log(text);
+
+	// 定义定时器的标志
+	var run;
+
+	// 定义定时器
+	function autoRun(){
+		// console.log(run);
+
+		// 判断run定时器的标志是否存在，如果存在，直接返回，不再向下执行
+		if(run){
+			// 终止程序的执行
+			return;
+		}
+
+		// 定时器
+		run = setInterval(function(){
+			// 获取随机的索引
+			var index = rand(0,users.length-1);
+			// 随机的人名
+			var username = users[index];
+
+			// 将人名赋值给text
+			text.innerHTML = username;
+		},50);
+	}
+
+	// 当定时器多次同时被调用时，产生定时器叠加的现象
+
+	// 按钮的单击事件
+	btn.onclick = function(){
+		// text.innerHTML // 表示的就是text中所有包含html标签在内的内容
+		// console.log(text.innerHTML);
+
+		// 赋值
+		// text.innerHTML = '猪八戒';
+
+		// 调用时先清除定时器
+		// clearInterval(run);
+
+		// 按钮在进行单击时是要开始呢？还是要停止？
+		// console.log(btn.innerHTML);
+		if(btn.innerHTML=='开始'){
+			// 调用定时器
+			autoRun();
+
+			// 设置btn按钮的文字内容
+			btn.innerHTML = '停止';
+		}else{
+			// 单击了停止按钮
+			// 清除定时器
+			clearInterval(run);
+
+			// 将定时器的标志设置undefined
+			run = undefined;
+
+			// 将按钮的文字修改为开始
+			btn.innerHTML = '开始';
+		}		
+	}
+</script>
+</html>

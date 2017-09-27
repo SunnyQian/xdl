@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>替换字符串表情</title>
+</head>
+<body>
+	[s:105]
+	<div id="show"></div>
+</body>
+<script>
+	var str = '哈喽，大家好，,[s:02][s:01][s:23]';
+
+	// 字符串输出到页面中
+	var show = document.getElementById('show');
+
+	// 定义包含很多个图片表情的数组
+	var icons = ['01','02','23','33'];
+
+	// 遍历数组
+	icons.forEach(function(index){
+		// 创建正则
+		var patt = new RegExp('\\[s:'+index+'\\]');
+
+		// 查询替换
+		str = str.replace(patt,'<img src="./imgs/'+index+'.gif" alt="" />')
+	});
+
+
+	// 将str字符串中的 表情字符串替换为表情图片
+	show.innerHTML = str;
+
+</script>
+</html>

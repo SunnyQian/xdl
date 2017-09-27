@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<select id="select" onchange="change(this);">
+		<option value="1">黄瓜</option>
+		<option value="11">香蕉</option>
+		<option value="111">茄子</option>
+		<option value="0">葡萄</option>
+		<option value="5">大波浪</option>
+		<option value="6">芒果</option>
+	</select>
+
+	<script type="text/javascript">
+		// var Select = document.getElementById('select');
+		/*
+			options[] 		返回包含下拉列表中的所有选项的一个数组。 	
+			selectedIndex 	设置或返回下拉列表中被选项目的索引号。 
+		*/	
+		function change(obj){
+			alert(obj.options[obj.selectedIndex].value);
+			alert(obj.options[obj.selectedIndex].text);  // 输出 option 里的内容
+			alert(obj.options[obj.selectedIndex].innerHTML);  // 输出 option 里的内容
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字符串相关正则的方法</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// search
+	var str = '0123456789';
+
+	// 查询字符串中非数字字符
+	// var res = str.search('a');	// 固定的值
+
+	// 使用正则表达式作为查询条件，如果有返回的是索引位置,如果没有结果返回-1
+	var res = str.search(/[a-z]/g);
+	console.log(res);
+
+	// match() 在字符串中执行匹配，返回数组;不存在返回null
+	var res = str.match(/[a-z]/g);
+	console.log(res);
+
+	// split() 使用指定的字符分割另外一个字符串
+	var str = 'HTML$CSS&JavaScript';
+	var res = str.split(/\$|&/);
+	console.log(res);
+
+
+	// replace() 执行字符串替换
+
+	// 定义字符串
+	var str = '傻叉和煞笔和傻逼，傻逼,枪支、迷药、包小姐';
+
+	// 执行替换
+	// var newStr = str.replace('傻叉','**');	// 执行单一匹配替换
+
+	// 我有一个数组，包含了很多个敏感词汇
+	var dangerWords = ['枪支','迷药','包小姐','傻逼','傻叉','煞笔'];
+
+	// console.log(newStr);
+
+	// 将敏感词汇进行遍历，执行替换
+	dangerWords.forEach(function(word){
+		// console.log(word)
+		// str = str.replace(word,'**');
+
+		// 执行全局的匹配
+		// var patt = /word/;
+
+		// 该位置的word是一个变量
+		var patt = new RegExp(word,'g');
+
+		// console.log(patt)
+
+		// 执行匹配替换
+		str = str.replace(patt,'*'.repeat(word.length));
+	});
+
+	console.log(str);
+</script>
+</html>

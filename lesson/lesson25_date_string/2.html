@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时间对象的常用方法</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// 定义对象
+	var time = new Date();
+
+	// 获取年份，返回4位数年份 getFullYear()
+	var year = time.getFullYear();
+	console.log(year);
+
+	// 月份 getMonth() 返回的月份 = 实际月份 - 1
+	var month = time.getMonth()+1;
+	console.log(month);
+
+	// 日 getDate() 
+	var day = time.getDate();
+	console.log(day);
+
+	// 时 getHours()
+	var hour = time.getHours();
+	console.log(hour);
+
+	// 分
+	var minute = time.getMinutes();
+	console.log(minute);
+
+	// 秒
+	var second = time.getSeconds();
+	console.log(second);
+
+	// 毫秒
+	var milliSecond = time.getMilliseconds();
+	console.log(milliSecond);
+
+	// 星期 从0开始，返回0-6之前的数字
+	var weeks = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+	var week = weeks[time.getDay()];
+	console.log(week);
+
+	// now() 获取的是此刻的时间戳
+	var time = Date.now();
+	console.log(time);
+
+	/*
+		// 定义对象
+		var time = new Date('2016/7/7 7:7:7');
+
+		getTime() 返回的是时间对象的时间戳
+			time.getTime()
+
+		now() 返回的是当前此刻的时间戳
+			Date.now()
+	*/
+</script>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bootstrap的基本使用</title>
+
+	<!-- 设置 -->
+
+	<!-- 引入CSS文件 -->
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+
+	<!-- Bootstrap的js效果依赖于jQuery -->
+	<script src="./bootstrap/js/jquery.min.js"></script>
+
+	<!-- 引入JS文件 -->
+	<script src="./bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- 移动设备优先 -->
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no">
+
+	<!-- 使低版本的浏览器尽量以最高的形式解释文档 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body>
+	<div class="container">
+		<h3>选项卡</h3>
+		
+		<ul class="nav nav-tabs">
+			<li class="active"><a  data-toggle="tab"href="#index">首页</a></li>
+			<li><a data-toggle="tab" href="#junshi">军事</a></li>
+			<li><a data-toggle="tab" href="#yule">娱乐</a></li>
+		</ul>
+
+		<!-- 呈现选项卡中的内容 -->
+		<div class="tab-content">
+			<div class="tab-pane  fade in active" id="index">
+				我是首页部分
+			</div>
+			<div class="tab-pane  fade" id="junshi">
+				
+				我是军事部分
+			</div>
+			<div class="tab-pane  fade" id="yule">
+				我是娱乐部分
+			</div>
+		</div>
+		
+
+		<h3>胶囊式</h3>
+		<ul class="nav nav-pills">
+			<li class="active"><a  data-toggle="tab"href="#index2">首页</a></li>
+			<li><a data-toggle="tab" href="#junshi2">军事</a></li>
+			<li><a data-toggle="tab" href="#yule2">娱乐</a></li>
+		</ul>
+
+		<!-- 呈现选项卡中的内容 -->
+		<div class="tab-content">
+			<div class="tab-pane  fade in active" id="index2">
+				我是首页部分
+			</div>
+			<div class="tab-pane  fade" id="junshi2">
+				
+				我是军事部分
+			</div>
+			<div class="tab-pane  fade" id="yule2">
+				我是娱乐部分
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网站倒计时</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		html{
+			font-family:微软雅黑;
+		}
+		#wrap{
+			width:100%;
+			height:60px;
+			background:#F90013;
+		}
+		#time>div{
+			float:left;
+			margin-top:12px;
+		}
+		#time{
+			width:128px;
+			height:60px;
+			/*background:blue;*/
+			margin:0 auto;
+			/*overflow:hidden;*/
+		}
+		#hour,#minute,#second{
+			width:36px;
+			height:36px;
+			background:#440106;
+			border-radius:5px;
+			line-height:36px;
+			color:#F90013;
+			text-align:center;
+			font-size:24px;
+			font-weight:bold;
+		}
+		.maohao{
+			width:10px;
+			height:36px;
+			line-height:36px;
+			font-size:20px;
+			text-align:center;
+			font-weight:bold;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="time">
+			<div id="hour">00</div><div class="maohao">:</div>
+			<div id="minute">00</div><div class="maohao">:</div>
+			<div id="second">00</div>
+		</div>
+	</div>
+		
+</body>
+<script>
+	/*
+		倒计时：从当前此刻到指定的活动开始时间
+	*/
+
+	// 此刻时间
+	var now = new Date();
+
+	// 定义活动开始的时间
+	var startTime = new Date(now.getTime() + 1000*60*60*3);	// 此刻开始的3小时
+	console.log(startTime);
+
+	// 获取元素
+	var hour = document.getElementById('hour');
+	var minute = document.getElementById('minute');
+	var second = document.getElementById('second');
+
+	// 定义设置倒计时时间的函数
+	function setTime(){
+		// 当前时间
+		var now = new Date();
+
+		// 两个时间对象之间的差值
+		var timeCha = startTime.getTime() - now.getTime();
+
+		// 判断时间的差值
+		if(timeCha<=0){
+			
+			// 设置时间已经为0
+			hour.innerHTML = '00';
+			minute.innerHTML = '00';
+			second.innerHTML = '00';
+
+
+
+			// 弹出提示
+			alert('活动已开始，快来抢购吧');
+
+			// 终止程序进行
+			return;
+		}
+
+		// 如果是时间对象进行减法运算，默认调用getTime()方法
+		// var timeCha = startTime - now;
+		// console.log(timeCha);
+
+		// 小时 差值
+		var timeHour = Math.floor(timeCha/1000/60/60);
+		// console.log(zeroFill(timeHour));
+
+		// 赋值小时
+		hour.innerHTML = zeroFill(timeHour);
+
+		// 分钟
+		timeCha = timeCha - timeHour*60*60*1000
+		// console.log(timeCha);
+		var timeMinute = Math.floor(timeCha/1000/60);
+		// console.log(zeroFill(timeMinute));
+
+		// 赋值分钟
+		minute.innerHTML = zeroFill(timeMinute);
+
+		// 秒
+		timeCha = timeCha - timeMinute*60*1000;
+		// console.log(timeCha);
+		var timeSecond = Math.floor(timeCha/1000);
+		// console.log(zeroFill(timeSecond));
+
+		// 赋值秒
+		second.innerHTML = zeroFill(timeSecond);
+	}
+
+	// 页面进入时调用函数
+	setTime();
+
+	// 时间差值
+	var timeCha = startTime.getTime() - now.getTime();
+	// console.log(timeCha);
+
+	// 如果活动还未开始启动定时器
+	if(timeCha>0){
+		// 定时器
+		setInterval(function(){
+			// 调用函数
+			setTime()
+		},1000);
+	}
+
+	
+		
+
+	/**
+	* 定义补充前导0的函数 zeroFill()
+	*/
+	function zeroFill(num){
+		if(num<10){
+			num = '0'+num;
+		}
+
+		// 返回
+		return num;
+	}
+
+</script>
+</html>

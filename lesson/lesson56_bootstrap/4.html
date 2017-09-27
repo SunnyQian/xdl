@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚动监听</title>
+
+	<!-- 引入CSS文件 -->
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+
+	<!-- Bootstrap的js效果依赖于jQuery -->
+	<script src="./bootstrap/js/jquery.min.js"></script>
+
+	<!-- 引入JS文件 -->
+	<script src="./bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- 移动设备优先 -->
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no">
+
+	<!-- 使低版本的浏览器尽量以最高的形式解释文档 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style>
+		#floor{
+			position:fixed;
+			width:100px;
+			left:120px;
+			top:100px;
+		}
+		#floor .nav li{
+			width:100%;
+		}
+		#floor .nav li a{
+			text-align:center;
+		}
+		#xiangpinzhi,#fushi,#jiadian,#diannao{
+			width:100%;
+			height:600px;
+			background:#ededed;
+			margin-top:60px;
+		}
+	</style>
+</head>
+<!-- <body data-spy="scroll"  data-offset="100" style="height:10000px"> -->
+<body data-spy="scroll" style="height:10000px">
+	<div class="container">
+		<!-- 定义楼层 -->
+		<nav id="floor" class="navbar navbar-default navbar-fixed-top">
+			<div class="nav navbar-nav">
+				<li class="active"><a href="#xiangpinzhi">享品质</a></li>
+				<li><a href="#fushi">美妆服饰</a></li>
+				<li><a href="#jiadian">家电手机</a></li>
+				<li><a href="#diannao">电脑数码</a></li>
+			</div>
+		</nav>
+	
+		<!-- 显示的主要内容 -->
+		<main>
+			<div data-target="#floor">
+				<div id="xiangpinzhi">
+					<h3>这是享品质的内容</h3>
+				</div>
+				<div id="fushi">
+					<h3>这是服饰美妆的内容</h3>
+				</div>
+				<div id="jiadian">
+					<h3>这是家电手机的内容</h3>
+				</div>
+				<div id="diannao">
+					<h3>这是电脑数码的内容</h3>
+				</div>
+			</div>
+				
+		</main>
+	</div>
+</body>
+<script>
+	// 使用JS控制滚动监听的参数
+	$('body').scrollspy({ target: '#floor',offset:100 })
+</script>
+</html>
