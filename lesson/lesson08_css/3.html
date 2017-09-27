@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定位 position</title>
+
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+
+		/*
+			position 定位
+				static 		普通的正常的文档流
+				absolute 	绝对定位
+					1. 脱离正常的文档流
+					2. 默认相对的文档的顶部
+					3. 如果该元素的父级或者先辈元素有定位方式：
+
+
+				relative  	相对定位
+					1. 没有脱离正常的文档流
+					2. 参考点：自己应该在的位置
+
+				fixed 		固定定位
+					1. 脱离文档流
+					2. 参考点：当前可视窗口，当前屏幕
+
+
+			设置元素定位之后：
+				多出4个属性，控制元素的位置
+					top 		顶部
+					left 		左侧
+					right 		右侧
+					bottom 		底部
+		*/
+
+		#red{
+			width:200px;
+			height:200px;
+			background:red;
+		}
+		#blue{
+			width:200px;
+			height:200px;
+			background:blue;
+			position:absolute;
+			/*left:20px;*/
+			top:20px;
+			right:20px;
+		}
+		#yellow{
+			width:200px;
+			height:200px;
+			background:yellow;
+			position:relative;
+			right:20px;
+		}
+
+		#yellowgreen{
+			width:30px;
+			height:100px;
+			background:yellowgreen;
+			position:fixed;
+			right:20px;
+			bottom:10px;
+			text-align:center;
+		}
+		#yellowgreen a{
+			color:gray;
+			text-decoration:none;
+		}
+
+		.red{
+			width:400px;
+			height:400px;
+			background:red;
+
+			/* red元素是blue元素的父级 */
+			position:relative;
+		}
+		.blue{
+			width:200px;
+			height:200px;
+			background:blue;
+			position:absolute;
+			top:100px;
+			left:100px;
+		}
+	</style>
+</head>
+<body style="height:3000px;">
+	<div id="top"></div>
+
+	<div id="red"></div>
+	<div id="blue"></div>
+	<div id="yellow"></div>
+	<div id="yellowgreen">
+
+		<!-- 锚点的跳转 -->
+		<a href="#top">回到顶部</a>
+	</div>
+
+	<div class="red">
+		<div class="blue"></div>
+	</div>
+</body>
+</html>

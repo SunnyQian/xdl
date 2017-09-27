@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画 animation</title>
+	<style>
+		/*
+			定义动画
+		*/
+		@keyframes playgo{
+			/* 开始状态
+			from {
+				border-radius:0px;
+			}
+			 */
+
+			/* 结束的状态
+			to {
+				border-radius:100px;
+			}
+			 */
+
+			/* 以百分比的形式描述动画 */
+			0%{
+				/* opacity 透明度 0-1 */
+				opacity:1;
+				background:yellow;
+			} 
+			20%{
+				opacity:0.6;
+				background:red;
+			}
+			50%{
+				opacity:0.4;
+				background:blue;
+			}
+			100%{
+				opacity:0.1;
+				background:pink;
+			}
+		}
+
+		/* 应用动画 */
+		.jack{
+			width:200px;
+			height:200px;
+			border:1px solid #ccc;
+			background:yellow;
+			/*opacity:0;*/
+
+			/*
+				兼容性：
+					各个浏览器对于某一些属性支持的效果不一致！
+
+				为了解决兼容性：
+					1. 添加浏览器的私有前缀
+						-moz-  			Mozlia FireFox 火狐浏览器
+						-o-  			Opera 欧朋浏览器
+						-webkit-    	Google Chrome 浏览器
+						-ms-  			IE浏览器
+
+						W3C推荐的写法
+			*/
+
+			/* 先写具有浏览器私有前缀的属性，再写W3C推荐的写法 */
+			/*-moz-animation:playgo 3s linear;*/
+			/*-webkit-animation:playgo 3s linear;*/
+			/*animation:playgo 1s linear;*/
+
+			/* 分开写 */
+			animation-name:playgo;			/* 动画名称 */
+			animation-duration:3s;			/* 动画持续时间 */
+			animation-timing-function:linear;  /* 动画变换的效果 */
+			/*animation-delay:2s;  			/* 延迟执行动画的时间 */
+
+			/* 
+				动画执行的次数 
+					number 数字
+					infinite 无穷
+			*/
+			/*animation-iteration-count:infinite;  	*/
+
+			/*
+				定义动画的运动方向：
+					normal 		从from 到to
+					reverse 	从to到from
+			*/
+			animation-direction:alternate;
+
+			/* 
+				设置动画结束时的状态 
+					forwards 		动画结束时的状态(to)
+					backwards 		动画开始时的状态(from)
+			*/
+			/*animation-fill-mode:;*/
+		}
+
+		.jack:hover{
+			/*
+				animation-play-state 
+					playing 		运动
+					paused 			暂停
+			*/
+			animation-play-state:paused;
+		}
+	</style>
+</head>
+<body>
+	<div class="jack">
+		接客
+		john 约汉
+	</div>
+</body>
+</html>

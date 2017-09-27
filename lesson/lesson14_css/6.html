@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注意文字颜色的变化</title>
+	<meta name="viewport" content="width=device-width">
+	<style>
+		p{
+			color:red;
+		}
+
+		/*
+			@media 响应式查询
+			all 所有设备 
+			screen 	指在某种设备下 screen 屏幕设备
+			print 	打印设备
+
+			and 表示与，并且，和，同时
+
+			max-width 	最大值
+			min-width 	最小值
+		*/
+
+		@media screen and (max-width:800px){
+			p{
+				color:green;
+			}
+		}
+
+		@media screen and (max-width:500px){
+			p{
+				color:blue;
+			}
+		}
+		@media print{
+			p{
+				font-size:100px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<p>文字在不同的屏幕宽度下颜色不一样</p>
+</body>
+</html>

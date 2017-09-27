@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>尺寸</title>
+	<style>
+		#d1{
+			/*width:auto;*/
+			width:100px;
+			height:300px;
+			background:red;
+
+			/* 最大宽度 */
+			max-width:996px;
+
+			/* 最小宽度 */
+			min-width:200px;
+
+			/* 盒子阴影 */
+			box-shadow:1px 10px 20px 30px gray
+		}
+		#d2{
+			width:500px;
+			height:300px;
+			border:30px solid #ccc;
+
+			padding:30px;
+
+			/*
+				1. 当同时设置背景颜色和背景图片时，背景颜色会填充到背景图片填充不到的位置！
+				2. 当同时引入多个图片时
+			*/
+			/*background-color:red;*/
+			background-image:url(./zhangcheng.jpg);
+
+			/* 引入多张图片 */
+			/*background-image:url(./jing.png),url(./zhangcheng.png);*/
+
+			/* 
+				设置元素的重复方式
+					no-repeat 		不重复
+					repeat-x 		水平重复
+					repeat-y 		垂直重复
+			 */
+			background-repeat:no-repeat;
+
+			/* 
+				cover 设置图片完全覆盖容器,图片等比例缩放，有可能导致图片部分超出容器
+
+				contain 缩放图片，让图片完全显示在容器内。有可能容器的部分没有图片填充
+			 */
+			/*background-size:contain;*/
+
+			/*
+				background-origin 描述图片开始填充的位置
+					border-box  		从边框的左上角开始填充
+					padding-box 		从padding的左上角开始填充
+					content-box 		从内容位置的左上角开始填充
+
+				background-clip 剪切
+			*/
+			background-origin:content-box;
+		}
+	</style>
+</head>
+<body>
+	<div id="d1"></div>
+
+	<div id="d2"></div>
+</body>
+</html>

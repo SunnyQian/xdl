@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数值、布尔值、字符串操作</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+		数值中存储的
+			最大值：Number.MAX_VALUE
+			最小值：Number.MIN_VALUE
+
+	*/ 
+
+	// 1.7976931348623157e+308
+	console.log(Number.MAX_VALUE);
+
+	// 最小值 5e-324
+	console.log(Number.MIN_VALUE);
+
+	// 超过最大值的数 正无穷 Infinity  负无穷 -Infinity
+	console.log(Number.MAX_VALUE*3);
+
+	/*
+		关于布尔值
+			布尔值中有两个值
+				true
+				false 
+	*/
+	// var bool = True; // 错误的写法
+	var bool = true;
+	console.log(bool);
+	console.log(typeof bool);
+
+	/*
+		JS中的指令分隔符:表示当前语句的结束
+			分号(;)		--- 推荐写法
+			换行符(\n)
+	*/
+
+	// 定义赋值表达式
+	var a = 20;var b = 30;console.log(a);console.log(b);
+
+	/*
+		关于字符串
+			单引号 ''
+			双引号 ""
+			反引号 ``
+	*/
+
+	// 使用双引号定义字符串
+	// 双引号定义的字符串输出双引号需要转义
+	var str = "大海里行\\船\"不\"靠帆，全靠浪！";
+	console.log(str);
+
+	/*
+		转义字符：某些具有特定作用的符号
+			\n			换行
+			\r 			回车
+			\\			反斜线
+			\'			转义单引号
+			\"			转义双引号	
+			\xnn		使用十六进制描述某些字符		
+	*/
+
+	/*
+		ASCII码：
+			计算机的一种表示
+			A		65
+			a		97
+	*/ 
+
+	// 使用单引号定义字符串
+	// 在单引号定义的字符串中输出单引号就需要定义
+	var str = '大海里行船不靠"帆"，全靠\'浪\'！\n杨扬想当年年少轻狂，迎风尿尿来三丈，看如今，顺风尿尿尿一鞋！';
+	console.log(str);
+
+	// ES6中新添加的定义字符串的方式 ``
+	var str = `大海里行船不靠帆，全靠浪！
+		杨扬想当年年少轻狂，迎
+
+
+		风尿尿来三丈，看如今，顺风尿尿尿一鞋！`;
+
+	console.log(str);
+
+
+	// 使用\xnn描述某些字符
+	var str = '\x41';		// A
+	var str = '\x61';		// a
+
+	console.log(str);
+
+	// Unicode 万国码 所有的国家都使用
+
+	/*
+		码：
+			GBK		国标码
+			GB2312
+	*/
+
+	// 使用\unnnn表示unicode字符
+
+	// 玩游戏：名字是随机生成的
+	var str = '\u5733';
+	console.log(str);
+
+
+</script>
+</html>

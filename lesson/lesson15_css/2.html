@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>渐变色--径向渐变 radial-gradient</title>
+	<style>
+		#show{
+			width:400px;
+			height:400px;
+			margin:0 auto;
+			border:1px solid pink;
+			
+			/*
+				radial-gradient() 径向渐变
+					circle 		描述形状
+					at left 	描述圆心点所在的位置 at left在左侧的边界的中心点
+			*/
+			background:radial-gradient(ellipse at center,#f00,#ff0,#080);
+
+			/*
+				radial-gradient(200px at 200px 200px,#f00,#ff0,#080)
+					at 表示在某个位置 
+					在200px,200px的圆心点，半径200px的圆
+			*/
+			/*background:radial-gradient(200px at 200px 200px,red,orange,yellow,green,cyan,blue,yellow);*/
+		}
+	</style>
+</head>
+<body>
+	<div id="show"></div>
+</body>
+</html>

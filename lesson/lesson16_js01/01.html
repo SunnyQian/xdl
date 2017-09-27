@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML中使用JS的方式</title>
+	
+	<!--  定义CSS样式  -->
+	<style type="text/css">
+		/*
+			CSS注释格式
+		*/
+	</style>
+
+	<!-- 定义JS的标签 -->
+	<script>
+		// JS的单行注释
+
+		/*
+			多行注释
+
+			注释的作用：
+				1. 解释说明的作用
+				2. 便于代码调试
+				3. 便于团队协作
+
+			注释的位置：
+				一般放在要解释的语句的上面或者右侧！
+		*/
+
+		/**
+			文档注释：
+				用于解释说明文件，或者是解释说明函数、对象	
+		*/
+
+		// alert() 弹出警告框,阻塞页面加载的效果
+		alert('Hello,JS');
+	</script>
+
+	<!-- 使用script标签引入外部的js文件 -->
+	<script src="./01.js"></script>
+
+	<style>
+		#memeda{
+			width:200px;
+			height:200px;
+			background:red;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+		HTML中使用JS的方式
+			1. 使用script标签定义JS
+			2. 使用script标签引入外部的js文件
+			3. 在HTML标签中使用JS事件属性定义JS
+			4. 在a超链接标签href属性中使用javascript标识符定义JS
+	-->
+
+	<!-- 
+		onclick 
+			on 在...时候
+			click 鼠标单击
+	-->
+	<div id="memeda" class="" onclick="alert('贱了!')"></div>
+
+	<!-- 文字只是一个提示，没有真实效果！ -->
+	<a href="javascript:alert('缓存已经清除!')">清除缓存</a>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>渐变色---线性渐变 linear-gradient</title>
+	<style>
+		#show{
+			width:400px;
+			height:400px;
+
+			/*  
+				red 		英文颜色单词，表示红色
+				linear-gradient 定义一个渐变色
+					linear-gradient(描述方向,某个位置的颜色)
+						to top 			自下而上
+						to right 		从左到右
+						to left 		从右到左
+						to bottom  		自上而下(默认值)
+
+						0deg 	等效于 to top
+						90deg 	等效于 to right
+						180deg 	等效于 to bottom
+						270deg 	等效于 to left
+			*/
+			/*background:linear-gradient(to right,red,yellow 80%,blue 100%);*/
+			/*background:linear-gradient(to top,red,yellow 80%,blue 100%);*/
+			background:linear-gradient(120deg,red,yellow 60%);
+		}
+	</style>
+</head>
+<body>
+	<div id="show"></div>
+</body>
+</html>

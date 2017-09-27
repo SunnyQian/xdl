@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS特效---最简单版本</title>
+	<style>
+		#blue,#red{
+			width:300px;
+			height:300px;
+			background:blue;
+			/*transition:all 3s linear;*/
+		}
+	</style>
+</head>
+<body>
+	<div id="blue"></div>
+</body>
+<script>
+	// 获取元素 --- 通过ID的方式
+	// document 文档 get 获取 Element 元素 By 通过...方式
+	var blue = document.getElementById('blue');
+
+	// console.log(blue);
+
+	// 单击事件 click 
+	blue.onclick = function(){
+		// alert('别瞎摸！');
+
+		// 认识关键字 this
+		// console.log(this);
+
+		// 如果css中样式由多个单词组成还有-组成
+
+		// 通过js改变元素的样式
+
+		// 设置背景颜色
+		this.style.backgroundColor= 'red';
+		// this.style.borderRadius = '10px'; 
+
+		// 设置圆角
+		this.style.borderRadius = '100%';
+
+		// 设置过渡
+		this.style.transition = 'all 3s linear';
+	}
+</script>
+</html>

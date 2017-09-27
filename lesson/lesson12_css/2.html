@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>单击显示登录框</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		#login{
+			width:300px;
+			height:300px;
+			border:1px solid #ccc;
+			background:#ededed;
+			position:absolute;
+			top:50%;
+			left:50%;
+			margin-left:-150px;
+			margin-top:-150px;
+
+			/* 不占位隐藏 */
+			display:none;
+		}
+		#close{
+			position:absolute;
+			right:0;
+		}
+	</style>
+	<!-- <meta http-equiv="refresh" content="5,http://www.baidu.com"> -->
+</head>
+<body>
+	<button id="btn">登录</button>
+	<div id="login">
+		<!-- 
+			实体字符：
+				使用&符号开头的一些特殊的符号
+				&nbsp;		空格
+				&copy;		版权符号
+				&reg;		注册商标
+				&gt;		>		greater than
+				&lt;		<		less than
+		-->
+
+		<button id="close">&times;</button>
+		<form action="">
+			账户：<input type="text" name="username"><br><br>
+			密码：<input type="password" name="userpwd"><br><br>
+			<input type="submit" value="登录">
+		</form>		
+	</div>
+</body>
+<script>
+	// JS中的单行注释
+
+	// 获取元素
+
+	// document 文档 get 获取 Element 元素 By 通过....方式
+	var btn = document.getElementById('btn');
+	var login = document.getElementById('login');
+	var close = document.getElementById('close');
+
+	// 在控制台打印
+	// console.log(btn);
+
+	// 设置元素的单击事件 on 在...时候
+	btn.onclick = function(){
+		// alert('Hello World!')
+
+		// 登录框显示
+		login.style.display = 'block';
+	}
+
+	// 单击关闭按钮，登录框消失
+	close.onclick = function(){
+		// 登录框隐藏
+		login.style.display = 'none';
+	}
+</script>
+</html>

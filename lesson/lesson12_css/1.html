@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>display和visibility</title>
+	<style>
+		div{
+			width:200px;
+			height:200px;
+			border:1px solid #ccc;
+		}
+		#d1{
+			background:red;
+		}
+		#d2{
+			background:blue;
+
+			/* 不占位隐藏 */
+			/*display:none;*/
+
+			/* 占位隐藏 */
+			visibility:hidden;
+		}
+		#d3{
+			background:green;
+		}
+
+		#d4{
+			border:1px solid red;
+			/*overflow:hidden;		/* 隐藏 */
+			/* 当前元素在内容超出时，出现滚动条,基本的样式一直都有 */
+			/*overflow:scroll;		*/
+			/*overflow:auto;*/
+
+			/* 
+				垂直方向的样式： 
+			*/
+			overflow-y:scroll;
+		}
+	</style>
+</head>
+<body>
+	<div id="d1"></div>
+	<div id="d2"></div>
+	<div id="d3"></div>
+	<div id="d4">
+		诚哥和他老婆第一次约会的时候：多大了，诚哥18了。
+		不想和年龄小的人交朋友，
+		诚哥说：我说的不是年龄
+		重新认识一下
+		诚哥和他老婆第一次约会的时候：多大了，诚哥18了。
+		不想和年龄小的人交朋友，
+		诚哥说：我说的不是年龄
+		重新认识一下诚哥和他老婆第一次约会的时候：多大了，诚哥18了。
+		不想和年龄小的人交朋友，
+		诚哥说：我说的不是年龄
+		重新认识一下诚哥和他老婆第一次约会的时候：多大了，诚哥18了。
+		不想和年龄小的人交朋友，
+		诚哥说：我说的不是年龄
+		重新认识一下
+	</div>
+</body>
+</html>

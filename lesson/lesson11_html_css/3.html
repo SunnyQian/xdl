@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>音频、视频标签</title>
+</head>
+<body>
+	<h3>video视频标签</h3>
+	
+	<!-- 
+		音频audio/视频video 共有属性
+			src 		文件地址
+			controls 	控制条
+			autoplay 	自动播放
+			loop 		循环播放
+
+		视频独有属性
+			poster		封面海报
+
+	-->
+	<video src="./movie/nilaibulai.mp4" controls poster="./imgs/1.jpg" loop>
+		<!-- 当浏览器不支持video标签时，显示如下的提示性文字 -->
+		<p>您的浏览器该更新换代了...</p>
+	</video>
+
+	<video controls>
+		<!-- 
+			source 表示文件地址的引入
+				1. 主要使用source解决某个浏览器不支持某个类型的视频文件，同一时间引入多个同文件不同类型的视频
+				2. 当当前引入的文件不支持时，自动播放下一个 
+		-->
+		<source src="./movie/fun2.mp4"></source>
+		<source src="./movie/nilaibulai.mp4"></source>
+
+		<p>当浏览器不支持时显示该标签</p>
+	</video>
+
+	<h3>audio 音频</h3>
+
+	<!-- 
+		韩磊
+	-->
+	<audio src="./movie/beidahuang.mp3" controls></audio>
+
+	<!-- 使用embed标签引入flash动画 -->
+	<embed src="./movie/haowan.swf">
+</body>
+</html>

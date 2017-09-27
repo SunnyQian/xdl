@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>浮动 float</title>
+	<style>
+		div{
+			width:200px;
+			height:200px;
+		}
+		#red{
+			background:red;
+			/*margin-bottom:2px;*/
+
+			/*
+				当给某个元素设置浮动，该元素会脱离正常的文档流，漂浮起来
+			*/
+
+			/* 左浮动 */
+			float:left;
+		}
+		#blue{
+			background:blue;
+			/*width:300px;*/
+			float:left;
+		}
+		#pink{
+			background:pink;
+			/*height:300px;*/
+			float:left;
+		}
+		#gray{
+			background:gray;
+
+			/* 当前元素具有float浮动属性，进行浮动 */
+			float:right;
+		}
+
+		/*
+			设置某一个元素有浮动属性：
+				float
+					left 	左浮动
+					right 	右浮动
+
+				1. 紧挨着当前元素的前面元素是否有浮动
+					有：与之前的元素浮动到一行
+					没有：在自身所在的行进行浮动
+		
+		*/
+
+		/* 清除元素浮动 */
+		.clear{
+			/*width:0;*/
+			/*height:0;*/
+
+			/* 清除之前右浮动的元素对当前元素的影响 */
+			/*clear:right;*/
+			/*clear:left;*/
+
+			/* 清除之前左右浮动的元素对当前元素的影响 */
+			clear:both;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+		CSS中的基本选择器:
+			ID 选择器			相同的ID一个页面内只允许出现一个！(JS中)
+			Class 类选择器
+			Tag 标签选择器
+			* 通配符 
+	-->
+	<div id="red"></div>
+	<div id="blue"></div>
+
+	<!-- 定义一个空白的div -->
+	<div></div>
+
+	<div id="pink"></div>
+
+	<!-- 
+		清除浮动 clear
+			left			清除之前左浮动的元素对当前元素的影响
+			right			清除之前右浮动的元素对当前元素的影响
+			both
+	-->
+	<!-- <div class="clear"></div> -->
+
+	<div class="clear" id="gray"></div>
+</body>
+</html>

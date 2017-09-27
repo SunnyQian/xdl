@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3D变换</title>
+
+	<style>
+		#show{
+			width:500px;
+			height:300px;
+			border:1px solid #ccc;
+			margin:0 auto;
+
+			/* 设置透视的位置 */
+			perspective:300px; 
+
+			/* 设置子元素以3d场景存在,处于三维的空间 */
+			transform-style:preserve-3d;
+		}
+
+		#red{
+			width:200px;
+			height:200px;
+			background:red;
+			margin-left:150px;
+			margin-top:50px;
+
+			/*
+				translateZ() z轴方向的偏移
+			*/
+			/*transform:translateZ(-1000px);*/
+
+			/*
+				rotatex() 3d状态下的绕x轴进行旋转
+				rotatey() 3d状态下绕y轴进行旋转
+				rotatez() 3d状态下绕z轴进行旋转
+			*/
+			/*transform:rotatex(-10deg);*/
+
+	
+			/*transform:rotatey(20deg);*/
+
+			/*transform:rotatez(20deg);*/
+
+			/* 3d缩放 */ 
+			/*transform:scale3d(1,1,100);*/
+		}
+	</style>
+</head>
+<body>
+	<div id="show">
+		<div id="red"></div>
+	</div>
+</body>
+</html>

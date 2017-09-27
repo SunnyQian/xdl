@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>过渡 transition</title>
+	<style>
+		#red{
+			width:400px;
+			height:400px;
+			background:red;
+
+			/* 添加过渡属性 */
+			/*transition:;*/
+
+			/* 分开写 */
+
+			/*
+				transition-property 	要过渡属性
+				transition-duration 	过渡完成的时间
+				transition-timing-function 	过渡的动画
+				transition-delay 		延迟的时间
+			*/
+			/*
+			transition-property:border-radius width;
+			transition-duration:3s;
+			transition-timing-function:ease;
+			transition-delay:2s;
+			*/
+
+			/* 简写模式 */
+			transition:border-radius 3s ease,width 3s ease;
+		}
+		#red:hover{
+			border-radius:50%;
+			width:800px;
+		}
+
+		/* 该元素是由边框进行描述的 */
+		#sanjiao{
+			width:0;
+			height:0;
+			/*border:12px solid #00f;*/
+			border-width:12px;
+			border-style:solid;
+			border-color:transparent;
+			border-top-color:#00f;
+		}
+
+		#yuanjiao{
+			width:600px;
+			height:60px;
+			border:1px solid #ccc;
+
+			/* 描述圆角：左上角、右上角、右下角、左下角 */
+			/*border-radius:0px 10px 10px 0px;*/
+
+			/*
+				border-radius 
+					每一个角的圆角都是可以单独描述的
+					每一个角的圆角都有水平方向和垂直方向两个值
+					默认垂直方向的圆角的值等于水平方向圆角的值
+
+			*/
+			border-radius:0px 100px 100px 0px/0px 30px 30px 0px;
+		}
+	</style>
+
+</head>
+<body>
+	<div id="red"></div>
+
+	<div id="sanjiao"></div>
+
+	<div id="yuanjiao"></div>
+</body>
+</html>

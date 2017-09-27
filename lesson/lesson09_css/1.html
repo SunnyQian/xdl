@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定位position</title>
+	<style>
+		div{
+			width:200px;
+			height:200px;
+		}
+		.d1{
+			background:red;
+			position:relative;
+			z-index:3;
+		}
+		.d2{
+			background:blue;
+			position:absolute;
+			top:40px;
+			left:100px;
+			z-index:2;
+		}
+
+		.d3{
+			width:100px;
+			height:100px;
+			background:yellow;
+			position:absolute;
+			z-index:999;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+		position:
+			relative
+				相对定位
+				参考对象：自身应该在的位置
+			absolute
+				绝对定位：
+				参考对象：
+					默认是文档的顶部窗口
+					如果父级或者是先辈元素有定位方式，参考对象会对应的变成父级或者是先辈元素
+			fixed
+				固定定位
+				参考对象：
+					当前屏幕的窗口
+
+		z-index 属性：只针对有position定位的元素生效
+			值越大，越在上面！
+
+			两个元素的层级：
+				如果父级或者是先辈元素具有定位，比较的就是父级或先辈元素的z-index
+				如果没有，就是两个元素之间的比较！
+	-->
+
+	<div class="d1"></div>
+	<div class="d2">
+		<div class="d3"></div>
+	</div>
+</body>
+</html>

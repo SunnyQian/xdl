@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML标签</title>
+	<style>
+		span{
+			width:200px;
+			height:200px;
+			background:blue;
+			display:inline-block;
+		}
+		#meinv{
+			width:200px;
+		
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+		font 		标签名
+			color 			属性：颜色
+				green 			属性值: 绿色
+
+			size 			属性：文字的大小
+				默认值：1-7 值越大，字越大
+
+
+	-->
+	<font color="green" size="7">有一天诚哥出门，嫂子每天都打电话：啥时候回来呀，回来了一定要说呀，千万不要来惊喜呀！</font>
+	<br>
+
+	<span>直接暴露到body内部</span>
+	
+	<hr>
+
+	<!-- 
+		元素的表现类型：
+			块状元素 block 		div/p
+				1. 自己独占一行
+				2. 允许直接定义宽度和高度
+
+			内联元素 inline		span/label/a
+				1. 自己不能独占一行
+				2. 不允许直接定义宽度和高度
+
+			内联块元素 inline-block  	img
+				1. 既允许设置宽度、高度，同时保持一行显示
+	-->
+
+	<div>123</div>
+	<div>456</div>
+	
+	<span id="a">aaa</span>
+	<span>oooo</span>
+
+	<!-- 
+		img 设置图片的宽度和高度时：
+			1. 单独的设置其中一个值，另外一个值会等比例变化
+			2. 如果同时设置宽度和高度，图片有可能变形！
+	-->
+	<img id="meinv" src="file:///E:\桌面\bak\备份\你懂得\imeg\Meinv001.jpg" title="美女电话：1383838438" alt="美女，你去哪儿了？">
+
+	<!-- 定义指向百度的超链接 -->
+	<a href="http://www.baidu.com" target="_parent">百度</a>
+</body>
+</html>

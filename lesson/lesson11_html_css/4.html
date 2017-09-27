@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单</title>
+</head>
+<body>
+	<h3>定义form表单提交数据</h3>
+	<form action="数据提交的地址" method="数据提交的方法">
+		账户：<input type="text" name="username" autocomplete placeholder="请输入账户"><br><br>
+		密码：<input type="password" name="userpwd"><br><br>
+
+		
+		性别：
+			<input type="radio" name="sex" id="nan" checked value="1"><label for="nan">男</label>
+
+			<label><input type="radio" name="sex" value="2"> 女</label>
+
+			<input type="radio" name="sex" value="3"> 妖<br><br>
+
+		爱好：
+			<input type="checkbox" name="like[]" checked value="篮球宝贝">篮球宝贝
+			<input type="checkbox" name="like[]" value="排球宝贝">排球宝贝
+			<input type="checkbox" name="like[]" value="沙滩排球宝贝">沙滩排球宝贝<br><br>
+
+		下拉列表：
+			<select name="edu">
+				<option value="幼儿园小班">幼儿园小班</option>
+				<option value="幼儿园中班" selected>幼儿园中班</option>
+				<option value="幼儿园大班">幼儿园大班</option>
+			</select><br><br>
+
+		签名：
+			<!-- 
+				textarea 		文本域
+					cols 			列
+					rows 			行
+
+			-->
+			<textarea name="mark"  cols="30" rows="10"></textarea><br><br>
+
+
+		<!-- 
+			表单中的提交按钮：
+				input type="submit"
+				纯粹的button按钮
+				input type="image" src
+		-->
+		<button>纯粹的button按钮具有提交表单的作用</button>
+		<input type="submit" value="提交">
+		<input type="image" src="./reg.gif">
+
+		<input type="button" value="我就是一个按钮，没有提交数据的作用！">
+
+		<!-- 
+			reset 重置
+				将表单恢复到初始状态！
+		-->
+
+		<input type="reset" value="重置">
+
+	</form>
+
+	<button>写在表单的外部</button>
+</body>
+</html>

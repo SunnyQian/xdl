@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>变量</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+		变量：存储值的容器
+	*/
+
+	// 使用var关键字 定义变量
+	var shuitong = '水';
+	var name = '杨扬 is a boy!';
+	var age = 24;
+	var zhishang = 2;
+
+	// JS 弱类型语言:变量的类型随着值的变化而发生变化
+
+	/*
+		变量的命名规则：
+			1. 首字母由字母、下划线、$符号组成
+			2. 后跟任意长度的数字、字母、下划线、$
+			3. 严格区分大小写
+			4. 命名尽量有意义
+			5. 推荐使用驼峰命名法
+				如果变量名是由多个单词组成的，第一个单词的首字母小写，后面的每一个单词的首字母大写
+	*/
+
+	// 输出变量的值
+	// alert(name);
+
+	// 页面调试台 console 控制台
+	console.log(name);	// 在控制台打印name变量
+
+	/*
+		错误信息：
+			02.html:36 Uncaught SyntaxError: Unexpected number
+
+			SyntaxError 	语法错误信息
+	*/
+
+	// 定义变量
+	var $ = 10;
+	var A = 'I am DaA';
+	var a = 'I am xiaoa';
+
+	console.log(A);
+	console.log(a);
+
+	// 定义用户名
+	var username = '张三';
+
+	// 年龄
+	var age = 20;
+
+	// 性别
+	var sex = '男';
+
+	// 驼峰命名法
+	var userInfo = '这是描述用户信息的！';
+	console.log(userInfo);
+</script>
+</html>

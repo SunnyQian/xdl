@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表格实现隔行换色</title> 
+	<style>
+		/*
+			奇数 odd	2n+1
+			偶数 even 	2n
+		*/
+
+		/*
+		tr:nth-child(2n+1){
+			background-color:red;
+		}
+		tr:nth-child(2n){
+			background-color:yellow;
+		}
+		*/
+
+		tr:nth-child(odd){
+			background-color:red;
+		}
+		tr:nth-child(even){
+			background-color:yellow;
+		}
+
+		div:empty{
+			width:200px;
+			height:200px;
+			background:red;
+		}
+
+		.memeda:target{
+			color:red;
+		}
+
+		#nv{
+			width:200px;
+			height:200px;
+			border:1px solid #ccc;
+		}
+		#nv::first-letter{
+			/*color:red;*/
+			/*font-size:60px;*/
+			/*float:left;*/
+		}
+		#nv::first-line{
+			color:yellow;
+		}
+
+		#nv img{
+			float:left;
+		}
+
+		#jingyesi{
+			width:1100px;
+			height:60px;
+			text-align:center;
+			font-size:40px;
+			background:#00f;
+			margin:0 auto;
+			position:relative;
+			z-index:2;
+		}
+
+		/*
+			::before 在...前面
+			::after  在...后面
+		*/
+		#jingyesi::before{
+			width:1200px;
+			height:1px;
+			background:red;
+			display:block;
+			content:'';
+			margin:0 auto;
+			margin-top:20px;
+			margin-left:-50px;
+			position:absolute;
+			z-index:1;
+		}
+	</style>
+</head>
+<body>
+	<table border="1" width="666" height="380" align="center">
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+
+	<!-- 
+		对于多个连续的空白符(空格、换行符、回车符)识别为1个空格
+	-->
+	<div>
+		
+	</div>
+
+	<!-- 
+		pre 标签：格式化标签，保留源代码中的空格和换行符
+	-->
+	<pre>
+		a
+	a 		a
+		a
+	</pre>
+
+	<a href="#top1">锚点-一</a>
+	<a href="#top2">锚点-二</a>
+	<a href="#top3">锚点-三</a>
+
+	<ul>
+		<li class="memeda" id="top1">顶一下</li>
+		<li class="memeda" id="top2">顶两下</li>
+		<li class="memeda" id="top3">完了</li>
+	</ul>
+
+	<div id="nv">
+		<img src="./imgs/2.jpg" width="80" height="80" alt="">
+		如何形容一个女的前凸后翘：进门，人还没有进来了，胸先进来了；走的时候人走了，屁股还在
+	</div>
+
+	<div id="jingyesi">
+		妹妹坐船头，哥哥在岸上走，待到日落黄昏后，让你亲个够！		
+	</div>
+</body>
+</html>

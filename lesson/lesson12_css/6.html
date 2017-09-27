@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>梅开三度</title>
+	<style>
+		#test{
+			width:200px;
+			height:300px;
+			border:1px solid red;
+
+			/*
+				强制文字在一行内显示，直到遇到br
+			*/
+			white-space:nowrap;
+			overflow:hidden;
+
+			/* 描述字符之间的间距 */
+			letter-spacing:20px;
+
+			/* 
+				text-overflow
+					clip 		直接剪切
+					ellipsis  	超出部分以省略的点进行表示 
+			*/
+			text-overflow:ellipsis;
+
+		}
+
+		#yingwen{
+			width:200px;
+			height:200px;
+
+			/* 单词与单词之间的间距 */
+			word-spacing:10px;
+
+			border:1px solid #ccc;
+
+			/*
+				word-wrap 	设置内容在遇到边界时的问题
+					normal 			允许溢出
+					break-word 		遇到边界自动换行
+			*/
+			word-wrap:break-word;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+		新闻列表：标题文字数量不确定！
+	-->
+	<div id="test">
+		两只黄鹂鸣翠柳,一行白a鹭上青天;
+		李清照是哪个派：武当派;蛋黄派!
+	
+		<br>
+		两只黄鹂鸣翠柳,一行白鹭上青天;
+		李清照是哪个派：武当派;蛋黄派!
+	</div>
+
+	<div id="yingwen">
+		this is a yingwenyingwenyingwenyingwenyingwenyingwenyingwen
+	</div>
+</body>
+</html>

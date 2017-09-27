@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>transform 变换</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		div{
+			width:200px;
+			height:200px;
+		}
+		#red{
+			background:red;
+			position:absolute;
+			left:200px;
+			top:100px;
+
+			/*
+				2D变化：
+					translate() 	位移(水平方向,垂直方向)
+					translateX() 	水平偏移
+					translateY() 	垂直方向偏移
+
+					rotate() 		旋转(deg 度数)
+										正数顺时针，负数逆时针
+
+					scale() 		设置缩放(水平方向，垂直方向)
+					
+
+					skew() 扭曲
+					skewX() 水平方向扭曲
+					skewY() 垂直方向扭曲
+
+
+			*/
+			/*transform:translate(10px,-10px);*/
+			/*transform:translateX(10px);*/
+
+			/* 声明中心点、参考点 */
+			/*transform-origin:0px 0px;*/
+
+			/* 
+				旋转以中心点为参考，进行旋转
+			*/
+			/*transform:rotate(20deg);*/
+
+			/* 
+				水平(宽度)放大3倍，垂直(高度)方向不变
+				以几何中心点进行参考
+			*/
+			/*transform:scale(3,1);*/
+			/*transform:scaleX(2);*/
+			/*transform:scaleY(2)*/
+
+			/* 扭曲 */
+			/*transform:skew(20deg,45deg);*/
+
+			/*
+				matrix() 使用矩阵描述位移、缩放
+					默认值 1,0,0,1,0,0
+					第一个值是 缩放x
+					第二个值是 扭曲x
+					第三个值是 扭曲y
+					第四个值是 缩放y
+					第五个值是 位移x
+					第六个值是 位移y
+
+			*/
+			transform:matrix(1,10,2,1,10,20);
+		}
+
+		#blue{
+			border:1px dashed #00f;
+			position:absolute;
+			left:200px;
+			top:100px;
+		}
+	</style>
+</head>
+<body>
+	<div id="red"></div>
+	<div id="blue"></div>
+</body>
+</html>

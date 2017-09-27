@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>变量的类型</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+		JS中显式的变量类型有6种(以typeof函数返回的值进行区分)：
+			Number		数值
+			String 		字符串
+			Boolean		布尔值
+			Function 	函数
+			Object		对象
+			Undefined 	未定义
+
+			bsofun 如此有趣	
+
+	*/
+
+	// 声明变量num，将10赋值给变量num
+	var num = 10;
+
+	// typeof 获取变量的类型
+
+	// number
+	console.log(typeof num);
+
+	// 定义字符串类型
+	var joke = '杨扬问媒婆，为什么我老婆一直眼，当时相亲的时候不告诉我；我告诉你了呀，你老婆当时一眼就瞧上你了！';
+	console.log(joke);
+
+	/*
+		定义布尔值类型的变量:
+			值只有两种：
+				true		真
+				false 		假
+		布尔值多用于条件判断
+	*/ 
+	var shier = true;
+	console.log(shier);
+
+	// 打印变量的类型
+	console.log(typeof(shier));	// boolean
+
+
+	// 定义杨扬一个能生孩子的方法
+	function makeABoy(){
+		// 函数体
+		console.log('杨扬他们家生孩子是他老婆生的，跟杨扬没有什么关系！');
+	}
+
+	// 函数的调用
+	makeABoy();
+
+	// 输出变量的类型
+	console.log(typeof makeABoy);
+
+	// 定义对象
+	var muyang = new Object();
+	console.log(typeof muyang);	// object
+
+	// 对象是有属性和方法
+	muyang.name = '王二狗';
+	muyang.sex = '妖';
+	muyang.intro = function(){
+		console.log('my name is wangergou!');
+	}
+
+	console.log(muyang);
+
+	/*
+		未定义 undefined 
+			1. 变量只声明，未赋值
+			2. 显式的给变量赋值为undefined
+	*/
+
+	// 声明变量
+	var a;
+	var b = undefined;
+
+	// undefined
+	console.log(a);
+	console.log(b);
+</script>
+</html>

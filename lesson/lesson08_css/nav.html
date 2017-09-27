@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>高仿米柚社区导航条</title>
+	<style>
+		/* 去除所有元素的内外边距 */
+		*{
+			margin:0;
+			padding:0;
+		}
+
+		html{
+			font-family:微软雅黑;
+		}
+
+		/* 取消li的列表样式 */
+		li{
+			list-style:none;
+		}
+
+		/* 取消a连接的下划线 */
+		a{
+			/* 文本装饰线 */
+			text-decoration:none;
+		}
+
+		#nav{
+			width:960px;
+			height:48px;
+			background:#F75733;
+
+			/* 设置元素水平居中 */
+			margin:0 auto;
+			margin-top:40px;
+			border-radius:5px;
+			font-size:14px;
+		}
+
+		#nav ul li{
+			float:left;
+			height:48px;
+			line-height:48px;
+		}
+		#nav ul{
+			margin-left:10px;
+		}
+		#nav ul li a{
+			color:#fff;
+			padding:0px 16px;
+
+			/* 默认变成和父级元素的大小 */
+			display:block;
+		}
+		#nav ul li:hover{
+			background:yellowgreen;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="nav">
+		<ul>
+			<li><a href="#">首页</a></li>
+			<li><a href="#">新帖</a></li>
+			<li><a href="#">板块</a></li>
+			<li><a href="#">MIUI专区</a></li>
+			<li><a href="#">资源分享</a></li>
+			<li><a href="#">谈天说地</a></li>
+			<li><a href="#">俱乐部</a></li>
+			<li><a href="#">极客秀</a></li>
+			<li><a href="#">MIUI下载</a></li>
+			<li><a href="#">橙色星期五</a></li>
+			<li><a href="#">论坛APP</a></li>
+		</ul>			
+	</div>
+</body>
+</html>

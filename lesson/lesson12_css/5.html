@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>遮罩效果</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		#memeda{
+			width:720px;
+			height:500px;
+			background:url(./zhangcheng.jpg);
+			margin:20px auto;
+			background-position:0px -100px;
+			background-repeat:no-repeat;
+
+			/*
+				设置背景图片剪切开始的位置
+					text  	从文字的边界开始剪切
+			*/
+			-webkit-background-clip:text;
+			-moz-background-clip:text;
+			background-clip:text;
+
+			/*
+				text-fill-color 	文字的填充色
+
+				text-stroke 	简写
+					text-stroke-color 	文字的描边颜色
+					text-stroke-width 	文字描边的宽度
+			*/
+			-webkit-text-fill-color:transparent;
+			-webkit-text-stroke:2px red;
+		}
+
+		#memeda p{
+			font-family:黑体;
+			font-size:100px;
+			text-align:center;
+			line-height:500px;
+			/*color:transparent;*/
+
+		}
+
+		#test{
+			width:500px;
+			height:600px;
+
+			/*
+				hsl
+			*/
+			/*background:hsla(4,100%,0%,0.1);*/
+
+			background:url(./zhangcheng.jpg);
+			opacity:0.3;
+			transition:opacity 2s linear;
+		}
+
+		#test:hover{
+			opacity:1;
+		}
+
+		/*#fff*/
+	</style>
+</head>
+<body>
+	<div id="memeda">
+		<p>这个位置是张诚</p>
+	</div>
+
+	<div id="test"></div>
+</body>
+</html>

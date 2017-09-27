@@ -1,0 +1,21 @@
+
+@font-face {font-family: "iconfont";
+  src: url('http://at.alicdn.com/t/font_36oet0ip3qalwhfr.eot?t=1500607478019'); /* IE9*/
+  src: url('http://at.alicdn.com/t/font_36oet0ip3qalwhfr.eot?t=1500607478019#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('http://at.alicdn.com/t/font_36oet0ip3qalwhfr.woff?t=1500607478019') format('woff'), /* chrome, firefox */
+  url('http://at.alicdn.com/t/font_36oet0ip3qalwhfr.ttf?t=1500607478019') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('http://at.alicdn.com/t/font_36oet0ip3qalwhfr.svg?t=1500607478019#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+/* 字体图标基类 */
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 针对某个图标的样式 */
+.icon-gouwuchekong:before { content: "\e600"; }
+

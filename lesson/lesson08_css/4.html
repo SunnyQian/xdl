@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>京东畅读卡</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		html{
+			font-family:微软雅黑;
+		}
+		#show{
+			width:1220px;
+			height:240px;
+
+			/* 先找元素 */
+			/*background:red;*/
+			margin:0 auto;
+			margin-top:40px;
+		}
+		.ka{
+			/*
+				1220 - 288*4 = 
+			*/ 
+			width:288px;
+			height:240px;
+			/*background:blue;*/
+			float:left;
+			/*margin-left:22.5px;*/
+			border-radius:10px;
+			overflow:hidden;
+			border:1px solid #ccc;
+		}
+
+		/*.ka:first-child{*/
+			/*margin-left:0;*/
+		/*}*/
+
+		/*
+			.ka+.ka
+				.ka 特点：他前面有哥哥的那个元素	
+		*/
+		.ka+.ka{
+			margin-left:20px;
+		}
+		.title{
+			height:120px;
+			width:100%;
+			background:#EE5566;
+
+			/*
+				overflow:hidden;
+					1. 超出部分隐藏
+					2. 使用容器重新进行计算
+			*/
+			overflow:hidden;
+			color:#fff;
+			text-align:center;
+			position:relative;
+		}
+		.dianzishu{
+			font-size:20px;
+			margin-top:20px;
+		}
+		.time{
+			font-size:40px;
+		}
+		.circle{
+			width:100%;
+			height:8px;
+			position:absolute;
+			bottom:0px;
+			background:blue;
+			background:url(./1.png) 0px -33px;
+		}
+	</style>
+</head>
+<body>
+	<div id="show">
+		<div class="ka">
+			<div class="title">
+				<p class="dianzishu">京东电子书畅读VIP</p>
+				<p class="time">年卡360天</p>
+				<div class="circle"></div>
+			</div>
+			<div class="des"></div>
+		</div>
+		<div class="ka"></div>
+		<div class="ka"></div>
+		<div class="ka"></div>
+	</div>
+</body>
+</html>

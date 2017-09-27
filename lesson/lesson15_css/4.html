@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>语义化标签</title>
+	<!-- 引入html5.js,使低版本的浏览器(尤其是IE)识别HTML5标签 -->
+	<script src="./html5.js"></script>
+
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		header,nav{
+			width:1200px;
+			height:80px;
+			background:#999;
+			border-radius:10px;
+			margin:0 auto;
+			color:#fff;
+			font-size:40px;
+			text-align:center;
+			line-height:80px;
+		}
+
+		nav{
+			margin-top:10px;
+		}
+
+		main{
+			width:1200px;
+			min-height:600px;
+			background:#999;
+			margin:0 auto;
+			margin-top:10px;
+			border-radius:10px;
+		}
+		footer{
+			width:1200px;
+			height:80px;
+			background:#999;
+			border-radius:10px;
+			margin:0 auto;
+			margin-top:10px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 定义头部 -->
+	<header>
+		<!-- 实体字符 -->
+		&lt;header&gt;
+	</header>
+
+	<!-- 导航部分 -->
+	<nav>
+		&lt;nav&gt;
+	</nav>
+
+	<!-- 
+		main 页面主体部分
+	-->
+	<main>
+		<!-- 区域、块 -->
+		<section>
+			<!-- 包含文章，内容,话题主要部分 -->
+		</section>
+
+		<!-- article 专门用来包含文章的容器 -->
+		<article>
+			诚哥家的孩子，爸爸，妈妈，老婆，老公，用力！			
+		</article>
+
+		<!-- 侧边栏 -->
+		<aside>侧边栏</aside>
+	</main>
+
+	<!-- 底部 -->
+	<footer>
+		<!-- 包含地址信息，网站说明信息，联系信息，版权信息 -->
+		<address>
+			<h3>兄弟连IT教育</h3>
+			<p>北京市昌平区回龙观育荣教育园兄弟连大楼</p>
+		</address>
+	</footer>
+
+	<!-- mark 表示高亮 -->
+	<mark>高亮</mark>
+</body>
+</html>

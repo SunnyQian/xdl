@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>关于字体</title>
+	<style>
+		/* 自定义声明一个字体 */
+		@font-face{
+			/* 起一个名称 */
+			font-family:么么哒; 
+
+			/* 引入你的字体文件 */
+			src: url(./STCAIYUN.TTF);
+		}
+
+		#joke{
+			width:300px;
+			height:300px;
+			border:1px solid #ccc;
+			font-size:20px;
+			font-weight:bold;
+			font-style:italic;
+
+			/* 
+				文本缩进 
+			*/
+			/*text-indent:32px;*/
+			text-indent:2em;
+			line-height:30px;
+
+			/* 
+				设置字体 
+					设置网页的字体，完全依赖于客户端电脑上的字体文件！
+
+					强制文字显示为某一个字体：
+						自定义字体 @font-face
+			*/
+			font-family:么么哒,华文彩云,微软雅黑;
+		}
+
+		#wenzi{
+			width:200px;
+			height:40px;
+			border:1px solid #ccc;
+					
+			/*
+				text-align 水平对齐方式
+					left 		左对齐
+					right 		右对齐
+					center 		居中对齐
+
+			*/
+			text-align:center;
+	
+			/*
+				实现文字的垂直居中：
+					1. 将line-height值和height的相等
+					2. display 属性
+						block  		块状元素
+						none 		隐藏显示，不占位隐藏
+						table-cell  以表格的单元格形式进行显示
+
+						vertical-align  描述文字垂直对齐方式
+							middle
+							top
+							bottom
+
+			*/
+			line-height:40px;
+			/*display:table-cell;*/
+
+			/* 只针对表格类型元素有效果 */
+			/*vertical-align:middle;*/
+		}
+
+		#zhende{
+			width:300px;
+			height:300px;
+			border:1px solid #ccc;
+
+			/* 想简写就按顺序写，否则别闹！ */
+			font:italic bold 20px/30px 么么哒,华文彩云,微软雅黑;
+		}
+
+		#yingwen{
+			width:300px;
+			height:40px;
+			border:5px dashed #ededed;
+
+			/* 
+				CSS样式控制元素的大小写
+			*/
+			text-transform:uppercase;		/* 全部大写 */
+			text-transform:lowercase;		/* 全部小写 */
+			text-transform:capitalize;		/* 单词首字母大写 */
+
+			/* 将小写字母变成小型的大写字母 */
+			font-variant:small-caps;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+		样式和内容要进行分离：
+			HTML 		只管页面的内容，决定人要长什么
+			CSS 		修饰页面的样式，化妆
+	-->
+	
+	<!-- 不推荐使用！ -->
+	<font color="red">字体标签</font>
+
+	<!-- 
+		font
+			font-style		是否斜体
+				italic			斜体
+				oblique			使文字倾斜
+
+			font-weight 	是否加粗
+				bold 			加粗
+				bolder			更粗
+				lighter			比正常的字体细
+
+			font-size 		字体大小
+				px				绝对大小
+				em 				相对大小(相对当前的容器内的文字)
+
+			line-height 	行高 文字一行所占的高度
+
+			font-family 	字体
+
+
+			简写
+				font:;
+
+			单独写：
+				挨个写就OK了
+
+			text-indent	文本缩进	
+	-->
+
+	<!-- 
+		b  		加粗
+		strong  语义上的强调
+	-->
+	<b>粗</b>
+	<strong>粗</strong>
+
+	<div id="joke">
+		有一天去诚哥家里，嫂子身上满身大汉有一天去诚哥家里，嫂子身上满身大汉有一天去诚哥家里，嫂子身上满身大汉有一天去诚哥家里，嫂子身上满身大汉有一天去诚哥家里，嫂子身上满身大汉有一天去诚哥家里，嫂子身上满身大汉
+	</div>
+
+	<div id="zhende">
+		有一天去诚哥家里，嫂子身上满身大汉有一天去诚哥家里，嫂子身上满身大汉有一天去诚哥家里，嫂子身上满身大汉有一天去诚哥家里，嫂子身上满身大汉有一天去诚哥家里，嫂子身上满身大汉有一天去诚哥家里，嫂子身上满身大汉
+	</div>
+
+	<div id="wenzi">
+		这是一个文字		
+	</div>
+
+	<table align="center" width="500" height="200" border="1">
+		<!-- 
+			tr  		行
+				th 			单元格 加粗、居中,做表格的表头
+				td 			单元格
+
+
+			align  	水平对齐方向
+				left
+				right
+				center
+			valign 	垂直对齐方式
+				top  			顶部
+				middle			垂直居中
+				bottom 			底部
+			
+		-->
+		<tr>
+			<th>编号</th>
+			<th>姓名</th>
+			<th>年龄</th>
+			<th>特点</th>
+		</tr>
+		<tr>
+			<td>1号</td>
+			<td align="center" valign="top">苍老师</td>
+			<td>36</td>
+			<td>挺漂亮</td>
+		</tr>
+		<tr align="center">
+			<td>2号</td>
+			<td>波多姐姐</td>
+			<td>42D</td>
+			<td>波多</td>
+		</tr>
+	</table>
+
+	<div id="yingwen">
+		ZHE SHI yige yingwen!一 壹
+
+		<!-- 在英文中使用空格，表示单词的分割 -->
+		sfkahsf kjsfdg kjsdkjfhkjasdf
+	</div>
+</body>
+</html>
