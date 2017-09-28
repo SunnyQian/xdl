@@ -16,3 +16,8 @@ http://www.html-js.com/
 http://www.qdfuns.com/
 
 http://www.erdangjiade.com/ （模板素材）
+
+git remote add ngqa https://github.com/howe/ngqa.git  获取远端数据 保持同步
+git pull ngqa master
+
+git pull origin master --allow-unrelated-histories
