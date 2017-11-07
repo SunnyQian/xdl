@@ -1,0 +1,36 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/petrol/petrol",
+    "pages/setup/setup"
+  ],
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "外汇",
+      "iconPath": "images/rate.png",
+      "selectedIconPath": "images/rate-selected.png"
+    },
+    {
+      "pagePath": "pages/petrol/petrol",
+      "text": "油价",
+      "iconPath": "images/petrol.png",
+      "selectedIconPath": "images/petrol-selected.png"
+    },
+    {
+      "pagePath": "pages/setup/setup",
+      "text": "设置",
+      "iconPath": "images/setup.png",
+      "selectedIconPath": "images/setup-selected.png"
+    }],
+  "selectedColor": "#1afa29"
+  },
+  "window": {
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTextStyle": "#fff",
+    "navigationBarTitleText": "简易外汇",
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": true
+  }
+}

@@ -1,0 +1,41 @@
+<!--pages/index/index.wxml-->
+<text class="updatetime">汇率更新于 {{ moneyDay }}</text>
+<view class="content">
+  <!-- 默认人民币 -->
+  <view class="moneylist">
+    <view class="country_img"><image src="/images/CNY.png"></image></view>
+    <view class="money_name">
+      <view>人民币</view>
+      <view>CNY</view>
+    </view>
+    <view class="money_num">
+      <input value="{{ inputValue }}" type="digit" bindblur="setMoneyNum" data-input="{{ inputValue }}" />
+    </view>
+  </view>
+
+  <!-- 美元 -->
+  <view class="more">
+    <view class="moneylist" wx:for="{{ addCountrys }}" wx:for-item="countryS">
+      <view class="country_img"><image src=""></image></view>
+      <view class="money_name">
+        <view>{{ countryS.CHname }}</view>
+        <view>{{ countryS.ENname }}</view>
+      </view>
+      <view class="money_num">
+        <input value="{{ money }}" type="digit" disabled='true' />
+      </view>
+    </view>
+  </view>
+
+  <!-- 添加按钮  -->
+  <button class="addCountry" type="primary" bindtap="getCountryPage">+</button>
+</view>
+
+<!-- 货币列表 -->
+<view id="countrys_list" wx:if="{{ isShow }}">
+  <view class="items_list" wx:for="{{ countrysList }}" wx:for-item="ENname" wx:for-index="CHname" bindtap="setMoney" data-Enname='{{ ENname }}' data-CHname="{{ CHname }}">
+    <image src=""></image>
+    <view>{{ ENname }}</view>
+     <view class="moneyname">{{ CHname }}</view> 
+  </view>
+</view>

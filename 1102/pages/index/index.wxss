@@ -1,0 +1,71 @@
+/* pages/index/index.wxss */
+.updatetime { 
+  height: 30px;
+  line-height: 30px;
+  padding-left: 10px; 
+  color: #FFC323;
+}
+.moneylist {
+  height: 46px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  padding:0 10px;
+  margin-bottom: 10px;
+}
+.country_img {
+  width: 32px;
+  height: 32px;
+}
+.country_img image {
+  width: 100%;
+  height: 100%;
+ }
+ .money_name {
+   padding-left: 10px;
+ }
+ .money_num {
+   flex-grow: 1;
+ }
+ .money_num input {
+   text-align: right;
+ }
+
+ /* 按钮样式 */
+ .addCountry {
+   margin-top: 18px;
+   width: 90%;
+ }
+
+ /* 货币列表样式 */
+ #countrys_list {
+   height: 100%;
+   width: 100%;
+   background: #F3F3F3;
+   position: absolute;
+   top: 10px;
+   left: 0;
+   z-index: 999;
+ }
+.items_list {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+.items_list image {
+  width: 32px;
+  height: 32px;
+  margin-right: 16px;
+  background: #ccc;
+}
+.items_list .moneyname {
+  flex-grow: 1;
+  text-align: right;
+}
+/* .more image {
+  background: #ccc;
+} */
