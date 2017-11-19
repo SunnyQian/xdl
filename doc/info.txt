@@ -1,23 +1,37 @@
-http://www.jianshu.com/p/42e11515c10f    webpack ʹ�ý���
+http://www.jianshu.com/p/42e11515c10f    webpack 使用介绍
 
-ǰ��������
+前端社区：
 https://www.w3ctech.com/
 https://www.w3cvip.org/
 http://www.w3cplus.com/
 
-http://www.imweb.io/ ����Ѷ��
+http://www.imweb.io/ （腾讯）
 http://alloyteam.com/
 http://div.io
 
-http://taobaofed.org/ ���Ա���
+http://taobaofed.org/ （淘宝）
 
-http://www.f2e.im/   ����Դ��Ŀ�ࣩ
+http://www.f2e.im/   （开源项目多）
 http://www.html-js.com/
 http://www.qdfuns.com/
 
-http://www.erdangjiade.com/ ��ģ���زģ�
+http://www.erdangjiade.com/ （模板素材）
 
-git remote add ngqa https://github.com/howe/ngqa.git  ��ȡԶ������ ����ͬ��
+git remote add ngqa https://github.com/howe/ngqa.git  获取远端数据 保持同步
 git pull ngqa master
 
 git pull origin master --allow-unrelated-histories
+
+jsonp原理：
+	它实际上是执行远程的js代码，服务端给我们返回的不是json格式的数据，而是返回的一段执行某个函数的js代码，
+	具体实现方式是：1、动态的创建script标签，通过src属性引入接口地址
+					2、定义一个函数名
+					3、将函数名做为callback参数传入
+
+
+	箭头函数：1、没有自己的this，内部的this都来自于外部代码块的this
+			  2、不能作为构造函数，不能使用new关键字，也没有propertype属性
+			  3、没有arguments对象，函数体内不存在，如果要用，可以使用rest参数代替
+    计算属性：
+    	1、通过在computed中定义计算属性的方法，
+    	2、使用时，可以作为一个计算属性名，也可以是方法执行，不同之处在于，计算属性依赖于缓存，而方法是每当触发渲染时它就会去执行一次。
